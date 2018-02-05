@@ -1,0 +1,36 @@
+{
+  "name": "courtauldinstitute",
+  "version": "1.0.0",
+  "description": "Volunteer platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-12/CourtauldInstitute.git"
+  },
+  "author": "Shannon, Jem and Fatimat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-12/CourtauldInstitute/issues"
+  },
+  "homepage": "https://github.com/fac-12/CourtauldInstitute#readme",
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
+    "prettier-eslint": "^8.8.1"
+  },
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
+    "nodemon": "^1.14.12"
+  }
+}
