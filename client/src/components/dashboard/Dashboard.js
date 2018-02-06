@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import WelcomeHeaderContainer from "./WelcomeHeaderContainer";
 import ProgressUpdateContainer from "./ProgressUpdateContainer";
-import NavMenu from "./NavMenu";
+import NavMenuContainer from "./NavMenuContainer";
 
 class DashboardContainer extends Component {
   render() {
@@ -11,7 +11,7 @@ class DashboardContainer extends Component {
           <WelcomeHeaderContainer />
           <ProgressUpdateContainer />
         </section>
-        <NavMenu />
+        <NavMenuContainer />
       </div>
     );
   }
