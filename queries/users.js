@@ -17,7 +17,7 @@ const addUser = data =>
 const deleteUser = email =>
   db.query(`DELETE FROM users WHERE email = $1`, [email]);
 
-const allUser = () =>
+const allUsers = () =>
   db.query(`SELECT id,first_name, last_name, picture_url FROM users`);
 
 const oneUser = id => db.query(`SELECT * FROM users WHERE id = $1`, [id]);
@@ -39,7 +39,7 @@ module.exports = {
   checkUser,
   addUser,
   deleteUser,
-  allUser,
+  allUsers,
   oneUser,
   updateUser
 };
