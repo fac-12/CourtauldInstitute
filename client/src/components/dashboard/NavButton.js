@@ -1,20 +1,21 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class NavButton extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick(e) {
-    console.log(this.props.route);
-  }
   render() {
-    console.log("navbtn");
+    if (this.props.route !== "/bookShift") {
+      return (
+        <Link to={this.props.route}>
+          <h3>{this.props.title}</h3>
+          <p>{this.props.subtitle}</p>
+        </Link>
+      );
+    }
     return (
-      <button onClick={this.handleClick}>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.subtitle}</p>
-      </button>
+      <a href="https://www.google.com">
+        <h3>{this.props.title}</h3>
+        <p>{this.props.subtitle}</p>Book shift
+      </a>
     );
   }
 }

@@ -38,9 +38,9 @@ class NavMenuContainer extends Component {
             title={item.title}
             subtitle={item.subtitle}
             route={item.route}
+            key={item.route}
           />
         ))}
-        <NavButton />
       </div>
     );
   }
