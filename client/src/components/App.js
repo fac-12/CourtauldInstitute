@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import DashboardContainer from "./dashboard/DashboardContainer";
+import Dashboard from "./dashboard/Dashboard";
 
 class App extends Component {
   render() {
-    return <DashboardContainer />;
+    return <Dashboard />;
   }
 }
 

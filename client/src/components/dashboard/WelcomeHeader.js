@@ -4,7 +4,7 @@ class WelcomeHeader extends Component {
   render() {
     return (
       <div>
-        <p>This will be the welcome header</p>
+        <h1>Welcome {this.props.name}</h1>
       </div>
     );
   }
