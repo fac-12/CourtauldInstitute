@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import WelcomeHeaderContainer from "./WelcomeHeaderContainer";
-import ProgressUpdate from "./ProgressUpdate";
+import ProgressUpdateContainer from "./ProgressUpdateContainer";
 import NavMenu from "./NavMenu";
 
 class DashboardContainer extends Component {
@@ -9,7 +9,7 @@ class DashboardContainer extends Component {
       <div>
         <section className="dashboard__top">
           <WelcomeHeaderContainer />
-          <ProgressUpdate />
+          <ProgressUpdateContainer />
         </section>
         <NavMenu />
       </div>
