@@ -5,7 +5,7 @@ const getUpdates = (count, skip) =>
     .query(
       `SELECT updates.id, updates.user_id, updates.datetime, updates.image_url, updates.title, updates.content, string_agg(tags.tag, ',') AS tags FROM updates, updates_tags, tags WHERE updates.id = updates_tags.update_id AND updates_tags.tag_id = tags.id GROUP BY updates.id`
     )
-    .then(res => res.slice(skip, count))
+    .then(res => res.slice(skip, count + skip))
     .catch(err => console.log(err));
 
 const addUpdate = data =>

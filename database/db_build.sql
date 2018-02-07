@@ -57,7 +57,6 @@ BEGIN;
     ('project'),
     ('opportunities'),
     ('events/exhibitions'),
-    ('discoveries'),
     ('questions')
   ;
   INSERT INTO updates_tags
