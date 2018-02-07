@@ -1,5 +1,5 @@
 BEGIN;
-  DROP TABLE IF EXISTS users, feeds, tags, feeds_tags;
+  DROP TABLE IF EXISTS users, feeds, updates, tags, feeds_tags, updates_tags;
   CREATE TABLE users
   (
     id serial PRIMARY KEY,
@@ -12,7 +12,16 @@ BEGIN;
     about_me TEXT,
     picture_url VARCHAR(50)
   );
-  CREATE TABLE feeds
+  CREATE TABLE updates
+  (
+    id serial PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    datetime BIGINT NOT NULL,
+    image_url VARCHAR(50),
+    title VARCHAR(200),
+    content TEXT
+  );
+  CREATE TABLE discoveries
   (
     id serial PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
@@ -26,9 +35,9 @@ BEGIN;
     id serial PRIMARY KEY,
     tag VARCHAR(50)
   );
-  CREATE TABLE feeds_tags
+  CREATE TABLE updates_tags
   (
-    feed_id INTEGER REFERENCES feeds(id),
+    update_id INTEGER REFERENCES updates(id),
     tag_id INTEGER REFERENCES tags(id)
   );
   INSERT INTO users
@@ -37,7 +46,7 @@ BEGIN;
     ('Shannon', 'Wedgwood', 'shannonjensen@gmail.com', 'volunteer' ),
     ('Jem', 'Abulhawa', 'jemila.abulhawa@gmail.com', 'staff'),
     ('Fatimat', 'Gbaja', 'gbajaf@yahoo.co.uk', 'volunteer');
-  INSERT INTO feeds
+  INSERT INTO updates
     (user_id, datetime, title, content)
   VALUES
     (2, 1517864152865, 'Postal Museum next Thurs 16th 10am', 'Just a reminder that we have a group trip to visit the new digitisation studio at the Postal Museum next week. Faye will meet you out the front just before 10am. If you''re late please go to reception and they will contact someone to take you up.'),
@@ -51,8 +60,8 @@ BEGIN;
     ('discoveries'),
     ('questions')
   ;
-  INSERT INTO feeds_tags
-    (feed_id, tag_id)
+  INSERT INTO updates_tags
+    (update_id, tag_id)
   VALUES
     (1, 1),
     (1, 2),

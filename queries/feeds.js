@@ -1,28 +1,32 @@
 const db = require("../database/db_connection");
 
-const getFeeds = (filter, count) =>
+const getUpdates = (count, skip) =>
   db
     .query(
-      `SELECT feeds.id, feeds.user_id, feeds.datetime, feeds.image_url, feeds.title, feeds.content FROM feeds, feeds_tags WHERE feeds.id = feeds_tags.feed_id AND feeds_tags.tag_id = (SELECT id FROM tags WHERE tag = $1)`,
-      [filter]
+      `SELECT updates.id, updates.user_id, updates.datetime, updates.image_url, updates.title, updates.content, string_agg(tags.tag, ',') AS tags FROM updates, updates_tags, tags WHERE updates.id = updates_tags.update_id AND updates_tags.tag_id = tags.id GROUP BY updates.id`
     )
-    .then(res => res.slice(0, count))
+    .then(res => res.slice(skip, count))
     .catch(err => console.log(err));
 
-const addFeed = data =>
+const addUpdate = data =>
   db
     .query(
-      `INSERT INTO feeds (user_id, datetime, image_url, title, content) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+      `INSERT INTO updates (user_id, datetime, image_url, title, content) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
       [data.user_id, data.datetime, data.image_url, data.title, data.content]
     )
     .then(res =>
-      db.query(
-        `INSERT INTO feeds_tags (feed_id, tag_id) VALUES (${
-          res[0].id
-        }, (SELECT id FROM tags WHERE tag = $1)) RETURNING feed_id`,
-        [data.tag]
+      Promise.all(
+        data.tags.map(tag =>
+          db.query(
+            `INSERT INTO updates_tags (update_id, tag_id) VALUES (${
+              res[0].id
+            }, (SELECT id FROM tags WHERE tag = $1)) RETURNING update_id`,
+            [tag]
+          )
+        )
       )
     )
+    .then(res => res[0][0])
     .catch(err => console.log(err));
 
-module.exports = { getFeeds, addFeed };
+module.exports = { getUpdates, addUpdate };
