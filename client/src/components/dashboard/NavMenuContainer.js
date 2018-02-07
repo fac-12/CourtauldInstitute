@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import NavButton from "./NavButton";
+import styled from "styled-components";
+
+const NavMenu = styled.div`
+  background: red;
+  display: flex;
+  flex-basis: 45%;
+`;
 
 const menuItems = [
   {
@@ -32,7 +39,7 @@ const menuItems = [
 class NavMenuContainer extends Component {
   render() {
     return (
-      <div>
+      <NavMenu>
         {menuItems.map(item => (
           <NavButton
             title={item.title}
@@ -41,7 +48,7 @@ class NavMenuContainer extends Component {
             key={item.route}
           />
         ))}
-      </div>
+      </NavMenu>
     );
   }
 }
