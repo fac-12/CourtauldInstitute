@@ -1,11 +1,10 @@
-const { getFeeds } = require("../queries/feeds");
+const { getUpdates } = require("../queries/feeds");
 
 module.exports = app => {
-  app.get("/api/feeds", async (req, res) => {
+  app.get("/api/updates", async (req, res) => {
     try {
-      const feedsData = await getFeeds(req.query.filter, req.query.count);
-      console.log("Feeds data ", feedsData);
-      res.send(feedsData);
+      const updatesData = await getUpdates(req.query.count, req.query.skip);
+      res.send(updatesData);
     } catch (err) {
       throw err;
     }

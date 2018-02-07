@@ -1,12 +1,12 @@
-const { addFeed } = require("../queries/feeds");
+const { addUpdate } = require("../queries/feeds");
 
 module.exports = app => {
-  app.post("/api/addFeed", async (req, res) => {
+  app.post("/api/addUpdate", async (req, res) => {
     try {
-      const feedAdded = await addFeed(req.body);
-      res.send(feedAdded);
+      const updateAdded = await addUpdate(req.body);
+      res.send(updateAdded);
     } catch (err) {
-      console.log("Add feed error ", err);
+      console.log("Add update error ", err);
     }
   });
 };
