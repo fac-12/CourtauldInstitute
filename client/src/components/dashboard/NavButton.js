@@ -27,15 +27,15 @@ class NavButton extends Component {
     if (this.props.route !== "/bookShift") {
       return (
         <Link to={this.props.route}>
-          <h3>{this.props.title}</h3>
-          <p>{this.props.subtitle}</p>
+          <Title>{this.props.title}</Title>
+          <Subtitle>{this.props.subtitle}</Subtitle>
         </Link>
       );
     }
     return (
       <a href="https://www.google.com">
-        <h3>{this.props.title}</h3>
-        <p>{this.props.subtitle}</p>Book shift
+        <Title>{this.props.title}</Title>
+        <Subtitle>{this.props.subtitle}</Subtitle>Book shift
       </a>
     );
   }
