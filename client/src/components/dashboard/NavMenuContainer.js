@@ -12,27 +12,27 @@ const menuItems = [
   {
     title: "Updates",
     subtitle: "Events, exhibitions,updates and more",
-    route: "updates"
+    route: "/updates"
   },
   {
     title: "Recent Discoveries",
     subtitle: "Check out recent finds and post your own",
-    route: "discoveries"
+    route: "/discoveries"
   },
   {
     title: "Volunteer Directory",
     subtitle: "Learn more about your fellow volunteers",
-    route: "directory"
+    route: "/directory"
   },
   {
     title: "View my profile",
     subtitle: "View and edit your volunteer profile",
-    route: "myProfile"
+    route: "/myProfile"
   },
   {
     title: "Book shift",
     subtitle: "Book your next shift on Timecounts",
-    route: "bookShift"
+    route: "/bookShift"
   }
 ];
 
@@ -45,6 +45,7 @@ class NavMenuContainer extends Component {
             title={item.title}
             subtitle={item.subtitle}
             route={item.route}
+            key={item.route}
           />
         ))}
       </NavMenu>

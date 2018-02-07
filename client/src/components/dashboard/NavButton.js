@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Button = styled.button`
+const Link = styled.a`
   border: 1px solid #ecf0f1;
   width: 170px;
   height: 110px;
@@ -22,19 +23,20 @@ const Subtitle = styled.h2`
 `;
 
 class NavButton extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick(e) {
-    console.log(this.props.route);
-  }
   render() {
+    if (this.props.route !== "/bookShift") {
+      return (
+        <Link to={this.props.route}>
+          <h3>{this.props.title}</h3>
+          <p>{this.props.subtitle}</p>
+        </Link>
+      );
+    }
     return (
-      <Button onClick={this.handleClick}>
-        <Title>{this.props.title}</Title>
-        <Subtitle>{this.props.subtitle}</Subtitle>
-      </Button>
+      <a href="https://www.google.com">
+        <h3>{this.props.title}</h3>
+        <p>{this.props.subtitle}</p>Book shift
+      </a>
     );
   }
 }
