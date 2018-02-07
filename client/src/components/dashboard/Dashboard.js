@@ -5,7 +5,7 @@ import NavMenuContainer from "./NavMenuContainer";
 
 import styled from "styled-components";
 
-const Dashboard = styled.div`
+const StyledDashboard = styled.div`
   margin-left: 15px;
   margin-right: 15px;
 `;
@@ -13,13 +13,13 @@ const Dashboard = styled.div`
 class DashboardContainer extends Component {
   render() {
     return (
-      <Dashboard>
+      <StyledDashboard>
         <section className="dashboard__top">
           <WelcomeHeaderContainer />
           <ProgressUpdateContainer />
         </section>
         <NavMenuContainer />
-      </Dashboard>
+      </StyledDashboard>
     );
   }
 }
