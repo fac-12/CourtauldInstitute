@@ -23,7 +23,7 @@ export const fetchDirectory = () => async dispatch => {
 
 export const fetchProfile = profileId => async dispatch => {
   try {
-    const profile = await axios.get(`/api/directory?id=${profileId}`);
+    const profile = await axios.get(`/api/profile?id=${profileId}`);
     dispatch({ type: FETCH_PROFILE, payload: profile.data });
   } catch (err) {
     console.log("fetchProfile: ", err);

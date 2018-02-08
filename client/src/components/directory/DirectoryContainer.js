@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 
 class DirectoryContainer extends Component {
   render() {
@@ -8,10 +9,9 @@ class DirectoryContainer extends Component {
       <div>
         <p>Data goes here </p>
         {data.map(item => (
-          <p key={item.id}>
-            {" "}
+          <Link key={item.id} to={`/profile/${item.id}`}>
             {item.first_name} {item.last_name} {item.picture_url}{" "}
-          </p>
+          </Link>
         ))}
       </div>
     );

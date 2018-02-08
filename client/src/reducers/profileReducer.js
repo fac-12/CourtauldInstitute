@@ -5,7 +5,7 @@ export default function(state = {}, action) {
   switch (action.type) {
   case FETCH_PROFILE:
     if (action.payload) {
-      return _.mapKeys(action.payload, "id");
+      return action.payload;
     }
     return state;
   default:
