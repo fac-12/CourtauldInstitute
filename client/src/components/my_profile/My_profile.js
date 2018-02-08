@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import Header from "../Header";
 
 class MyProfileContainer extends Component {
   render() {
     return (
       <div>
-        <h2>My profile</h2>
+        <Header title="My Profile" />
       </div>
     );
   }

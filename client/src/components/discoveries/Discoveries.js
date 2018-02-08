@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import Header from "../Header";
 
 class DiscoveriesContainer extends Component {
   render() {
     return (
       <div>
-        <h2>Discoveries</h2>
+        <Header title="Discoveries" />
       </div>
     );
   }
