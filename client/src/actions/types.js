@@ -1,1 +1,2 @@
 export const FETCH_UPDATES = "FETCH_UPDATES";
+export const FETCH_DIRECTORY = "FETCH_DIRECTORY";

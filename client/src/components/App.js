@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import Discoveries from "./discoveries/Discoveries";
-import Directory from "./volunteer_directory/Directory";
+import Directory from "./directory/Directory";
 import myProfile from "./my_profile/My_profile";
 import Updates from "./updates/Updates";
 
