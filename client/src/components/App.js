@@ -4,7 +4,7 @@ import Dashboard from "./dashboard/Dashboard";
 import Discoveries from "./discoveries/Discoveries";
 import Directory from "./directory/Directory";
 import myProfile from "./my_profile/My_profile";
-import Updates from "./updates/Updates";
+import UpdatesContainer from "./updates/UpdatesContainer";
 import ProfileContainer from "./profile/ProfileContainer";
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
             <Route exact path="/discoveries" component={Discoveries} />
             <Route exact path="/directory" component={Directory} />
             <Route exact path="/myProfile" component={myProfile} />
-            <Route exact path="/updates" component={Updates} />
+            <Route exact path="/updates" component={UpdatesContainer} />
             <Route exact path="/profile/:id" component={ProfileContainer} />
           </div>
         </BrowserRouter>
