@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <div>
+          <div id="app_container">
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/discoveries" component={Discoveries} />
             <Route exact path="/directory" component={Directory} />
