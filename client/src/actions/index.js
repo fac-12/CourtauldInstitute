@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { FETCH_UPDATES, FETCH_DIRECTORY } from "./types";
+import { FETCH_UPDATES, FETCH_DIRECTORY, FETCH_PROFILE } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
   try {
@@ -18,5 +18,14 @@ export const fetchDirectory = () => async dispatch => {
     dispatch({ type: FETCH_DIRECTORY, payload: directory.data });
   } catch (err) {
     console.log("fetchDirectory: ", err);
+  }
+};
+
+export const fetchProfile = profileId => async dispatch => {
+  try {
+    const profile = await axios.get(`/api/profile?id=${profileId}`);
+    dispatch({ type: FETCH_PROFILE, payload: profile.data });
+  } catch (err) {
+    console.log("fetchProfile: ", err);
   }
 };

@@ -20,7 +20,11 @@ const deleteUser = email =>
 const allUsers = () =>
   db.query(`SELECT id,first_name, last_name, picture_url FROM users`);
 
-const oneUser = id => db.query(`SELECT * FROM users WHERE id = $1`, [id]);
+const oneUser = id =>
+  db
+    .query(`SELECT * FROM users WHERE id = $1`, [id])
+    .then(res => res[0])
+    .catch(err => console.log("one user query err: ", err));
 
 const updateUser = data =>
   db.query(

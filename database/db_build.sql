@@ -1,5 +1,5 @@
 BEGIN;
-  DROP TABLE IF EXISTS users, feeds, updates, tags, feeds_tags, updates_tags;
+  DROP TABLE IF EXISTS updates_tags, updates, discoveries, tags, users;
   CREATE TABLE users
   (
     id serial PRIMARY KEY,
@@ -41,11 +41,11 @@ BEGIN;
     tag_id INTEGER REFERENCES tags(id)
   );
   INSERT INTO users
-    (first_name, last_name, email, type)
+    (first_name, last_name, email, type, why_volunteer, about_me, picture_url)
   VALUES
-    ('Shannon', 'Wedgwood', 'shannonjensen@gmail.com', 'volunteer' ),
-    ('Jem', 'Abulhawa', 'jemila.abulhawa@gmail.com', 'staff'),
-    ('Fatimat', 'Gbaja', 'gbajaf@yahoo.co.uk', 'volunteer');
+    ('Shannon', 'Wedgwood', 'shannonjensen@gmail.com', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'www.google.com'),
+    ('Jem', 'Abulhawa', 'jemila.abulhawa@gmail.com', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'www.google.com'),
+    ('Fatimat', 'Gbaja', 'gbajaf@yahoo.co.uk', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'www.google.com');
   INSERT INTO updates
     (user_id, datetime, title, content)
   VALUES
