@@ -57,7 +57,7 @@ class NavButton extends Component {
       );
     }
     return (
-      <StyledA href="https://www.google.com">
+      <StyledA href="https://timecounts.org/courtauldvolunteers/me/assignments/963?view=available">
         <StyledTitle>{this.props.title}</StyledTitle>
         <StyledSubtitle>{this.props.subtitle}</StyledSubtitle>
       </StyledA>
