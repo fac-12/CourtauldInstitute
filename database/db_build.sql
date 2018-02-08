@@ -43,9 +43,9 @@ BEGIN;
   INSERT INTO users
     (first_name, last_name, email, type, why_volunteer, about_me, picture_url)
   VALUES
-    ('Shannon', 'Wedgwood', 'shannonjensen@gmail.com', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'www.google.com'),
-    ('Jem', 'Abulhawa', 'jemila.abulhawa@gmail.com', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'www.google.com'),
-    ('Fatimat', 'Gbaja', 'gbajaf@yahoo.co.uk', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'www.google.com');
+    ('Shannon', 'Wedgwood', 'shannonjensen@gmail.com', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
+    ('Jem', 'Abulhawa', 'jemila.abulhawa@gmail.com', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
+    ('Fatimat', 'Gbaja', 'gbajaf@yahoo.co.uk', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg');
   INSERT INTO updates
     (user_id, datetime, title, content)
   VALUES
