@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
+    "buildDB": "node server/database/db_build.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "postinstall": "cd client && npm install"
