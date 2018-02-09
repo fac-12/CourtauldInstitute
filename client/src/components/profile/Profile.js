@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../Header";
 import styled from "styled-components";
 
 const ProfileDiv = styled.div`
@@ -23,10 +22,9 @@ const StyledImage = styled.img`
 
 class Profile extends Component {
   render() {
-    console.log(this.props.data);
+    console.log(this.props);
     return (
       <ProfileDiv>
-        <Header title="Profile" />
         <NameAndImageDiv>
           <StyledImage src={this.props.data.picture_url} />
           <Name>

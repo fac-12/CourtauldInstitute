@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 
-const StyledLink = styled(Link)`
+const StyledBtn = styled.button`
   grid-area: left;
   justify-self: end;
   align-self: center;
+  border: 0;
+  background: #ffffff;
 `;
 
 const StyledSvg = styled.svg`
@@ -18,7 +20,7 @@ const StyledSvg = styled.svg`
 class ReturnHomeBtn extends Component {
   render() {
     return (
-      <StyledLink to="/">
+      <StyledBtn onClick={this.props.history.goBack}>
         <StyledSvg
           viewBox="0 0 9 16"
           version="1.1"
@@ -31,9 +33,9 @@ class ReturnHomeBtn extends Component {
             fillRule="nonzero"
           />
         </StyledSvg>
-      </StyledLink>
+      </StyledBtn>
     );
   }
 }
 
-export default ReturnHomeBtn;
+export default withRouter(ReturnHomeBtn);
