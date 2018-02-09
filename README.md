@@ -5,6 +5,8 @@ For the past year, the Courtauld Institute has relied on volunteers to catalogue
 We are building an app to enhance the volunteer experience at the Courtauld Institute of Art.
 The prototype can be seen here: https://invis.io/M6FOAXI45BJ
 
+The app is deployed to heroku at https://courtauld.herokuapp.com/ (currently css is only for mobile view, this will be improved)
+
 ## User stories
 
 * Volunteers and staffs can see and share up to date information on the digitization project’s progress and upcoming events, etc.
@@ -16,9 +18,9 @@ The prototype can be seen here: https://invis.io/M6FOAXI45BJ
 1. Clone this Repo.
 2. `cd` into the CourtauldInstitute folder
 3. Run `> npm install` to install all dependencies
-4. Create a local database
-5. Create a config.env file in the repo folder with your database url in this format:`DATABASE_URL = postgres://[yourusername]:[yourpassword]@localhost:5432/[yourdbname]`
-6. Run `> npm run buildDB` to build the test database
+4. You can use the heroku database or set up your own.
+5. Create a config.env file in the repo folder with your database url in this format:`DATABASE_URL = postgres://[yourusername]:[yourpassword]@localhost:5432/[yourdbname]` or with the heroku url we send in private message
+6. Run `> npm run buildDB` to build the test database if using a local database.
 7. Run `> npm run dev` Two servers should start up and our browser will automatically load the application.
 
 ## Tech Stack
