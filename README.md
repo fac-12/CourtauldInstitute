@@ -15,26 +15,10 @@ The prototype can be seen here: https://invis.io/M6FOAXI45BJ
 
 1. Clone this Repo.
 2. `cd` into the CourtauldInstitute folder
-3. npm install dependencies in repo folder, server folder and client folder
-
-```
-> npm install
-> cd server
-> npm install
-> cd ..
-> cd client
-> npm install
-> cd ..
-```
-
+3. Run `> npm install` to install all dependencies
 4. Create a local database
 5. Create a config.env file in the repo folder with your database url in this format:`DATABASE_URL = postgres://[yourusername]:[yourpassword]@localhost:5432/[yourdbname]`
-6. Build the test database:
-```
-> cd server
-> node database/db_build.js
-> cd ..
-```
+6. Run `> npm run buildDB` to build the test database
 7. Run `> npm run dev` Two servers should start up and our browser will automatically load the application.
 
 ## Tech Stack
