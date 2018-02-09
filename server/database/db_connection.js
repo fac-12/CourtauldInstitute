@@ -1,5 +1,5 @@
 const pgp = require("pg-promise")();
-require("env2")("./config.env");
+require("env2")("../config.env");
 const url = require("url");
 
 if (!process.env.DATABASE_URL) {
