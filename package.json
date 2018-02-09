@@ -4,10 +4,11 @@
   "description": "Volunteer platform",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start --prefix server",
-    "server": "npm run server --prefix server",
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "postinstall": "cd client && npm install"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,22 @@
   },
   "homepage": "https://github.com/fac-12/CourtauldInstitute#readme",
   "devDependencies": {
-    "concurrently": "^3.5.1"
+    "concurrently": "^3.5.1",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
+    "nodemon": "^1.14.12",
+    "prettier-eslint": "^8.8.1"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "env2": "^2.2.0",
+    "express": "^4.16.2",
+    "path": "^0.12.7",
+    "pg-promise": "^7.4.1"
   }
 }
