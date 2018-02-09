@@ -1,25 +1,50 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
-import DirectoryContainer from "./DirectoryContainer";
-import Header from "../Header";
+import _ from "lodash";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-class Directory extends Component {
-  componentDidMount() {
-    this.props.fetchDirectory();
-  }
+const StyledDirectory = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr auto;
+`;
+
+const StyledLink = styled(Link)`
+  border: 1px solid #c9cccc;
+  width: 90%;
+  background: none;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 20px;
+  justify-self: center;
+`;
+
+const StyledImage = styled.img`
+  width: 100%;
+  border-radius: inherit;
+`;
+
+const StyledParagraph = styled.p`
+  text-align: center;
+`;
+
+class DirectoryContainer extends Component {
   render() {
+    const data = _.values(this.props.data);
     return (
-      <div>
-        <Header title="Directory" />
-        <DirectoryContainer data={this.props.directory} />
-      </div>
+      <StyledDirectory id="directory component">
+        {data.map(item => (
+          <StyledLink key={item.id} to={`/profile/${item.id}`}>
+            <StyledImage src={item.picture_url} />
+            <StyledParagraph>
+              {item.first_name} {item.last_name}{" "}
+            </StyledParagraph>
+          </StyledLink>
+        ))}
+      </StyledDirectory>
     );
   }
 }
 
-const mapStateToProps = ({ directory }) => ({
-  directory
-});
-
-export default connect(mapStateToProps, actions)(Directory);
+export default DirectoryContainer;

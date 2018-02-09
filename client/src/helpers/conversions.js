@@ -1,7 +1,4 @@
-const zeroPadTime = input =>
-  input.toString().length < 2 ? `0${input}` : input;
-
-export const pInt = input => parseInt(input, 10);
+const pInt = input => parseInt(input, 10);
 
 export const parseDateTime = datetime => {
   const dateObj = new Date(pInt(datetime));

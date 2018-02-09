@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { parseDateTime } from "../../helpers/conversions";
+import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
   margin: 10px 20px 20px 20px;
@@ -36,7 +37,15 @@ const StyledInfo = styled.p`
 
 class UpdateItem extends Component {
   render() {
-    const { title, content, user_id, tags, datetime } = this.props.data;
+    const {
+      title,
+      content,
+      user_id,
+      tags,
+      datetime,
+      first_name,
+      last_name
+    } = this.props.data;
     const { date, time } = parseDateTime(datetime);
     return (
       <StyledDiv>
@@ -44,7 +53,11 @@ class UpdateItem extends Component {
         <StyledContent>{content}</StyledContent>
         <StyledInfoDiv>
           <StyledInfo>
-            Posted by {user_id} in {tags.split(",").join(", ")}
+            Posted by{" "}
+            <Link to={`/profile/${user_id}`}>
+              {first_name} {last_name}
+            </Link>{" "}
+            in {tags.split(",").join(", ")}
           </StyledInfo>
           <StyledInfo>
             on {date} at {time}
