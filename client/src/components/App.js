@@ -7,23 +7,23 @@ import MyProfileContainer from "./my_profile/MyProfileContainer";
 import UpdatesContainer from "./updates/UpdatesContainer";
 import ProfileContainer from "./profile/ProfileContainer";
 import LoginContainer from "./login/LoginContainer";
+import AddUpdateContainer from "./updates/AddUpdateContainer";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <div id="app_container">
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/login" component={LoginContainer} />
-            <Route exact path="/discoveries" component={DiscoveriesContainer} />
-            <Route exact path="/directory" component={DirectoryContainer} />
-            <Route exact path="/myProfile" component={MyProfileContainer} />
-            <Route exact path="/updates" component={UpdatesContainer} />
-            <Route exact path="/profile/:id" component={ProfileContainer} />
-          </div>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <div id="app_container">
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/discoveries" component={DiscoveriesContainer} />
+          <Route exact path="/directory" component={DirectoryContainer} />
+          <Route exact path="/myProfile" component={MyProfileContainer} />
+          <Route exact path="/updates" component={UpdatesContainer} />
+          <Route exact path="/profile/:id" component={ProfileContainer} />
+          <Route exact path="/updates/new" component={AddUpdateContainer} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
