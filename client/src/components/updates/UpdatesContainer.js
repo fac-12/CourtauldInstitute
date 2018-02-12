@@ -11,7 +11,7 @@ import Loader from "../Loader";
 class UpdatesContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { filter: "all", loading: false };
+    this.state = { filter: "all" };
     this.changeFilter = this.changeFilter.bind(this);
   }
   changeFilter(e) {
