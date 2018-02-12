@@ -5,7 +5,8 @@ import {
   FETCH_DIRECTORY,
   FETCH_PROFILE,
   ADD_UPDATE,
-  LOADING_UPDATE
+  LOADING_UPDATE,
+  FETCH_DISCOVERIES
 } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
@@ -63,5 +64,14 @@ export const addUpdate = (data, callback) => async dispatch => {
     }
   } catch (e) {
     console.log(e);
+  }
+};
+
+export const fetchDiscoveries = () => async dispatch => {
+  try {
+    const discoveries = await axios.get(`/api/discoveries`);
+    dispatch({ type: FETCH_DISCOVERIES, payload: discoveries.data });
+  } catch (err) {
+    console.log("FETCH_DISCOVERIES: ", err);
   }
 };
