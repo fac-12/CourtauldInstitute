@@ -48,8 +48,18 @@ const StyledSubtitle = styled.h2`
 
 class NavButton extends Component {
   render() {
-    console.log(this.props);
-    if (this.props.route !== "/bookShift") {
+    console.log(
+      this.props.route !== "/bookShift",
+      this.props.route !== "/addUser",
+      this.props.userType === "staff",
+      this.props.route !== "/bookShift" &&
+        (this.props.route !== "/addUser" || this.props.userType === "staff")
+    );
+    if (
+      this.props.route !== "/bookShift" &&
+      (this.props.route !== "/addUser" || this.props.userType === "staff")
+    ) {
+      console.log(this.props.route, "rendered");
       return (
         <StyledLink to={this.props.route}>
           <StyledTitle>{this.props.title}</StyledTitle>
@@ -57,12 +67,18 @@ class NavButton extends Component {
         </StyledLink>
       );
     }
-    return (
-      <StyledA href="https://timecounts.org/courtauldvolunteers/me/assignments/963?view=available">
-        <StyledTitle>{this.props.title}</StyledTitle>
-        <StyledSubtitle>{this.props.subtitle}</StyledSubtitle>
-      </StyledA>
-    );
+    if (
+      this.props.route === "/bookShift" &&
+      this.props.userType === "volunteer"
+    ) {
+      return (
+        <StyledA href="https://timecounts.org/courtauldvolunteers/me/assignments/963?view=available">
+          <StyledTitle>{this.props.title}</StyledTitle>
+          <StyledSubtitle>{this.props.subtitle}</StyledSubtitle>
+        </StyledA>
+      );
+    }
+    return null;
   }
 }
 
