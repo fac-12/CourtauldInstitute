@@ -5,11 +5,13 @@ import * as actions from "../../actions";
 import Header from "../Header";
 import UpdateItem from "./UpdateItem";
 import UpdateFilterBtns from "./UpdateFilterBtns";
+import AddUpdateBtn from "./AddUpdateBtn";
+import Loader from "../Loader";
 
 class UpdatesContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { filter: "all" };
+    this.state = { filter: "all", loading: false };
     this.changeFilter = this.changeFilter.bind(this);
   }
   changeFilter(e) {
@@ -19,7 +21,7 @@ class UpdatesContainer extends Component {
     this.props.fetchUpdates(10, 0);
   }
   render() {
-    const data = _.values(this.props.updates);
+    const data = this.props.updates;
     return (
       <div>
         <Header title="Updates" />
@@ -27,14 +29,17 @@ class UpdatesContainer extends Component {
           active={this.state.filter}
           onClick={this.changeFilter}
         />
+        <AddUpdateBtn />
+        {this.props.loading && <Loader />}
         {data.map(item => <UpdateItem key={item.id} data={item} />)}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ updates }) => ({
-  updates
+const mapStateToProps = ({ updates, loading }) => ({
+  updates: _.reverse(_.sortBy(_.values(updates), "datetime")),
+  loading: loading.updates
 });
 
 export default connect(mapStateToProps, actions)(UpdatesContainer);

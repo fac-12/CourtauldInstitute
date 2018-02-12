@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-  margin: 20px 20px;
+  margin: 20px 20px 10px 20px;
   display: flex;
   justify-content: space-between;
 `;
 
 const StyledBtn = styled.button`
-  border: 1px solid #ecf0f1;
+  border: 1px solid #c9cccc;
   background: #ffffff;
   border-radius: 8px;
-  font-family: OpenSans;
-  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
   color: #333333;
   padding: 5px 10px;
   outline: none;
@@ -47,7 +47,7 @@ class UpdateFilterBtns extends Component {
             name={item.filter}
             style={
               this.props.active === item.filter
-                ? { background: "#ecf0f1" }
+                ? { background: "#c9cccc" }
                 : { background: "#ffffff" }
             }
             onClick={this.props.onClick}

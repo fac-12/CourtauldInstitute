@@ -8,25 +8,27 @@ const getUpdates = (count, skip) =>
     .then(res => res.slice(skip, count + skip))
     .catch(err => console.log(err));
 
-const addUpdate = data =>
-  db
-    .query(
-      `INSERT INTO updates (user_id, datetime, image_url, title, content) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+const addUpdate = async data => {
+  try {
+    const update = await db.query(
+      `INSERT INTO updates (user_id, datetime, image_url, title, content) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
       [data.user_id, data.datetime, data.image_url, data.title, data.content]
-    )
-    .then(res =>
-      Promise.all(
-        data.tags.map(tag =>
-          db.query(
-            `INSERT INTO updates_tags (update_id, tag_id) VALUES (${
-              res[0].id
-            }, (SELECT id FROM tags WHERE tag = $1)) RETURNING update_id`,
-            [tag]
-          )
+    );
+    const update_id = await Promise.all(
+      data.tags.map(tag =>
+        db.query(
+          `INSERT INTO updates_tags (update_id, tag_id) VALUES (${
+            update[0].id
+          }, (SELECT id FROM tags WHERE tag = $1)) RETURNING update_id`,
+          [tag]
         )
       )
-    )
-    .then(res => res[0][0])
-    .catch(err => console.log(err));
+    );
+    update[0].tags = data.tags.join();
+    return update[0];
+  } catch (e) {
+    console.log("db error", e);
+  }
+};
 
 module.exports = { getUpdates, addUpdate };
