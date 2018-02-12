@@ -8,7 +8,7 @@ export default function(
   case LOADING_UPDATE:
     return {
       ...state,
-      updates: true
+      updates: action.payload
     };
   case ADD_UPDATE:
     return {
