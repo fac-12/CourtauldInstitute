@@ -6,14 +6,16 @@ import DirectoryContainer from "./directory/DirectoryContainer";
 import MyProfileContainer from "./my_profile/MyProfileContainer";
 import UpdatesContainer from "./updates/UpdatesContainer";
 import ProfileContainer from "./profile/ProfileContainer";
+import LoginContainer from "./login/LoginContainer";
 import AddUpdateContainer from "./updates/AddUpdateContainer";
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div id="app_container">
           <Route exact path="/" component={Dashboard} />
+          <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/discoveries" component={DiscoveriesContainer} />
           <Route exact path="/directory" component={DirectoryContainer} />
           <Route exact path="/myProfile" component={MyProfileContainer} />
