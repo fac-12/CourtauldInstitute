@@ -48,6 +48,7 @@ const StyledSubtitle = styled.h2`
 
 class NavButton extends Component {
   render() {
+    console.log(this.props);
     if (this.props.route !== "/bookShift") {
       return (
         <StyledLink to={this.props.route}>
