@@ -18,9 +18,19 @@ const StyledSvg = styled.svg`
 `;
 
 class ReturnHomeBtn extends Component {
+  handleOnClick = () => {
+    if (
+      this.props.location.pathname ===
+      ("/updates" || "/discoveries" || "/directory" || "/myProfile")
+    ) {
+      this.props.history.push("/");
+    } else {
+      this.props.history.goBack();
+    }
+  };
   render() {
     return (
-      <StyledBtn onClick={this.props.history.goBack}>
+      <StyledBtn onClick={this.handleOnClick}>
         <StyledSvg
           viewBox="0 0 9 16"
           version="1.1"
