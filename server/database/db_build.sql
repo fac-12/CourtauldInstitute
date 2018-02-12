@@ -27,7 +27,6 @@ BEGIN;
     user_id INTEGER REFERENCES users(id),
     datetime BIGINT NOT NULL,
     image_url VARCHAR(50),
-    title VARCHAR(200),
     content TEXT
   );
   CREATE TABLE tags
@@ -66,12 +65,12 @@ BEGIN;
     (1, 2),
     (2, 1);
 
-  INSERT INTO discoveries (user_id, datetime, image_url, title, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'Cool picture', 'This is a cool picture I found whilst cataloging today.');
+  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'This is a cool picture I found whilst cataloging today.');
 
-  INSERT INTO discoveries (user_id, datetime, image_url, title, content) VALUES (2, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'Cool picture', 'This is an amazing pic, I remember seeing some of the artists work at an exhibition.');
+  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (2, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'This is an amazing pic, I remember seeing some of the artists work at an exhibition.');
 
-  INSERT INTO discoveries (user_id, datetime, image_url, title, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'Cool picture', 'I love this picture.');
+  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'I love this picture.');
 
-  INSERT INTO discoveries (user_id, datetime, image_url, title, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'Picture', 'Amazing pic.');
+  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'Amazing pic.');
 
   COMMIT;

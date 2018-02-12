@@ -3,7 +3,7 @@ import _ from "lodash";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
 import DiscoveriesItem from "./DiscoveriesItem";
-
+import AddButton from "../AddButton";
 import Header from "../Header";
 
 class DiscoveriesContainer extends Component {
@@ -12,10 +12,10 @@ class DiscoveriesContainer extends Component {
   }
 
   render() {
-    console.log(this.props.discoveries);
     return (
       <div>
         <Header title="Discoveries" />
+        <AddButton route="/discoveries/new" purpose="Add discovery" />
         <DiscoveriesItem data={this.props.discoveries} />
       </div>
     );

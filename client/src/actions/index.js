@@ -6,7 +6,8 @@ import {
   FETCH_PROFILE,
   ADD_UPDATE,
   LOADING_UPDATE,
-  FETCH_DISCOVERIES
+  FETCH_DISCOVERIES,
+  ADD_DISCOVERY
 } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
@@ -73,5 +74,36 @@ export const fetchDiscoveries = () => async dispatch => {
     dispatch({ type: FETCH_DISCOVERIES, payload: discoveries.data });
   } catch (err) {
     console.log("FETCH_DISCOVERIES: ", err);
+  }
+};
+
+export const addDiscovery = (data, callback) => async dispatch => {
+  try {
+    if (data.image_url) {
+      callback();
+      dispatch({ type: LOADING_UPDATE, payload: true });
+      const formData = new FormData();
+      formData.append("image", data.image_url);
+      const config = {
+        headers: {
+          Authorization: "Client-ID b981e83d44eafce"
+        }
+      };
+      const imgrData = await axios.post(
+        "https://api.imgur.com/3/image",
+        formData,
+        config
+      );
+      data.image_url = imgrData.data.data.link;
+    } else {
+      data.image_url = null;
+    }
+    const discoveryData = await axios.post("/api/addDiscovery", { ...data });
+    dispatch({ type: ADD_DISCOVERY, payload: discoveryData.data });
+    if (!data.image_url) {
+      callback();
+    }
+  } catch (e) {
+    console.log(e);
   }
 };

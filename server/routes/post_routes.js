@@ -1,4 +1,5 @@
 const { addUpdate } = require("../queries/feeds");
+const { addDiscovery } = require("../queries/discoveries");
 
 module.exports = app => {
   app.post("/api/addUpdate", async (req, res) => {
@@ -7,6 +8,14 @@ module.exports = app => {
       res.send(updateAdded);
     } catch (err) {
       console.log("Add update error ", err);
+    }
+  });
+  app.post("/app/addDiscovery", async (req, res) => {
+    try {
+      const discoveryAdded = await addDiscovery(req.body);
+      res.send(discoveryAdded);
+    } catch (err) {
+      console.log("Add discovery error ", err);
     }
   });
 };

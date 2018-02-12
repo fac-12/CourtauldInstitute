@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import { parseDateTime } from "../../helpers/conversions";
 
 class DiscoveriesItem extends Component {
   render() {
@@ -8,10 +9,12 @@ class DiscoveriesItem extends Component {
       <div>
         {data.map(item => (
           <div key={item.id}>
-            <p>
-              {item.first_name} {item.last_name}
-            </p>
             <img src={item.image_url} />
+            <p>{item.content}</p>
+            <p>
+              Posted by {item.first_name} {item.last_name}
+            </p>
+            <p>{item.datetime}</p>
           </div>
         ))}
       </div>
