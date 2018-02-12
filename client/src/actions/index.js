@@ -1,6 +1,12 @@
 import axios from "axios";
 
-import { FETCH_UPDATES, FETCH_DIRECTORY, FETCH_PROFILE } from "./types";
+import {
+  FETCH_UPDATES,
+  FETCH_DIRECTORY,
+  FETCH_PROFILE,
+  ADD_UPDATE,
+  LOADING_UPDATE
+} from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
   try {
@@ -26,5 +32,36 @@ export const fetchProfile = profileId => async dispatch => {
     dispatch({ type: FETCH_PROFILE, payload: profile.data });
   } catch (err) {
     console.log("fetchProfile: ", err);
+  }
+};
+
+export const addUpdate = (data, callback) => async dispatch => {
+  try {
+    if (data.image_url) {
+      callback();
+      dispatch({ type: LOADING_UPDATE, payload: true });
+      const formData = new FormData();
+      formData.append("image", data.image_url);
+      const config = {
+        headers: {
+          Authorization: "Client-ID b981e83d44eafce"
+        }
+      };
+      const imgrData = await axios.post(
+        "https://api.imgur.com/3/image",
+        formData,
+        config
+      );
+      data.image_url = imgrData.data.data.link;
+    } else {
+      data.image_url = null;
+    }
+    const updateData = await axios.post("/api/addUpdate", { ...data });
+    dispatch({ type: ADD_UPDATE, payload: updateData.data });
+    if (!data.image_url) {
+      callback();
+    }
+  } catch (e) {
+    console.log(e);
   }
 };

@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledTitle = styled.h2`
-  font-family: SourceSerifPro;
+  font-family: "Source Serif Pro", serif;
   font-weight: 600;
   font-size: 1.125rem;
   color: #333333;
@@ -16,7 +16,7 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledContent = styled.p`
-  font-family: OpenSans;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.8125rem;
   color: #333333;
   line-height: 1.375rem;
@@ -28,11 +28,16 @@ const StyledInfoDiv = styled.div`
 `;
 
 const StyledInfo = styled.p`
-  font-family: OpenSans;
+  font-family: "Open Sans", sans-serif;
   font-style: italic;
   font-size: 0.8125rem;
   color: #7f8c8d;
   margin: 5px 0;
+`;
+
+const StyledImg = styled.img`
+  border: 1px solid black;
+  width: 100%;
 `;
 
 class UpdateItem extends Component {
@@ -44,12 +49,14 @@ class UpdateItem extends Component {
       tags,
       datetime,
       first_name,
-      last_name
+      last_name,
+      image_url
     } = this.props.data;
     const { date, time } = parseDateTime(datetime);
     return (
       <StyledDiv>
         <StyledTitle>{title}</StyledTitle>
+        {image_url && <StyledImg src={image_url} />}
         <StyledContent>{content}</StyledContent>
         <StyledInfoDiv>
           <StyledInfo>

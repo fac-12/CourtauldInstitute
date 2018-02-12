@@ -13,7 +13,7 @@ const StyledHeader = styled.div`
 `;
 
 const StyledTitle = styled.h1`
-  font-family: SourceSerifPro;
+  font-family: "Source Serif Pro", serif;
   font-weight: 600;
   font-size: 24px;
   color: #333333;
