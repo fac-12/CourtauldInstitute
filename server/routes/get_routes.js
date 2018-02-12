@@ -1,5 +1,6 @@
 const { getUpdates } = require("../queries/feeds");
 const { allUsers, oneUser } = require("../queries/users");
+const { getDiscoveries } = require("../queries/discoveries");
 
 module.exports = app => {
   app.get("/api/updates", async (req, res) => {
@@ -24,6 +25,15 @@ module.exports = app => {
     try {
       const profileData = await oneUser(req.query.id);
       res.send(profileData);
+    } catch (err) {
+      throw err;
+    }
+  });
+
+  app.get("/api/discoveries", async (req, res) => {
+    try {
+      const discoveriesData = await getDiscoveries();
+      res.send(discoveriesData);
     } catch (err) {
       throw err;
     }
