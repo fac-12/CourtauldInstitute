@@ -10,8 +10,9 @@ module.exports = app => {
       console.log("Add update error ", err);
     }
   });
-  app.post("/app/addDiscovery", async (req, res) => {
+  app.post("/api/addDiscovery", async (req, res) => {
     try {
+      console.log("request body: ", req.body);
       const discoveryAdded = await addDiscovery(req.body);
       res.send(discoveryAdded);
     } catch (err) {

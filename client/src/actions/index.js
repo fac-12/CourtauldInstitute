@@ -7,7 +7,8 @@ import {
   ADD_UPDATE,
   LOADING_UPDATE,
   FETCH_DISCOVERIES,
-  ADD_DISCOVERY
+  ADD_DISCOVERY,
+  LOADING_DISCOVERY
 } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
@@ -79,30 +80,24 @@ export const fetchDiscoveries = () => async dispatch => {
 
 export const addDiscovery = (data, callback) => async dispatch => {
   try {
-    if (data.image_url) {
-      callback();
-      dispatch({ type: LOADING_UPDATE, payload: true });
-      const formData = new FormData();
-      formData.append("image", data.image_url);
-      const config = {
-        headers: {
-          Authorization: "Client-ID b981e83d44eafce"
-        }
-      };
-      const imgrData = await axios.post(
-        "https://api.imgur.com/3/image",
-        formData,
-        config
-      );
-      data.image_url = imgrData.data.data.link;
-    } else {
-      data.image_url = null;
-    }
-    const discoveryData = await axios.post("/api/addDiscovery", { ...data });
+    callback();
+    dispatch({ type: LOADING_DISCOVERY, payload: true });
+    const formData = new FormData();
+    formData.append("image", data.image_url);
+    const config = {
+      headers: {
+        Authorization: "Client-ID b981e83d44eafce"
+      }
+    };
+    const imgrData = await axios.post(
+      "https://api.imgur.com/3/image",
+      formData,
+      config
+    );
+    data.image_url = imgrData.data.data.link;
+    const discoveryData = await axios.post("/api/addDiscovery", data);
+    console.log("discovery data: ", discoveryData);
     dispatch({ type: ADD_DISCOVERY, payload: discoveryData.data });
-    if (!data.image_url) {
-      callback();
-    }
   } catch (e) {
     console.log(e);
   }

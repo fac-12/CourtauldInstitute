@@ -1,4 +1,9 @@
-import { LOADING_UPDATE, ADD_UPDATE } from "../actions/types";
+import {
+  LOADING_UPDATE,
+  ADD_UPDATE,
+  LOADING_DISCOVERY,
+  ADD_DISCOVERY
+} from "../actions/types";
 
 export default function(
   state = { updates: false, discoveries: false },
@@ -14,6 +19,16 @@ export default function(
     return {
       ...state,
       updates: false
+    };
+  case LOADING_DISCOVERY:
+    return {
+      ...state,
+      discoveries: action.payload
+    };
+  case ADD_DISCOVERY:
+    return {
+      ...state,
+      discoveries: false
     };
   default:
     return state;

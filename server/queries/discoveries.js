@@ -6,8 +6,12 @@ const getDiscoveries = () =>
   );
 
 const addDiscovery = data =>
-  db.query(
-    `INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (data.user_id, data.datetime, data.image_url, data.content)`
-  );
+  db
+    .query(
+      `INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES ($1, $2, $3, $4) RETURNING *`,
+      [data.user_id, data.datetime, data.image_url, data.content]
+    )
+    .then(res => res[0])
+    .catch(error => console.log(error));
 
-module.exports = { getDiscoveries };
+module.exports = { getDiscoveries, addDiscovery };
