@@ -8,6 +8,8 @@ import UpdatesContainer from "./updates/UpdatesContainer";
 import ProfileContainer from "./profile/ProfileContainer";
 import LoginContainer from "./login/LoginContainer";
 import AddUpdateContainer from "./updates/AddUpdateContainer";
+import AddDiscoveryContainer from "./discoveries/AddDiscoveryContainer";
+import AddNewUserContainer from "./add_new_user/AddNewUserContainer";
 
 class App extends Component {
   render() {
@@ -22,6 +24,12 @@ class App extends Component {
           <Route exact path="/updates" component={UpdatesContainer} />
           <Route exact path="/profile/:id" component={ProfileContainer} />
           <Route exact path="/updates/new" component={AddUpdateContainer} />
+          <Route
+            exact
+            path="/discoveries/new"
+            component={AddDiscoveryContainer}
+          />
+          <Route exact path="/addNewUser" component={AddNewUserContainer} />
         </div>
       </BrowserRouter>
     );
