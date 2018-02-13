@@ -1,7 +1,11 @@
 const { addUpdate } = require("../queries/feeds");
 const { addDiscovery } = require("../queries/discoveries");
-const { checkUser, addUser } = require("../queries/users");
-const { hashPassword, generatePassword } = require("../authentication/bcrypt");
+const { getUser, addUser } = require("../queries/users");
+const {
+  hashPassword,
+  generatePassword,
+  validate
+} = require("../authentication/bcrypt");
 const newUserEmail = require("../authentication/email");
 
 module.exports = app => {
@@ -23,7 +27,7 @@ module.exports = app => {
   });
   app.post("/api/addNewUser", async (req, res) => {
     try {
-      const userExists = await checkUser(req.body.email);
+      const userExists = await getUser(req.body.email);
       if (!userExists) {
         const userPassword = generatePassword();
         req.body.password = await hashPassword(userPassword);
@@ -35,6 +39,19 @@ module.exports = app => {
       }
     } catch (err) {
       console.log("Add new user error: ", err);
+    }
+  });
+  app.post("/api/login", async (req, res) => {
+    try {
+      console.log("in api login");
+      const userData = await getUser(req.body.email);
+      console.log("userData: ", userData);
+      const valid = await validate(req.body.email);
+      console.log("valid: ", valid);
+      req.session.user = { id: userData.id };
+      res.send(userData);
+    } catch (err) {
+      console.log("Login error: ", err);
     }
   });
 };

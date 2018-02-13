@@ -8,7 +8,8 @@ import {
   LOADING_UPDATE,
   FETCH_DISCOVERIES,
   ADD_DISCOVERY,
-  LOADING_DISCOVERY
+  LOADING_DISCOVERY,
+  FETCH_USER
 } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
@@ -119,4 +120,15 @@ export const addNewUser = async data => {
   data.picture_url = imgrData.data.data.link;
   const newUserData = await axios.post("api/addNewUser", data);
   console.log(newUserData);
+};
+
+export const loginUser = data => async dispatch => {
+  try {
+    console.log("in log in user");
+    const userData = axios.post("/api/login", data);
+    console.log("user data data", userData.data);
+    dispatch({ type: FETCH_USER, payload: userData.data });
+  } catch (err) {
+    console.log(err);
+  }
 };

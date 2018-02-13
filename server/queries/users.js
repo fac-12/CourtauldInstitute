@@ -1,14 +1,9 @@
 const db = require("../database/db_connection");
 
-const checkUser = email =>
+const getUser = email =>
   db
-    .query(
-      `SELECT CASE WHEN EXISTS(SELECT email FROM users WHERE email = $1)
-  THEN CAST (true AS BOOLEAN)
-  ELSE CAST (false AS BOOLEAN) END`,
-      [email]
-    )
-    .then(res => res[0].case)
+    .query(`SELECT * FROM users WHERE email = $1`, [email])
+    .then(res => res[0])
     .catch(err => console.log("check user err: ", err));
 
 const addUser = data =>
@@ -50,7 +45,7 @@ const updateUser = data =>
     ]
   );
 module.exports = {
-  checkUser,
+  getUser,
   addUser,
   deleteUser,
   allUsers,

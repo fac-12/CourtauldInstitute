@@ -22,4 +22,23 @@ const generatePassword = () => {
   return randomPassword;
 };
 
-module.exports = { hashPassword, generatePassword };
+const validate = (password, userData) =>
+  new Promise((resolve, reject) => {
+    if (userData.length) {
+      bcrypt.compare(password, userData.password, (err, res) => {
+        if (err) {
+          reject(err);
+        } else if (res) {
+          resolve(true);
+        } else {
+          reject("Wrong password!");
+        }
+      });
+    } else {
+      reject(
+        "You do not have an account. Please request one from a staff member at The Courtauld Institute."
+      );
+    }
+  });
+
+module.exports = { hashPassword, generatePassword, validate };
