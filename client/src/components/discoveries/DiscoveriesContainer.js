@@ -13,12 +13,13 @@ class DiscoveriesContainer extends Component {
   }
 
   render() {
+    const data = this.props.discoveries;
     return (
       <div>
         <Header title="Discoveries" />
         <AddButton route="/discoveries/new" purpose="Add discovery" />
         {this.props.loading && <Loader />}
-        <DiscoveriesItem data={this.props.discoveries} />
+        {data.map(item => <DiscoveriesItem key={item.id} data={item} />)}
       </div>
     );
   }

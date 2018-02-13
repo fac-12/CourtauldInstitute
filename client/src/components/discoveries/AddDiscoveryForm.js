@@ -1,19 +1,40 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
-
+import {
+  StyledForm,
+  StyledInput,
+  StyledTextArea,
+  StyledHideFileUpload,
+  StyledErrorDiv,
+  StyledP,
+  StyledLabel,
+  StyledTagsLabel
+} from "../styledDefaults/FormStyles";
+import {
+  StyledSubmitBtn,
+  StyledFileUploadBtn
+} from "../styledDefaults/BtnStyles";
 class AddDiscoveryForm extends Component {
   adaptFileEventToValue = delegate => e => delegate(e.target.files[0]);
 
-  renderFileInput = ({
+  RenderFileInput = ({
     input: { value: omitValue, onChange, onBlur, ...inputProps },
-    meta: { touched, error },
+    meta: omitMeta,
     ...props
   }) => {
+    const { touched, error } = omitMeta;
     return (
       <div>
-        <label htmlFor="image_url">
-          Upload image
-          <input
+        <StyledFileUploadBtn
+          style={
+            omitValue ? { background: "#c9cccc" } : { background: "#ffffff" }
+          }
+          htmlFor="image_url"
+        >
+          {omitValue
+            ? `File Selected: ${omitValue.name}`
+            : `Select a photo to upload`}
+          <StyledHideFileUpload
             onChange={this.adaptFileEventToValue(onChange)}
             onBlur={this.adaptFileEventToValue(onBlur)}
             type="file"
@@ -22,35 +43,34 @@ class AddDiscoveryForm extends Component {
             {...props.input}
             {...props}
           />
-        </label>
-        <p>{touched ? error : ""}</p>
+        </StyledFileUploadBtn>
+        <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
       </div>
     );
   };
-
   renderField(field) {
     const { meta: { touched, error } } = field;
     return (
       <div>
         <label>{field.label}</label>
-        <textarea {...field.input} name={field.name} />
-        <p>{touched ? error : ""}</p>
+        <StyledTextArea {...field.input} name={field.name} />
+        <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
       </div>
     );
   }
   render() {
     const { onSubmit, handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <Field
           label="image"
           name="image_url"
-          component={this.renderFileInput}
+          component={this.RenderFileInput}
         />
 
         <Field label="Caption" name="content" component={this.renderField} />
-        <button type="submit">Add Discovery </button>
-      </form>
+        <StyledSubmitBtn type="submit">Add Discovery </StyledSubmitBtn>
+      </StyledForm>
     );
   }
 }
