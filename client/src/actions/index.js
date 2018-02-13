@@ -119,12 +119,21 @@ export const addNewUser = async data => {
   );
   data.picture_url = imgrData.data.data.link;
   const newUserData = await axios.post("api/addNewUser", data);
-  console.log("new user added",newUserData);
+  console.log("new user added", newUserData);
 };
 
 export const loginUser = data => async dispatch => {
   try {
     const userData = await axios.post("/api/login", data);
+    dispatch({ type: FETCH_USER, payload: userData.data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const fetchUser = () => async dispatch => {
+  try {
+    const userData = await axios.get("/api/profile");
     dispatch({ type: FETCH_USER, payload: userData.data });
   } catch (err) {
     console.log(err);
