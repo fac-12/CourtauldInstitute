@@ -8,11 +8,10 @@ import DirectoryContainer from "./directory/DirectoryContainer";
 import MyProfileContainer from "./my_profile/MyProfileContainer";
 import UpdatesContainer from "./updates/UpdatesContainer";
 import ProfileContainer from "./profile/ProfileContainer";
-import LoginContainer from "./login/LoginContainer";
 import AddUpdateContainer from "./updates/AddUpdateContainer";
 import AddDiscoveryContainer from "./discoveries/AddDiscoveryContainer";
 import AddNewUserContainer from "./add_new_user/AddNewUserContainer";
-import LandingContainer from "./landing/LandingContainer";
+import LoginContainer from "./login/LoginContainer";
 
 class App extends Component {
   componentDidMount() {
@@ -35,7 +34,7 @@ class App extends Component {
             exact
             path="/login"
             render={props =>
-              !loggedIn ? <LandingContainer {...props} /> : <Redirect to="/" />
+              !loggedIn ? <LoginContainer {...props} /> : <Redirect to="/" />
             }
           />
           <Route

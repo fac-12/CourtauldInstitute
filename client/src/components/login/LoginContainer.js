@@ -1,42 +1,66 @@
 import React, { Component } from "react";
-import LoginForm from "./LoginForm";
-import LoginBackground from "./loginBackground.png";
-
+import { reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import SignInForm from "./SignInForm";
 import styled from "styled-components";
+import * as actions from "../../actions";
+
+import LoginBackground from "./loginBackground.png";
+import courtauldLogo from "./courtauldLogo.png";
 
 const StyledLoginContainer = styled.div`
   background-image: url(${LoginBackground});
   background-size: contain;
-`;
-
-const Login = styled.div`
-  font-family: "Source Serif Pro", serif;
-  border: 1px solid red;
+  background-repeat: no-repeat;
   height: 100vh;
-  background-size: contain;
+  font-family: "Source Serif Pro", serif;
   color: #ecf0f1;
-  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const LoginHeader = styled.h1`
-  border: 1px solid red;
   font-size: 25px;
   font-weight: normal;
-  margin: 0 auto;
+  margin-bottom: 191px;
   text-align: center;
 `;
 
-class LoginContainer extends Component {
+const Logo = styled.img`
+  height: 100px;
+  margin-top: 56px;
+  margin-bottom: 15px;
+`;
+
+class LandingContainer extends Component {
+  submitForm = values => {
+    this.props.loginUser(values);
+  };
   render() {
+    const { handleSubmit } = this.props;
     return (
       <StyledLoginContainer>
-        <Login>
-          <LoginHeader>Volunteer Platform</LoginHeader>
-          <LoginForm />
-        </Login>
+        <Logo src={courtauldLogo} alt="" />
+        <LoginHeader>Volunteer Platform</LoginHeader>
+        <SignInForm onSubmit={this.submitForm} handleSubmit={handleSubmit} />
       </StyledLoginContainer>
     );
   }
 }
 
-export default LoginContainer;
+const validate = values => {
+  const errors = {};
+  if (!values.email) {
+    errors.email = "Please enter an email address";
+  }
+  if (!values.password) {
+    errors.password = "Please enter a password";
+  }
+  return errors;
+};
+
+export default reduxForm({
+  validate,
+  form: "LogInForm"
+})(connect(null, actions)(LandingContainer));
