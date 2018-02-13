@@ -41,19 +41,5 @@ class DiscoveriesItem extends Component {
     );
   }
 }
-// {data.map(item => (
-//   <StyledDiv key={item.id}>
-//     <StyledImg src={item.image_url} />
-//     <StyledContent>{item.content}</StyledContent>
-//     <StyledInfoDiv>
-//       <StyledInfo>
-//         Posted by {item.first_name} {item.last_name}
-//       </StyledInfo>
-//       <p>
-//         {date}
-//         {time}
-//       </p>
-//     </StyledInfoDiv>
-//   </StyledDiv>
-// // ))}
+
 export default DiscoveriesItem;
