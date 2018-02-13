@@ -8,7 +8,8 @@ import {
   LOADING_UPDATE,
   FETCH_DISCOVERIES,
   ADD_DISCOVERY,
-  LOADING_DISCOVERY
+  LOADING_DISCOVERY,
+  FETCH_USER
 } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
@@ -100,5 +101,32 @@ export const addDiscovery = (data, callback) => async dispatch => {
     dispatch({ type: ADD_DISCOVERY, payload: discoveryData.data });
   } catch (e) {
     console.log(e);
+  }
+};
+
+export const addNewUser = async data => {
+  const formData = new FormData();
+  formData.append("image", data.picture_url);
+  const config = {
+    headers: {
+      Authorization: "Client-ID b981e83d44eafce"
+    }
+  };
+  const imgrData = await axios.post(
+    "https://api.imgur.com/3/image",
+    formData,
+    config
+  );
+  data.picture_url = imgrData.data.data.link;
+  const newUserData = await axios.post("api/addNewUser", data);
+  console.log(newUserData);
+};
+
+export const loginUser = data => async dispatch => {
+  try {
+    const userData = await axios.post("/api/login", data);
+    dispatch({ type: FETCH_USER, payload: userData.data });
+  } catch (err) {
+    console.log(err);
   }
 };

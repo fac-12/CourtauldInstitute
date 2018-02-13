@@ -10,6 +10,7 @@ import LoginContainer from "./login/LoginContainer";
 import AddUpdateContainer from "./updates/AddUpdateContainer";
 import AddDiscoveryContainer from "./discoveries/AddDiscoveryContainer";
 import AddNewUserContainer from "./add_new_user/AddNewUserContainer";
+import LandingContainer from "./landing/LandingContainer";
 
 class App extends Component {
   render() {
@@ -17,7 +18,7 @@ class App extends Component {
       <BrowserRouter>
         <div id="app_container">
           <Route exact path="/" component={Dashboard} />
-          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/login" component={LandingContainer} />
           <Route exact path="/discoveries" component={DiscoveriesContainer} />
           <Route exact path="/directory" component={DirectoryContainer} />
           <Route exact path="/myProfile" component={MyProfileContainer} />
