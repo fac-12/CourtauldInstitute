@@ -119,7 +119,7 @@ export const addNewUser = async data => {
   );
   data.picture_url = imgrData.data.data.link;
   const newUserData = await axios.post("api/addNewUser", data);
-  console.log(newUserData);
+  console.log("new user added",newUserData);
 };
 
 export const loginUser = data => async dispatch => {

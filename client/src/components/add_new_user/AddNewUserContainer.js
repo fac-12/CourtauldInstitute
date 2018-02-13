@@ -7,7 +7,6 @@ import AddNewUserForm from "./AddNewUserForm";
 
 class AddNewUserContainer extends Component {
   submitForm = values => {
-    console.log(values);
     addNewUser(values);
   };
 
