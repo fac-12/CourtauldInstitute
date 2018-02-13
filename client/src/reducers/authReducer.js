@@ -11,7 +11,7 @@ const dummyState = {
 export default function(state = dummyState, action) {
   switch (action.type) {
   case FETCH_USER:
-    if (action.payload) {
+    if (!action.payload.error) {
       return action.payload;
     }
     return false;

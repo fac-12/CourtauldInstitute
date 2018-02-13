@@ -40,11 +40,11 @@ BEGIN;
     tag_id INTEGER REFERENCES tags(id)
   );
   INSERT INTO users
-    (first_name, last_name, email, type, why_volunteer, about_me, picture_url)
+    (first_name, last_name, email, password, type, why_volunteer, about_me, picture_url)
   VALUES
-    ('Shannon', 'Wedgwood', 'jggh@gmail.com', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
-    ('Jem', 'Abulhawa', 'jem@gmail.com', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
-    ('Fatimat', 'Gbaja', 'gbajaf@yaho.co.uk', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg');
+    ('Shannon', 'Wedgwood', 'shannon@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
+    ('Jem', 'Abulhawa', 'jem@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
+    ('Fatimat', 'Gbaja', 'fatimat@yahoo.co.uk', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg');
   INSERT INTO updates
     (user_id, datetime, title, content)
   VALUES
@@ -64,13 +64,20 @@ BEGIN;
     (1, 1),
     (1, 2),
     (2, 1);
-
-  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'This is a cool picture I found whilst cataloging today.');
-
-  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (2, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'This is an amazing pic, I remember seeing some of the artists work at an exhibition.');
-
-  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'I love this picture.');
-
-  INSERT INTO discoveries (user_id, datetime, image_url, content) VALUES (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'Amazing pic.');
-
+  INSERT INTO discoveries
+    (user_id, datetime, image_url, content)
+  VALUES
+    (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'This is a cool picture I found whilst cataloging today.');
+  INSERT INTO discoveries
+    (user_id, datetime, image_url, content)
+  VALUES
+    (2, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'This is an amazing pic, I remember seeing some of the artists work at an exhibition.');
+  INSERT INTO discoveries
+    (user_id, datetime, image_url, content)
+  VALUES
+    (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'I love this picture.');
+  INSERT INTO discoveries
+    (user_id, datetime, image_url, content)
+  VALUES
+    (1, 1517864152865, 'https://i.imgur.com/kVzhOoJ.jpg', 'Amazing pic.');
   COMMIT;

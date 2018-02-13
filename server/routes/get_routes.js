@@ -23,8 +23,15 @@ module.exports = app => {
 
   app.get("/api/profile", async (req, res) => {
     try {
-      const profileData = await oneUser(req.query.id);
-      res.send(profileData);
+      const userId = req.query.id
+        ? req.query.id
+        : req.session.user ? req.session.user.id : null;
+      if (userId) {
+        const profileData = await oneUser(userId);
+        res.send({ ...profileData, password: null });
+      } else {
+        res.send({ error: "Please log in" });
+      }
     } catch (err) {
       throw err;
     }
