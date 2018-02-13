@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavButton from "./NavButton";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const NavMenu = styled.div`
   margin: 0.75rem 1.5rem;
@@ -27,6 +28,11 @@ const menuItems = [
     route: "/directory"
   },
   {
+    title: "Add New User",
+    subtitle: "Add a new staff member or volunteer",
+    route: "/addUser"
+  },
+  {
     title: "My Profile",
     subtitle: "View and edit your volunteer profile",
     route: "/myProfile"
@@ -48,6 +54,7 @@ class NavMenuContainer extends Component {
             subtitle={item.subtitle}
             route={item.route}
             key={item.route}
+            userType={this.props.userType}
           />
         ))}
       </NavMenu>
@@ -55,4 +62,8 @@ class NavMenuContainer extends Component {
   }
 }
 
-export default NavMenuContainer;
+const mapStatetoProps = ({ auth }) => ({
+  userType: auth.type
+});
+
+export default connect(mapStatetoProps, null)(NavMenuContainer);
