@@ -5,7 +5,7 @@ import * as actions from "../../actions";
 import Header from "../Header";
 import UpdateItem from "./UpdateItem";
 import UpdateFilterBtns from "./UpdateFilterBtns";
-import AddUpdateBtn from "./AddUpdateBtn";
+import AddButton from "../AddButton";
 import Loader from "../Loader";
 
 class UpdatesContainer extends Component {
@@ -29,7 +29,7 @@ class UpdatesContainer extends Component {
           active={this.state.filter}
           onClick={this.changeFilter}
         />
-        <AddUpdateBtn />
+        <AddButton route="/updates/new" purpose="Create New Update" />
         {this.props.loading && <Loader />}
         {data.map(item => <UpdateItem key={item.id} data={item} />)}
       </div>

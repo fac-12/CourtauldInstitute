@@ -44,9 +44,9 @@ module.exports = app => {
   app.post("/api/login", async (req, res) => {
     try {
       const userData = await getUser(req.body.email);
+      console.log("here,", userData);
       const valid = await validate(req.body.password, userData);
       req.session.user = { id: userData.id };
-      console.log("user data: ", userData);
       res.send(userData);
     } catch (err) {
       console.log("Login error: ", err);
