@@ -48,7 +48,10 @@ const StyledSubtitle = styled.h2`
 
 class NavButton extends Component {
   render() {
-    if (this.props.route !== "/bookShift") {
+    if (
+      this.props.route !== "/bookShift" &&
+      (this.props.route !== "/addUser" || this.props.userType === "staff")
+    ) {
       return (
         <StyledLink to={this.props.route}>
           <StyledTitle>{this.props.title}</StyledTitle>
@@ -56,12 +59,18 @@ class NavButton extends Component {
         </StyledLink>
       );
     }
-    return (
-      <StyledA href="https://timecounts.org/courtauldvolunteers/me/assignments/963?view=available">
-        <StyledTitle>{this.props.title}</StyledTitle>
-        <StyledSubtitle>{this.props.subtitle}</StyledSubtitle>
-      </StyledA>
-    );
+    if (
+      this.props.route === "/bookShift" &&
+      this.props.userType === "volunteer"
+    ) {
+      return (
+        <StyledA href="https://timecounts.org/courtauldvolunteers/me/assignments/963?view=available">
+          <StyledTitle>{this.props.title}</StyledTitle>
+          <StyledSubtitle>{this.props.subtitle}</StyledSubtitle>
+        </StyledA>
+      );
+    }
+    return null;
   }
 }
 
