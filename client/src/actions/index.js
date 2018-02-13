@@ -102,3 +102,21 @@ export const addDiscovery = (data, callback) => async dispatch => {
     console.log(e);
   }
 };
+
+export const addNewUser = async data => {
+  const formData = new FormData();
+  formData.append("image", data.picture_url);
+  const config = {
+    headers: {
+      Authorization: "Client-ID b981e83d44eafce"
+    }
+  };
+  const imgrData = await axios.post(
+    "https://api.imgur.com/3/image",
+    formData,
+    config
+  );
+  data.picture_url = imgrData.data.data.link;
+  const newUserData = await axios.post("api/addNewUser", data);
+  console.log(newUserData);
+};
