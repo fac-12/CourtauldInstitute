@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 import { parseDateTime } from "../../helpers/conversions";
 import {
   StyledDiv,
@@ -12,24 +13,47 @@ import {
 
 class DiscoveriesItem extends Component {
   render() {
-    const data = _.values(this.props.data);
+    const {
+      user_id,
+      image_url,
+      content,
+      datetime,
+      first_name,
+      last_name
+    } = this.props.data;
+    const { date, time } = parseDateTime(datetime);
     return (
-      <div>
-        {data.map(item => (
-          <StyledDiv key={item.id}>
-            <StyledImg src={item.image_url} />
-            <StyledContent>{item.content}</StyledContent>
-            <StyledInfoDiv>
-              <StyledInfo>
-                Posted by {item.first_name} {item.last_name}
-              </StyledInfo>
-              <p>{item.datetime}</p>
-            </StyledInfoDiv>
-          </StyledDiv>
-        ))}
-      </div>
+      <StyledDiv>
+        {image_url && <StyledImg src={image_url} />}
+        <StyledContent>{content}</StyledContent>
+        <StyledInfoDiv>
+          <StyledInfo>
+            Posted by{" "}
+            <Link to={`/profile/${user_id}`}>
+              {first_name} {last_name}
+            </Link>
+          </StyledInfo>
+          <StyledInfo>
+            on {date} at {time}
+          </StyledInfo>
+        </StyledInfoDiv>
+      </StyledDiv>
     );
   }
 }
-
+// {data.map(item => (
+//   <StyledDiv key={item.id}>
+//     <StyledImg src={item.image_url} />
+//     <StyledContent>{item.content}</StyledContent>
+//     <StyledInfoDiv>
+//       <StyledInfo>
+//         Posted by {item.first_name} {item.last_name}
+//       </StyledInfo>
+//       <p>
+//         {date}
+//         {time}
+//       </p>
+//     </StyledInfoDiv>
+//   </StyledDiv>
+// // ))}
 export default DiscoveriesItem;
