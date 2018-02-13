@@ -24,7 +24,7 @@ const generatePassword = () => {
 
 const validate = (password, userData) =>
   new Promise((resolve, reject) => {
-    if (userData.length) {
+    if (userData) {
       bcrypt.compare(password, userData.password, (err, res) => {
         if (err) {
           reject(err);

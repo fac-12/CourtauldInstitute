@@ -124,9 +124,7 @@ export const addNewUser = async data => {
 
 export const loginUser = data => async dispatch => {
   try {
-    console.log("in log in user");
-    const userData = axios.post("/api/login", data);
-    console.log("user data data", userData.data);
+    const userData = await axios.post("/api/login", data);
     dispatch({ type: FETCH_USER, payload: userData.data });
   } catch (err) {
     console.log(err);

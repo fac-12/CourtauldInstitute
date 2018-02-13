@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 import SignInForm from "./SignInForm";
-import { loginUser } from "../../actions";
+import * as actions from "../../actions";
+import { connect } from "react-redux";
 
 class LandingContainer extends Component {
   submitForm = values => {
-    console.log(values);
-    console.log("login in ", loginUser);
-    loginUser(values);
+    this.props.loginUser(values);
   };
   render() {
     const { handleSubmit } = this.props;
@@ -28,4 +27,4 @@ const validate = values => {
 export default reduxForm({
   validate,
   form: "LogInForm"
-})(LandingContainer);
+})(connect(null, actions)(LandingContainer));
