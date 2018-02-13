@@ -1,16 +1,12 @@
-const dummyState = {
-  id: 1,
-  first_name: "Shannon",
-  last_name: "Wedgwood",
-  email: "shannonjensen@gmail.com",
-  type: "volunteer",
-  why_volunteer: "",
-  about_me: "",
-  picture_url: "https://i.imgur.com/kVzhOoJ.jpg"
-};
+import { FETCH_USER } from "../actions/types";
 
-export default function(state = dummyState, action) {
+export default function(state = null, action) {
   switch (action.type) {
+  case FETCH_USER:
+    if (action.payload) {
+      return action.payload;
+    }
+    return false;
   default:
     return state;
   }
