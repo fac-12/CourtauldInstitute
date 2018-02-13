@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
+import { connect } from "react-redux";
 import SignInForm from "./SignInForm";
 import * as actions from "../../actions";
-import { connect } from "react-redux";
 
 class LandingContainer extends Component {
   submitForm = values => {
@@ -20,7 +20,12 @@ class LandingContainer extends Component {
 
 const validate = values => {
   const errors = {};
-
+  if (!values.email) {
+    errors.email = "Please enter an email address";
+  }
+  if (!values.password) {
+    errors.password = "Please enter a password";
+  }
   return errors;
 };
 
