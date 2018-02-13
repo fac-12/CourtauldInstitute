@@ -13,6 +13,7 @@ export const StyledInput = styled.input`
   border-color: #ecf0f1;
   margin: 5px 0 10px 0;
   width: 100%;
+  height: 2rem;
 `;
 
 export const StyledCheckbox = styled.input`
@@ -82,4 +83,9 @@ export const StyledLabel = styled.label`
 `;
 export const StyledTagsLabel = styled.label`
   font-size: 0.9rem;
+`;
+
+export const StyledRadioLabel = styled.label`
+  display: block;
+  margin: 0.5rem;
 `;

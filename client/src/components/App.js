@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 import Dashboard from "./dashboard/Dashboard";
 import DiscoveriesContainer from "./discoveries/DiscoveriesContainer";
 import DirectoryContainer from "./directory/DirectoryContainer";
@@ -12,27 +14,123 @@ import AddNewUserContainer from "./add_new_user/AddNewUserContainer";
 import LoginContainer from "./login/LoginContainer";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
   render() {
+    const loggedIn = this.props.auth;
+    if (loggedIn === null) return <div />;
     return (
       <BrowserRouter>
-        <div id="app_container">
-          <Route exact path="/" component={Dashboard} />
-          <Route exact path="/login" component={LoginContainer} />
-          <Route exact path="/discoveries" component={DiscoveriesContainer} />
-          <Route exact path="/directory" component={DirectoryContainer} />
-          <Route exact path="/myProfile" component={MyProfileContainer} />
-          <Route exact path="/updates" component={UpdatesContainer} />
-          <Route exact path="/profile/:id" component={ProfileContainer} />
-          <Route exact path="/updates/new" component={AddUpdateContainer} />
+        <div>
+          <Route
+            exact
+            path="/"
+            render={props =>
+              loggedIn ? <Dashboard {...props} /> : <Redirect to="/login" />
+            }
+          />
+          <Route
+            exact
+            path="/login"
+            render={props =>
+              !loggedIn ? <LoginContainer {...props} /> : <Redirect to="/" />
+            }
+          />
+          <Route
+            exact
+            path="/discoveries"
+            render={props =>
+              loggedIn ? (
+                <DiscoveriesContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/directory"
+            render={props =>
+              loggedIn ? (
+                <DirectoryContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/myProfile"
+            render={props =>
+              loggedIn ? (
+                <MyProfileContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/updates"
+            render={props =>
+              loggedIn ? (
+                <UpdatesContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/profile/:id"
+            render={props =>
+              loggedIn ? (
+                <ProfileContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/updates/new"
+            render={props =>
+              loggedIn ? (
+                <AddUpdateContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
           <Route
             exact
             path="/discoveries/new"
-            component={AddDiscoveryContainer}
+            render={props =>
+              loggedIn ? (
+                <AddDiscoveryContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
           />
-          <Route exact path="/addNewUser" component={AddNewUserContainer} />
+          <Route
+            exact
+            path="/addNewUser"
+            render={props =>
+              loggedIn && this.props.auth.type === "staff" ? (
+                <AddNewUserContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
         </div>
       </BrowserRouter>
     );
   }
 }
-export default App;
+
+const mapStateToProps = ({ auth }) => ({ auth });
+
+export default connect(mapStateToProps, actions)(App);
