@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 import Header from "../Header";
+import { addNewUser } from "../../actions";
 
 import AddNewUserForm from "./AddNewUserForm";
 
 class AddNewUserContainer extends Component {
   submitForm = values => {
     console.log(values);
+    addNewUser(values);
   };
 
   render() {

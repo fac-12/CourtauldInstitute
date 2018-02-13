@@ -1,5 +1,8 @@
 const { addUpdate } = require("../queries/feeds");
 const { addDiscovery } = require("../queries/discoveries");
+const { checkUser, addUser } = require("../queries/users");
+const { hashPassword, generatePassword } = require("../authentication/bcrypt");
+const newUserEmail = require("../authentication/email");
 
 module.exports = app => {
   app.post("/api/addUpdate", async (req, res) => {
@@ -12,11 +15,26 @@ module.exports = app => {
   });
   app.post("/api/addDiscovery", async (req, res) => {
     try {
-      console.log("request body: ", req.body);
       const discoveryAdded = await addDiscovery(req.body);
       res.send(discoveryAdded);
     } catch (err) {
       console.log("Add discovery error ", err);
+    }
+  });
+  app.post("/api/addNewUser", async (req, res) => {
+    try {
+      const userExists = await checkUser(req.body.email);
+      if (!userExists) {
+        const userPassword = generatePassword();
+        req.body.password = await hashPassword(userPassword);
+        const newUserData = await addUser(req.body);
+        newUserEmail(newUserData[0], userPassword);
+        res.send(newUserData);
+      } else {
+        res.send("User already exists!");
+      }
+    } catch (err) {
+      console.log("Add new user error: ", err);
     }
   });
 };

@@ -1,17 +1,27 @@
 const db = require("../database/db_connection");
 
 const checkUser = email =>
-  db.query(
-    `SELECT CASE WHEN EXISTS(SELECT email FROM users WHERE email = $1)
+  db
+    .query(
+      `SELECT CASE WHEN EXISTS(SELECT email FROM users WHERE email = $1)
   THEN CAST (true AS BOOLEAN)
   ELSE CAST (false AS BOOLEAN) END`,
-    [email]
-  );
+      [email]
+    )
+    .then(res => res[0].case)
+    .catch(err => console.log("check user err: ", err));
 
 const addUser = data =>
   db.query(
-    `INSERT INTO users (first_name, last_name, email, password, type) VALUES ($1, $2, $3, $4, $5) RETURNING id`,
-    [data.first_name, data.last_name, data.email, data.password, data.typedata]
+    `INSERT INTO users (first_name, last_name, email, password, picture_url, type) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+    [
+      data.first_name,
+      data.last_name,
+      data.email,
+      data.password,
+      data.picture_url,
+      data.type
+    ]
   );
 
 const deleteUser = email =>
