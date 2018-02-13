@@ -30,7 +30,7 @@ const menuItems = [
   {
     title: "Add New User",
     subtitle: "Add a new staff member or volunteer",
-    route: "/addUser"
+    route: "/addNewUser"
   },
   {
     title: "My Profile",

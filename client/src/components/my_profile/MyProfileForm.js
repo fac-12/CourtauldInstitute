@@ -4,7 +4,6 @@ import { Field } from "redux-form";
 class MyProfileContainer extends Component {
   render() {
     const { handleSubmit, onSubmit } = this.props;
-    console.log(this.props);
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
         <img src={this.props.picture_url} />
