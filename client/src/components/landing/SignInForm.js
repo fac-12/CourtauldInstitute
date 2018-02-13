@@ -1,15 +1,24 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
+import styled from "styled-components";
+
+const Notsure = styled.div`
+  border: 1px solid red;
+  margin-bottom: 2px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+`;
 
 class SignInForm extends Component {
   renderField(field) {
     const { meta: { touched, error } } = field;
     return (
-      <div>
+      <StyledInputField>
         <label>{field.label}</label>
         <input type={field.type} {...field.input} name={field.name} />
         <p>{touched ? error : ""}</p>
-      </div>
+      </StyledInputField>
     );
   }
 
