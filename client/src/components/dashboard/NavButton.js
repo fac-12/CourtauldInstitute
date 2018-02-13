@@ -48,18 +48,10 @@ const StyledSubtitle = styled.h2`
 
 class NavButton extends Component {
   render() {
-    console.log(
-      this.props.route !== "/bookShift",
-      this.props.route !== "/addUser",
-      this.props.userType === "staff",
-      this.props.route !== "/bookShift" &&
-        (this.props.route !== "/addUser" || this.props.userType === "staff")
-    );
     if (
       this.props.route !== "/bookShift" &&
       (this.props.route !== "/addUser" || this.props.userType === "staff")
     ) {
-      console.log(this.props.route, "rendered");
       return (
         <StyledLink to={this.props.route}>
           <StyledTitle>{this.props.title}</StyledTitle>
