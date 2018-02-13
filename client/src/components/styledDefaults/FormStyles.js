@@ -28,7 +28,7 @@ export const StyledTextArea = styled.textarea`
   width: 100%;
   height: 100px;
 `;
-export const StyledFileUpload = StyledInput.extend`
+export const StyledHideFileUpload = StyledInput.extend`
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -36,7 +36,7 @@ export const StyledFileUpload = StyledInput.extend`
   position: absolute;
   z-index: -1;
 `;
-export const StyledSubmit = styled.button`
+export const StyledSubmitBtn = styled.button`
   border: 1px solid #c9cccc;
   background: #ffffff;
   border-radius: 8px;

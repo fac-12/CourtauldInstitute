@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
-import styled from "styled-components";
 import {
   StyledForm,
   StyledInput,
   StyledCheckbox,
   StyledTextArea,
-  StyledFileUpload,
-  StyledSubmit,
+  StyledHideFileUpload,
   StyledErrorDiv,
-  StyledFileUploadBtn,
   StyledP,
   StyledLabel,
   StyledTagsLabel
 } from "../styledDefaults/FormStyles";
+import {
+  StyledSubmitBtn,
+  StyledFileUploadBtn
+} from "../styledDefaults/BtnStyles";
 
 class AddUpdateForm extends Component {
   adaptFileEventToValue = delegate => e => delegate(e.target.files[0]);
@@ -33,7 +34,7 @@ class AddUpdateForm extends Component {
         {omitValue
           ? `File Selected: ${omitValue.name}`
           : `Select a photo to upload (optional)`}
-        <StyledFileUpload
+        <StyledHideFileUpload
           onChange={this.adaptFileEventToValue(onChange)}
           onBlur={this.adaptFileEventToValue(onBlur)}
           type="file"
@@ -124,7 +125,7 @@ class AddUpdateForm extends Component {
           label="Opportunities"
         />
 
-        <StyledSubmit type="submit">Submit</StyledSubmit>
+        <StyledSubmitBtn type="submit">Submit</StyledSubmitBtn>
       </StyledForm>
     );
   }
