@@ -151,3 +151,13 @@ export const logoutUser = () => async dispatch => {
     console.log(e);
   }
 };
+
+export const updateProgress = async () => {
+  try {
+    const updateProgressData = await axios.get("/api/googlesheet");
+    console.log("update progress data: ", updateProgressData);
+    return updateProgressData.data;
+  } catch (err) {
+    console.log("update progress: ", err);
+  }
+};
