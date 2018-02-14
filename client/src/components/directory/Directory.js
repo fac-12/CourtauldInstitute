@@ -11,13 +11,14 @@ const StyledDirectory = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  border: 1px solid #c9cccc;
   width: 90%;
   background: none;
   border-radius: 8px;
   text-decoration: none;
-  margin-top: 20px;
+  margin-top: 25px;
   justify-self: center;
+  font-family: "Source Serif Pro", serif;
+  color: #333333;
 `;
 
 const StyledImage = styled.img`
