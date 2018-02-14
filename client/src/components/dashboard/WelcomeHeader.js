@@ -1,10 +1,24 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const StyledWelcomeHeader = styled.h1`
+  color: white;
+  font-size: 24px;
+  margin-left: 1.5rem;
+`;
+
+const StyledName = styled.span`
+  font-size: 50px;
+`;
 
 class WelcomeHeader extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome {this.props.name}</h1>
+        <StyledWelcomeHeader>
+          Welcome <br />
+          <StyledName>{this.props.name}</StyledName>
+        </StyledWelcomeHeader>
       </div>
     );
   }
