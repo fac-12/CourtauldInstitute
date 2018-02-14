@@ -12,6 +12,8 @@ import AddUpdateContainer from "./updates/AddUpdateContainer";
 import AddDiscoveryContainer from "./discoveries/AddDiscoveryContainer";
 import AddNewUserContainer from "./add_new_user/AddNewUserContainer";
 import LoginContainer from "./login/LoginContainer";
+import Client from "./error_pages/Client";
+import Server from "./error_pages/Server";
 
 class App extends Component {
   componentDidMount() {
@@ -125,6 +127,8 @@ class App extends Component {
               )
             }
           />
+          <Route exact path="/clientError" component={Client} />
+          <Route exact path="/serverError" component={Server} />
         </div>
       </BrowserRouter>
     );
