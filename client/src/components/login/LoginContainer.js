@@ -33,6 +33,11 @@ const Logo = styled.img`
 `;
 
 class LandingContainer extends Component {
+  componentDidMount() {
+    if (this.props.auth) {
+      this.props.logoutUser();
+    }
+  }
   submitForm = values => {
     this.props.loginUser(values);
   };
@@ -65,7 +70,7 @@ const validate = values => {
   return errors;
 };
 
-const mapStateToProps = ({ error }) => ({ error: error.login });
+const mapStateToProps = ({ error, auth }) => ({ error: error.login, auth });
 
 export default reduxForm({
   validate,

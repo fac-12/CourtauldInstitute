@@ -11,7 +11,11 @@ export default function(state = null, action) {
     if (!action.payload.error) {
       return action.payload;
     }
-    return state;
+    return false;
+  case LOGOUT_USER:
+    if (action.payload) {
+      return false;
+    }
   default:
     return state;
   }
