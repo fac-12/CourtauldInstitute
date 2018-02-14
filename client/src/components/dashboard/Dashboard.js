@@ -19,6 +19,10 @@ const StyledHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  @media screen and (min-width: 960px) {
+    align-items: center;
+  }
 `;
 
 class DashboardContainer extends Component {

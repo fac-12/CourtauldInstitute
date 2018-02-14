@@ -9,6 +9,11 @@ const NavMenu = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 15px;
   grid-row-gap: 15px;
+
+  @media screen and (min-width: 960px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2.5rem 12rem;
+  }
 `;
 
 const menuItems = [
