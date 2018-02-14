@@ -52,22 +52,30 @@ export const RenderFileInput = ({
   input: { value: omitValue, onChange, onBlur, ...inputProps },
   meta: omitMeta,
   ...props
-}) => (
-  <StyledFileUploadBtn
-    style={omitValue ? { background: "#c9cccc" } : { background: "#ffffff" }}
-    htmlFor="image_url"
-  >
-    {omitValue
-      ? `File Selected: ${omitValue.name}`
-      : `Select a photo to upload (optional)`}
-    <StyledHideFileUpload
-      onChange={adaptFileEventToValue(onChange)}
-      onBlur={adaptFileEventToValue(onBlur)}
-      type="file"
-      id="image_url"
-      accept="image/*"
-      {...props.input}
-      {...props}
-    />
-  </StyledFileUploadBtn>
-);
+}) => {
+  const { touched, error } = omitMeta;
+  return (
+    <div>
+      <StyledFileUploadBtn
+        style={
+          omitValue ? { background: "#c9cccc" } : { background: "#ffffff" }
+        }
+        htmlFor="image_url"
+      >
+        {omitValue
+          ? `File Selected: ${omitValue.name}`
+          : `Select a photo to upload`}
+        <StyledHideFileUpload
+          onChange={adaptFileEventToValue(onChange)}
+          onBlur={adaptFileEventToValue(onBlur)}
+          type="file"
+          id="image_url"
+          accept="image/*"
+          {...props.input}
+          {...props}
+        />
+      </StyledFileUploadBtn>
+      <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
+    </div>
+  );
+};

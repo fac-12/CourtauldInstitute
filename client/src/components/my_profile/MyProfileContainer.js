@@ -8,6 +8,7 @@ import MyProfileForm from "./MyProfileForm";
 class MyProfileContainer extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.initialValues);
     this.props.dispatch(initialize("MyProfileForm", this.props.initialValues));
   }
   onSubmit = values => {

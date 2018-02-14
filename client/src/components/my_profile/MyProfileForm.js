@@ -7,7 +7,7 @@ import { RenderInputWithError } from "../../helpers/reduxFormHelpers";
 
 const StyledImg = styled.img`
   border-radius: 100%;
-  width: 85%;
+  width: 60%;
   align-self: center;
 `;
 
@@ -31,7 +31,7 @@ class MyProfileContainer extends Component {
         />
         <Field
           label="Email:"
-          name="first_name"
+          name="email"
           type="text"
           component={RenderInputWithError}
         />
