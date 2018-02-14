@@ -39,7 +39,10 @@ module.exports = app => {
 
   app.get("/api/discoveries", async (req, res) => {
     try {
-      const discoveriesData = await getDiscoveries();
+      const discoveriesData = await getDiscoveries(
+        req.query.count,
+        req.query.skip
+      );
       res.send(discoveriesData);
     } catch (err) {
       throw err;

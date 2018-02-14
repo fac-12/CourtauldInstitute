@@ -9,7 +9,7 @@ import Loader from "../Loader";
 
 class DiscoveriesContainer extends Component {
   componentDidMount() {
-    this.props.fetchDiscoveries();
+    this.props.fetchDiscoveries(10, 0);
   }
 
   render() {
