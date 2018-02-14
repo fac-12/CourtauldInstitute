@@ -46,6 +46,11 @@ const menuItems = [
     title: "Book shift",
     subtitle: "Book your next shift on Timecounts",
     route: "/bookShift"
+  },
+  {
+    title: "Sign out",
+    subtitle: "Go back to the login page",
+    route: "/signout"
   }
 ];
 

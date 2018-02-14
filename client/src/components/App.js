@@ -125,6 +125,7 @@ class App extends Component {
               )
             }
           />
+          <Route exact path="/signout" component={LoginContainer} />
         </div>
       </BrowserRouter>
     );
