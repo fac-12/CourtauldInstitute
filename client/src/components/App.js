@@ -106,7 +106,7 @@ class App extends Component {
             }
           />
           <Route
-            path="/updates/:filter?"
+            path="/updates"
             render={props =>
               loggedIn ? (
                 <UpdatesContainer {...props} />
@@ -127,7 +127,7 @@ class App extends Component {
             }
           />
           <Route exact path="/signout" component={LoginContainer} />
-          <Route exact path="/clientError" component={Client} />
+          <Route exact path="/page_not_found" component={Client} />
           <Route exact path="/serverError" component={Server} />
           <Route path="/" component={Client} />
         </Switch>
