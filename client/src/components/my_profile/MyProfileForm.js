@@ -1,19 +1,54 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
+import styled from "styled-components";
+import { StyledForm } from "../styledDefaults/FormStyles";
+import { StyledSubmitBtn } from "../styledDefaults/BtnStyles";
+import { RenderInputWithError } from "../../helpers/reduxFormHelpers";
+
+const StyledImg = styled.img`
+  border-radius: 100%;
+  width: 85%;
+  align-self: center;
+`;
 
 class MyProfileContainer extends Component {
   render() {
     const { handleSubmit, onSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <img src={this.props.picture_url} />
-        <Field name="first_name" component="input" />
-        <Field name="last_name" component="input" />
-        <Field name="email" component="input" />
-        <Field name="why_volunteer" component="textarea" />
-        <Field name="about_me" component="textarea" />
-        <button type="submit">Update profile</button>
-      </form>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledImg src={this.props.picture_url} />
+        <Field
+          label="First Name:"
+          name="first_name"
+          type="text"
+          component={RenderInputWithError}
+        />
+        <Field
+          label="Last Name:"
+          name="last_name"
+          type="text"
+          component={RenderInputWithError}
+        />
+        <Field
+          label="Email:"
+          name="first_name"
+          type="text"
+          component={RenderInputWithError}
+        />
+        <Field
+          label="About Me:"
+          name="about_me"
+          type="textarea"
+          component={RenderInputWithError}
+        />
+        <Field
+          label="Why I Volunteer:"
+          name="why_volunteer"
+          type="textarea"
+          component={RenderInputWithError}
+        />
+        <StyledSubmitBtn type="submit">Update profile</StyledSubmitBtn>
+      </StyledForm>
     );
   }
 }
