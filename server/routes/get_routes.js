@@ -1,3 +1,4 @@
+const axios = require("axios");
 const { getUpdates } = require("../queries/feeds");
 const { allUsers, oneUser } = require("../queries/users");
 const { getDiscoveries } = require("../queries/discoveries");
@@ -41,6 +42,19 @@ module.exports = app => {
     try {
       const discoveriesData = await getDiscoveries();
       res.send(discoveriesData);
+    } catch (err) {
+      throw err;
+    }
+  });
+  app.get("/api/googlesheet", async (req, res) => {
+    try {
+      const getData = await axios.get(process.env.GOOGLE_API_1);
+      console.log(getData.data);
+      const updateData = getData.data.values.map(([updateType, info]) => ({
+        updateType,
+        info
+      }));
+      res.send(updateData);
     } catch (err) {
       throw err;
     }
