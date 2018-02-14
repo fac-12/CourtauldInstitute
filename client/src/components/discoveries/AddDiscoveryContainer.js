@@ -20,7 +20,7 @@ class AddDiscoveryContainer extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Header title="Add Discovery" />
+        <Header title="Add Discovery" returnDashboard={false} />
         <AddDiscoveryForm
           onSubmit={this.submitForm}
           handleSubmit={handleSubmit}

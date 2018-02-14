@@ -11,7 +11,7 @@ class DirectoryContainer extends Component {
   render() {
     return (
       <div>
-        <Header title="Directory" />
+        <Header title="Directory" returnDashboard />
         <Directory data={this.props.directory} />
       </div>
     );

@@ -30,7 +30,7 @@ class AddUpdateContainer extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Header title="Add Update" />
+        <Header title="Add Update" returnDashboard={false} />
         <AddUpdateForm onSubmit={this.submitForm} handleSubmit={handleSubmit} />
       </div>
     );
