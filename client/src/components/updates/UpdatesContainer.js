@@ -8,27 +8,38 @@ import UpdateFilterBtns from "./UpdateFilterBtns";
 import AddButton from "../AddButton";
 import Loader from "../Loader";
 
+const filterOptions = [
+  {
+    text: "All",
+    filter: "all"
+  },
+  {
+    text: "Project",
+    filter: "project"
+  },
+  {
+    text: "Events/Exhibitions",
+    filter: "events"
+  },
+  {
+    text: "Opportunities",
+    filter: "opportunities"
+  }
+];
+
 class UpdatesContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { filter: "all" };
-    this.changeFilter = this.changeFilter.bind(this);
-  }
-  changeFilter(e) {
-    this.setState({ filter: e.target.name });
-  }
   componentDidMount() {
     this.props.fetchUpdates(10, 0);
   }
+
   render() {
+    const { filter } = this.props.match.params;
+    console.log(filter, this.props.match.params);
     const data = this.props.updates;
     return (
       <div>
         <Header title="Updates" />
-        <UpdateFilterBtns
-          active={this.state.filter}
-          onClick={this.changeFilter}
-        />
+        <UpdateFilterBtns options={filterOptions} active={filter} />
         <AddButton route="/updates/new" purpose="Create New Update" />
         {this.props.loading && <Loader />}
         {data.map(item => <UpdateItem key={item.id} data={item} />)}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import Dashboard from "./dashboard/Dashboard";
@@ -22,7 +22,7 @@ class App extends Component {
     if (loggedIn === null) return <div />;
     return (
       <BrowserRouter>
-        <div>
+        <Switch>
           <Route
             exact
             path="/"
@@ -72,17 +72,6 @@ class App extends Component {
           />
           <Route
             exact
-            path="/updates"
-            render={props =>
-              loggedIn ? (
-                <UpdatesContainer {...props} />
-              ) : (
-                <Redirect to="/login" />
-              )
-            }
-          />
-          <Route
-            exact
             path="/profile/:id"
             render={props =>
               loggedIn ? (
@@ -115,6 +104,16 @@ class App extends Component {
             }
           />
           <Route
+            path="/updates/:filter?"
+            render={props =>
+              loggedIn ? (
+                <UpdatesContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
             exact
             path="/addNewUser"
             render={props =>
@@ -125,7 +124,7 @@ class App extends Component {
               )
             }
           />
-        </div>
+        </Switch>
       </BrowserRouter>
     );
   }
