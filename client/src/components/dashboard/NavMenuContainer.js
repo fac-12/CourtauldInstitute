@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 
 const NavMenu = styled.div`
-  margin: 0.75rem 1.5rem;
+  margin: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 15px;
