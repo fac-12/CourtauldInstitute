@@ -66,4 +66,8 @@ module.exports = app => {
       throw err;
     }
   });
+  app.get("/api/logout", (req, res) => {
+    req.session = null;
+    res.send(true);
+  });
 };

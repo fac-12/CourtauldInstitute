@@ -126,6 +126,7 @@ class App extends Component {
               )
             }
           />
+          <Route exact path="/signout" component={LoginContainer} />
           <Route exact path="/clientError" component={Client} />
           <Route exact path="/serverError" component={Server} />
           <Route path="/" component={Client} />
