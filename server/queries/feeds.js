@@ -3,9 +3,17 @@ const db = require("../database/db_connection");
 const getUpdates = (count, skip) =>
   db
     .query(
-      `SELECT updates.id, updates.user_id, users.first_name, users.last_name, updates.datetime, updates.image_url, updates.title, updates.content, string_agg(tags.tag, ',') AS tags FROM updates, updates_tags, tags, users WHERE updates.id = updates_tags.update_id AND updates_tags.tag_id = tags.id AND users.id = updates.user_id GROUP BY updates.id, users.first_name, users.last_name`
+      `SELECT updates.id, updates.user_id, users.first_name, users.last_name, updates.datetime, updates.image_url, updates.title, updates.content, string_agg(tags.tag, ',') AS tags FROM updates, updates_tags, tags, users WHERE updates.id = updates_tags.update_id AND updates_tags.tag_id = tags.id AND users.id = updates.user_id GROUP BY updates.id, users.first_name, users.last_name ORDER BY updates.datetime DESC`
     )
-    .then(res => res.slice(skip, count + skip))
+    .then(res => {
+      console.log(
+        res.length,
+        skip,
+        count,
+        res.slice(skip, count + skip).length
+      );
+      return res.slice(skip, count + skip);
+    })
     .catch(err => console.log(err));
 
 const addUpdate = async data => {

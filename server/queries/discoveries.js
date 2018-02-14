@@ -3,7 +3,7 @@ const db = require("../database/db_connection");
 const getDiscoveries = (count, skip) =>
   db
     .query(
-      `SELECT discoveries.id, discoveries.user_id, users.first_name, users.last_name, discoveries.datetime, discoveries.image_url, discoveries.content FROM discoveries, users WHERE users.id = discoveries.user_id`
+      `SELECT discoveries.id, discoveries.user_id, users.first_name, users.last_name, discoveries.datetime, discoveries.image_url, discoveries.content FROM discoveries, users WHERE users.id = discoveries.user_id ORDER BY discoveries.datetime DESC`
     )
     .then(res => res.slice(skip, count + skip))
     .catch(err => console.log(err));
