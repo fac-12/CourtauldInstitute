@@ -11,7 +11,8 @@ class MyProfileContainer extends Component {
     this.props.dispatch(initialize("MyProfileForm", this.props.initialValues));
   }
   onSubmit = values => {
-    console.log(values);
+    this.props.updateProfile(values);
+    this.props.history.push("/");
   };
 
   render() {
