@@ -22,12 +22,11 @@ const StyledBtn = styled(Link)`
 
 class UpdateFilterBtns extends Component {
   render() {
-    console.log(this.props.active);
     return (
       <StyledDiv id="filter_btns">
         {this.props.options.map(item => (
           <StyledBtn
-            to="/updates"
+            to={`/updates/${item.filter}`}
             key={item.filter}
             name={item.filter}
             style={
@@ -35,7 +34,6 @@ class UpdateFilterBtns extends Component {
                 ? { background: "#c9cccc" }
                 : { background: "#ffffff" }
             }
-            onClick={this.props.onClick}
           >
             {item.text}
           </StyledBtn>

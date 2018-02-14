@@ -33,7 +33,7 @@ class UpdatesContainer extends Component {
   }
 
   render() {
-    const { filter } = this.props.match.params;
+    const filter = this.props.match.params.filter || "all";
     console.log(filter, this.props.match.params);
     const data = this.props.updates;
     return (
