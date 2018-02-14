@@ -10,7 +10,8 @@ import {
   ADD_DISCOVERY,
   LOADING_DISCOVERY,
   FETCH_USER,
-  LOGIN_USER
+  LOGIN_USER,
+  LOGOUT_USER
 } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
@@ -142,10 +143,19 @@ export const addNewUser = async data => {
   console.log("new user added", newUserData);
 };
 
+export const logoutUser = callback => async dispatch => {
+  try {
+    const signout = await axios.get("/api/logout");
+    dispatch({ type: LOGOUT_USER, payload: signout });
+    callback();
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const updateProgress = async () => {
   try {
     const updateProgressData = await axios.get("/api/googlesheet");
-    console.log("update progress data: ", updateProgressData);
     return updateProgressData.data;
   } catch (err) {
     console.log("update progress: ", err);
