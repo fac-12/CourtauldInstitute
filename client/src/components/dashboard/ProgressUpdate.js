@@ -7,12 +7,16 @@ const StyledProgressUpdate = styled.div`
   font-size: 18px;
 `;
 
+const StyledP = styled.p`
+  margin-bottom: 0.5rem;
+`;
+
 class ProgressUpdate extends Component {
   render() {
     return (
       <StyledProgressUpdate>
-        <p>{this.props.text}</p>
-        <p>{this.props.data}</p>
+        <StyledP>{this.props.text}</StyledP>
+        <StyledP>{this.props.data}</StyledP>
       </StyledProgressUpdate>
     );
   }
