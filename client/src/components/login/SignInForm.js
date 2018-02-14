@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
 import styled from "styled-components";
+import ErrorAlert from "../ErrorAlert";
+
+const StyledForm = styled.form`
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledInputField = styled.div`
   margin-bottom: 2px;
@@ -16,6 +23,7 @@ const StyledInput = styled.input`
   background: rgba(255, 255, 255, 0.05);
   width: 275px;
   height: 29px;
+  color: white;
   border-radius: 4px;
   border: 1px solid rgba(205, 205, 205, 0.42);
   margin-top: 10px;
@@ -31,6 +39,11 @@ const StyledButton = styled.button`
   font-size: 16px;
   border-radius: 8px;
 `;
+const StyledError = styled.div`
+  color: red;
+  margin: 10px 0px;
+  width: 275px;
+`;
 
 class SignInForm extends Component {
   renderField(field) {
@@ -45,9 +58,9 @@ class SignInForm extends Component {
   }
 
   render() {
-    const { handleSubmit, onSubmit } = this.props;
+    const { handleSubmit, onSubmit, error } = this.props;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <Field
           name="email"
           type="email"
@@ -61,7 +74,8 @@ class SignInForm extends Component {
           component={this.renderField}
         />
         <StyledButton type="submit">Log in</StyledButton>
-      </form>
+        {error && <StyledError>{error}</StyledError>}
+      </StyledForm>
     );
   }
 }

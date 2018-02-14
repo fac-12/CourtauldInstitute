@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import SignInForm from "./SignInForm";
 import styled from "styled-components";
 import * as actions from "../../actions";
-
 import LoginBackground from "./loginBackground.png";
 import courtauldLogo from "./courtauldLogo.png";
 
@@ -18,12 +17,12 @@ const StyledLoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const LoginHeader = styled.h1`
   font-size: 25px;
   font-weight: normal;
-  margin-bottom: 191px;
   text-align: center;
 `;
 
@@ -38,12 +37,18 @@ class LandingContainer extends Component {
     this.props.loginUser(values);
   };
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, error } = this.props;
     return (
       <StyledLoginContainer>
-        <Logo src={courtauldLogo} alt="" />
-        <LoginHeader>Volunteer Platform</LoginHeader>
-        <SignInForm onSubmit={this.submitForm} handleSubmit={handleSubmit} />
+        <div>
+          <Logo src={courtauldLogo} alt="" />
+          <LoginHeader>Volunteer Platform</LoginHeader>
+        </div>
+        <SignInForm
+          onSubmit={this.submitForm}
+          handleSubmit={handleSubmit}
+          error={error}
+        />
       </StyledLoginContainer>
     );
   }
@@ -60,7 +65,9 @@ const validate = values => {
   return errors;
 };
 
+const mapStateToProps = ({ error }) => ({ error: error.login });
+
 export default reduxForm({
   validate,
   form: "LogInForm"
-})(connect(null, actions)(LandingContainer));
+})(connect(mapStateToProps, actions)(LandingContainer));

@@ -6,6 +6,7 @@ import profileReducer from "./profileReducer";
 import authReducer from "./authReducer";
 import loadingReducer from "./loadingReducer";
 import discoveriesReducer from "./discoveriesReducer";
+import errorReducer from "./errorReducer";
 
 const rootReducer = combineReducers({
   updates: updatesReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   form: formReducer,
   auth: authReducer,
   loading: loadingReducer,
-  discoveries: discoveriesReducer
+  discoveries: discoveriesReducer,
+  error: errorReducer
 });
 
 export default rootReducer;
