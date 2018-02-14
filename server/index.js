@@ -19,6 +19,7 @@ app.use(
 
 require("./routes/get_routes")(app);
 require("./routes/post_routes")(app);
+require("./routes/put_routes")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

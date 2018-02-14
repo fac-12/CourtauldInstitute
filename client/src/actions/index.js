@@ -10,7 +10,8 @@ import {
   ADD_DISCOVERY,
   LOADING_DISCOVERY,
   FETCH_USER,
-  LOGIN_USER
+  LOGIN_USER,
+  UPDATE_USER
 } from "./types";
 
 export const fetchUpdates = (count, skip) => async dispatch => {
@@ -140,4 +141,13 @@ export const addNewUser = async data => {
   data.picture_url = imgrData.data.data.link;
   const newUserData = await axios.post("api/addNewUser", data);
   console.log("new user added", newUserData);
+};
+
+export const updateProfile = data => async dispatch => {
+  try {
+    const updatedUser = await axios.put("/api/updateProfile", data);
+    dispatch({ type: UPDATE_USER, payload: updatedUser.data });
+  } catch (e) {
+    console.log(e);
+  }
 };

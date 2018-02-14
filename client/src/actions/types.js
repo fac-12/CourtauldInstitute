@@ -8,3 +8,4 @@ export const ADD_DISCOVERY = "ADD_DISCOVERY";
 export const LOADING_DISCOVERY = "LOADING_DISCOVERY";
 export const FETCH_USER = "FETCH_USER";
 export const LOGIN_USER = "LOGIN_USER";
+export const UPDATE_USER = "UPDATE_USER";
