@@ -141,3 +141,13 @@ export const addNewUser = async data => {
   const newUserData = await axios.post("api/addNewUser", data);
   console.log("new user added", newUserData);
 };
+
+export const updateProgress = async () => {
+  try {
+    const updateProgressData = await axios.get("/api/googlesheet");
+    console.log("update progress data: ", updateProgressData);
+    return updateProgressData.data;
+  } catch (err) {
+    console.log("update progress: ", err);
+  }
+};

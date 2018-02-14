@@ -1,4 +1,5 @@
 const axios = require("axios");
+const _ = require("lodash");
 const { getUpdates } = require("../queries/feeds");
 const { allUsers, oneUser } = require("../queries/users");
 const { getDiscoveries } = require("../queries/discoveries");
@@ -53,10 +54,13 @@ module.exports = app => {
     try {
       const getData = await axios.get(process.env.GOOGLE_API_1);
       console.log(getData.data);
-      const updateData = getData.data.values.map(([updateType, info]) => ({
-        updateType,
-        info
-      }));
+      const updateData = _.mapKeys(
+        getData.data.values.map(([updateType, info]) => ({
+          updateType,
+          info
+        })),
+        "updateType"
+      );
       res.send(updateData);
     } catch (err) {
       throw err;
