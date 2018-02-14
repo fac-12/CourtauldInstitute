@@ -6,7 +6,7 @@ class ProgressUpdateContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressData: []
+      progressData: null
     };
   }
   componentDidMount() {
@@ -19,10 +19,12 @@ class ProgressUpdateContainer extends Component {
   render() {
     return (
       <div>
-        <ProgressUpdate
-          text={this.state.progressData.text_update.info}
-          data="350 out of 650 files digitised"
-        />
+        {this.state.progressData && (
+          <ProgressUpdate
+            text={this.state.progressData.text_update.info}
+            data={this.state.progressData.data_update.info}
+          />
+        )}
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const StyledProgressUpdate = styled.p`
+const StyledProgressUpdate = styled.div`
   margin-left: 1.5rem;
   color: white;
   font-size: 18px;
