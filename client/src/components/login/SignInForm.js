@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
 import styled from "styled-components";
-import ErrorAlert from "../ErrorAlert";
 
 const StyledForm = styled.form`
   margin-bottom: 20px;
