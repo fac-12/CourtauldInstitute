@@ -14,7 +14,7 @@ class AddNewUserContainer extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Header title="Add New User" />
+        <Header title="Add New User" returnDashboard={false} />
         <AddNewUserForm
           onSubmit={this.submitForm}
           handleSubmit={handleSubmit}

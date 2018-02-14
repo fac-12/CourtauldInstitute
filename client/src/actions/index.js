@@ -11,8 +11,14 @@ import {
   LOADING_DISCOVERY,
   FETCH_USER,
   LOGIN_USER,
-  LOGOUT_USER
+  LOGOUT_USER,
+  SET_FILTER
 } from "./types";
+
+export const setFilter = filter => ({
+  type: SET_FILTER,
+  payload: filter
+});
 
 export const fetchUpdates = (count, skip) => async dispatch => {
   try {

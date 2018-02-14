@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
   margin: 20px 20px 10px 20px;
@@ -8,7 +7,7 @@ const StyledDiv = styled.div`
   justify-content: space-between;
 `;
 
-const StyledBtn = styled(Link)`
+const StyledBtn = styled.button`
   border: 1px solid #c9cccc;
   background: #ffffff;
   border-radius: 8px;
@@ -26,7 +25,6 @@ class UpdateFilterBtns extends Component {
       <StyledDiv id="filter_btns">
         {this.props.options.map(item => (
           <StyledBtn
-            to={`/updates/${item.filter}`}
             key={item.filter}
             name={item.filter}
             style={
@@ -34,6 +32,7 @@ class UpdateFilterBtns extends Component {
                 ? { background: "#c9cccc" }
                 : { background: "#ffffff" }
             }
+            onClick={this.props.onClick}
           >
             {item.text}
           </StyledBtn>

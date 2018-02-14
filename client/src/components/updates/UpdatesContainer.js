@@ -7,6 +7,7 @@ import UpdateItem from "./UpdateItem";
 import UpdateFilterBtns from "./UpdateFilterBtns";
 import AddButton from "../AddButton";
 import Loader from "../Loader";
+import { filterUpdates } from "../../helpers/selectors";
 
 const filterOptions = [
   {
@@ -32,14 +33,20 @@ class UpdatesContainer extends Component {
     this.props.fetchUpdates(10, 0);
   }
 
+  handleClick = e => {
+    this.props.setFilter(e.target.name);
+  };
+
   render() {
-    const filter = this.props.match.params.filter || "all";
-    console.log(filter, this.props.match.params);
     const data = this.props.updates;
     return (
       <div>
-        <Header title="Updates" />
-        <UpdateFilterBtns options={filterOptions} active={filter} />
+        <Header title="Updates" returnDashboard />
+        <UpdateFilterBtns
+          options={filterOptions}
+          active={this.props.filter}
+          onClick={this.handleClick}
+        />
         <AddButton route="/updates/new" purpose="Create New Update" />
         {this.props.loading && <Loader />}
         {data.map(item => <UpdateItem key={item.id} data={item} />)}
@@ -48,9 +55,10 @@ class UpdatesContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ updates, loading }) => ({
-  updates: _.reverse(_.sortBy(_.values(updates), "datetime")),
-  loading: loading.updates
+const mapStateToProps = state => ({
+  updates: filterUpdates(state),
+  loading: state.loading.updates,
+  filter: state.filter
 });
 
 export default connect(mapStateToProps, actions)(UpdatesContainer);
