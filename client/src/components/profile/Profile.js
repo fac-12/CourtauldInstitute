@@ -3,29 +3,45 @@ import Styled from "styled-components";
 
 const ProfileDiv = Styled.div`
   margin-left: 10px;
+  @media screen and (min-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const NameAndImageDiv = Styled.div`
   display: grid;
-  grid-template-columns: 45% 55%;
+  grid-template-columns: 50% 50%;
   margin-top: 20px;
+  @media screen and (min-width: 600px) {
+    width: 55%;
+  }
 `;
 
 const Name = Styled.h3`
   align-self: center;
+  margin-left: 15px;
 `;
 const StyledImage = Styled.img`
-  border-radius: 100%;
+  border-radius: 80%;
   width: 85%;
   align-self: center;
+  margin-left: 15px;
 `;
 
 const StyledSubHeading = Styled.h3`
-  margin: 1rem 0.5rem;
+  margin: 0.8rem 1.2rem;
+  @media screen and (min-width: 600px) {
+    width: 50%;
+  }
 `;
 
 const StyledP = Styled.p`
-  margin: 1rem 0.5rem;
+  margin: 0.8rem 1.2rem;
+  @media screen and (min-width: 600px) {
+    width: 50%;
+  }
 `;
 
 class Profile extends Component {
