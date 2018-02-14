@@ -35,7 +35,9 @@ const Logo = styled.img`
 class LandingContainer extends Component {
   componentDidMount() {
     if (this.props.auth) {
-      this.props.logoutUser();
+      this.props.logoutUser(() => {
+        this.props.history.push("/login");
+      });
     }
   }
   submitForm = values => {

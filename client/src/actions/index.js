@@ -143,10 +143,11 @@ export const addNewUser = async data => {
   console.log("new user added", newUserData);
 };
 
-export const logoutUser = () => async dispatch => {
+export const logoutUser = callback => async dispatch => {
   try {
-    const signout = axios.get(`/api/logout`);
+    const signout = await axios.get("/api/logout");
     dispatch({ type: LOGOUT_USER, payload: signout });
+    callback();
   } catch (e) {
     console.log(e);
   }
@@ -155,7 +156,6 @@ export const logoutUser = () => async dispatch => {
 export const updateProgress = async () => {
   try {
     const updateProgressData = await axios.get("/api/googlesheet");
-    console.log("update progress data: ", updateProgressData);
     return updateProgressData.data;
   } catch (err) {
     console.log("update progress: ", err);
