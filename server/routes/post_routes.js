@@ -48,7 +48,7 @@ module.exports = app => {
       req.session.user = { id: userData.id };
       res.send({ ...userData, password: null });
     } catch (err) {
-      console.log("Login error: ", err);
+      res.send({ error: err });
     }
   });
 };
