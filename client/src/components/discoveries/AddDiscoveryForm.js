@@ -4,20 +4,8 @@ import {
   RenderFileInput,
   RenderInputWithError
 } from "../../helpers/reduxFormHelpers";
-import {
-  StyledForm,
-  StyledInput,
-  StyledTextArea,
-  StyledHideFileUpload,
-  StyledErrorDiv,
-  StyledP,
-  StyledLabel,
-  StyledTagsLabel
-} from "../styledDefaults/FormStyles";
-import {
-  StyledSubmitBtn,
-  StyledFileUploadBtn
-} from "../styledDefaults/BtnStyles";
+import { StyledForm } from "../styledDefaults/FormStyles";
+import { StyledSubmitBtn } from "../styledDefaults/BtnStyles";
 
 class AddDiscoveryForm extends Component {
   render() {
