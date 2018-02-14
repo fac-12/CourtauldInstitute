@@ -59,7 +59,12 @@ class SignInForm extends Component {
     return (
       <StyledInputField>
         <label>{field.label}</label>
-        <StyledInput type={field.type} {...field.input} name={field.name} />
+        <StyledInput
+          style={touched && error ? { border: "1px solid red" } : {}}
+          type={field.type}
+          {...field.input}
+          name={field.name}
+        />
         <StyledFormError>{touched ? error : ""}</StyledFormError>
       </StyledInputField>
     );
