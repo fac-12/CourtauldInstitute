@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import _ from "lodash";
 import { Link } from "react-router-dom";
 import { parseDateTime } from "../../helpers/conversions";
 import {
   StyledDiv,
-  StyledTitle,
   StyledContent,
   StyledInfoDiv,
   StyledInfo,

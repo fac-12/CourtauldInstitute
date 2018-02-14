@@ -25,6 +25,8 @@ const addUpdate = async data => {
       )
     );
     update[0].tags = data.tags.join();
+    update[0].first_name = data.first_name;
+    update[0].last_name = data.last_name;
     return update[0];
   } catch (e) {
     console.log("db error", e);

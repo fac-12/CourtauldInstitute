@@ -19,9 +19,11 @@ const StyledSvg = styled.svg`
 
 class ReturnHomeBtn extends Component {
   handleOnClick = () => {
+    const curLocation = this.props.location.pathname;
     if (
-      this.props.location.pathname ===
-      ("/updates" || "/discoveries" || "/directory" || "/myProfile")
+      ["/updates", "/discoveries", "/directory", "/myProfile"].includes(
+        curLocation
+      )
     ) {
       this.props.history.push("/");
     } else {

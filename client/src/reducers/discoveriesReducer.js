@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { FETCH_DISCOVERIES, ADD_DISCOVERY } from "../actions/types";
 
 export default function(state = {}, action) {

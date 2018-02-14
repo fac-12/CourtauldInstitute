@@ -1,88 +1,13 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
 import {
-  StyledForm,
-  StyledInput,
-  StyledCheckbox,
-  StyledTextArea,
-  StyledHideFileUpload,
-  StyledErrorDiv,
-  StyledP,
-  StyledLabel,
-  StyledTagsLabel
-} from "../styledDefaults/FormStyles";
-import {
-  StyledSubmitBtn,
-  StyledFileUploadBtn
-} from "../styledDefaults/BtnStyles";
+  RenderFileInput,
+  RenderInputWithError
+} from "../../helpers/reduxFormHelpers";
+import { StyledForm, StyledP } from "../styledDefaults/FormStyles";
+import { StyledSubmitBtn } from "../styledDefaults/BtnStyles";
 
 class AddUpdateForm extends Component {
-  adaptFileEventToValue = delegate => e => delegate(e.target.files[0]);
-
-  RenderFileInput = ({
-    input: { value: omitValue, onChange, onBlur, ...inputProps },
-    meta: omitMeta,
-    ...props
-  }) => {
-    return (
-      <StyledFileUploadBtn
-        style={
-          omitValue ? { background: "#c9cccc" } : { background: "#ffffff" }
-        }
-        htmlFor="image_url"
-      >
-        {omitValue
-          ? `File Selected: ${omitValue.name}`
-          : `Select a photo to upload (optional)`}
-        <StyledHideFileUpload
-          onChange={this.adaptFileEventToValue(onChange)}
-          onBlur={this.adaptFileEventToValue(onBlur)}
-          type="file"
-          id="image_url"
-          accept="image/*"
-          {...props.input}
-          {...props}
-        />
-      </StyledFileUploadBtn>
-    );
-  };
-
-  RenderInputWithError(field) {
-    const { meta: { touched, error } } = field;
-    switch (field.type) {
-      case "textarea":
-        return (
-          <div>
-            <StyledLabel>{field.label}</StyledLabel>
-            <div>
-              <StyledTextArea {...field.input} />
-              <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
-            </div>
-          </div>
-        );
-      case "checkbox":
-        return (
-          <div>
-            <StyledTagsLabel>
-              <StyledCheckbox type="checkbox" {...field.input} />
-              {field.label}
-            </StyledTagsLabel>
-            <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
-          </div>
-        );
-      default:
-        return (
-          <div>
-            {field.label && <StyledLabel>{field.label}</StyledLabel>}
-            <div>
-              <StyledInput type={field.type} {...field.input} />
-              <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
-            </div>
-          </div>
-        );
-    }
-  }
-
   render() {
     const { onSubmit, handleSubmit } = this.props;
     return (
@@ -90,21 +15,21 @@ class AddUpdateForm extends Component {
         <Field
           label="Title:"
           name="title"
-          component={this.RenderInputWithError}
+          component={RenderInputWithError}
           type="text"
         />
-        <Field name="image_url" component={this.RenderFileInput} />
+        <Field name="image_url" component={RenderFileInput} />
         <Field
           label="Update:"
           name="content"
-          component={this.RenderInputWithError}
+          component={RenderInputWithError}
           type="textarea"
         />
         <StyledP>Tags:</StyledP>
         <Field
           name="project"
           id="project"
-          component={this.RenderInputWithError}
+          component={RenderInputWithError}
           type="checkbox"
           label="Project"
         />
@@ -112,7 +37,7 @@ class AddUpdateForm extends Component {
         <Field
           name="events/exhibitions"
           id="events/exhibitions"
-          component={this.RenderInputWithError}
+          component={RenderInputWithError}
           type="checkbox"
           label="Events/Exhibitions"
         />
@@ -120,7 +45,7 @@ class AddUpdateForm extends Component {
         <Field
           name="opportunities"
           id="opportunities"
-          component={this.RenderInputWithError}
+          component={RenderInputWithError}
           type="checkbox"
           label="Opportunities"
         />
