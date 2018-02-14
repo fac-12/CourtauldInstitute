@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
   margin: 20px 20px 10px 20px;
@@ -7,7 +8,7 @@ const StyledDiv = styled.div`
   justify-content: space-between;
 `;
 
-const StyledBtn = styled.button`
+const StyledBtn = styled(Link)`
   border: 1px solid #c9cccc;
   background: #ffffff;
   border-radius: 8px;
@@ -16,33 +17,17 @@ const StyledBtn = styled.button`
   color: #333333;
   padding: 5px 10px;
   outline: none;
+  text-decoration: none;
 `;
-
-const filters = [
-  {
-    text: "All",
-    filter: "all"
-  },
-  {
-    text: "Project",
-    filter: "project"
-  },
-  {
-    text: "Events/Exhibitions",
-    filter: "events/exhibitions"
-  },
-  {
-    text: "Opportunities",
-    filter: "opportunities"
-  }
-];
 
 class UpdateFilterBtns extends Component {
   render() {
+    console.log(this.props.active);
     return (
       <StyledDiv id="filter_btns">
-        {filters.map(item => (
+        {this.props.options.map(item => (
           <StyledBtn
+            to="/updates"
             key={item.filter}
             name={item.filter}
             style={
