@@ -37,11 +37,20 @@ const StyledButton = styled.button`
   border: none;
   font-size: 16px;
   border-radius: 8px;
+  margin-bottom: 30px;
 `;
+
 const StyledError = styled.div`
-  color: red;
+  color: white;
   margin: 10px 0px;
   width: 275px;
+  font-size: 13px;
+`;
+
+const StyledFormError = styled.p`
+  font-size: 12px;
+  margin-top: 7px;
+  margin-bottom: 0;
 `;
 
 class SignInForm extends Component {
@@ -51,7 +60,7 @@ class SignInForm extends Component {
       <StyledInputField>
         <label>{field.label}</label>
         <StyledInput type={field.type} {...field.input} name={field.name} />
-        <p>{touched ? error : ""}</p>
+        <StyledFormError>{touched ? error : ""}</StyledFormError>
       </StyledInputField>
     );
   }

@@ -18,6 +18,11 @@ const StyledLoginContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (min-width: 960px) {
+    background-size: cover;
+    background-position: 15% 10%;
+  }
 `;
 
 const LoginHeader = styled.h1`
