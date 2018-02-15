@@ -12,6 +12,7 @@ import {
   FETCH_USER,
   LOGIN_USER,
   LOGOUT_USER,
+  UPDATE_USER,
   SET_FILTER
 } from "./types";
 
@@ -165,5 +166,14 @@ export const updateProgress = async () => {
     return updateProgressData.data;
   } catch (err) {
     console.log("update progress: ", err);
+  }
+};
+
+export const updateProfile = data => async dispatch => {
+  try {
+    const updatedUser = await axios.put("/api/updateProfile", data);
+    dispatch({ type: UPDATE_USER, payload: updatedUser.data });
+  } catch (e) {
+    console.log(e);
   }
 };
