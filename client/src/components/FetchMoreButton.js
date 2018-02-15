@@ -8,6 +8,10 @@ const StyledFetchBtn = StyledSubmitBtn.extend`
 `;
 const StyledDiv = styled.div`
   margin: 10px 20px 20px 20px;
+  @media screen and (min-width: 600px) {
+    max-width: 500px;
+    margin: 10px auto;
+  }
 `;
 
 class FetchMoreButton extends Component {

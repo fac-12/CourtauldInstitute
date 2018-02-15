@@ -15,6 +15,10 @@ const StyledAddBtn = styled(Link)`
   text-decoration: none;
   display: block;
   text-align: center;
+  @media screen and (min-width: 600px) {
+    max-width: 500px;
+    margin: 15px auto;
+  }
 `;
 
 class AddUpdateBtn extends Component {

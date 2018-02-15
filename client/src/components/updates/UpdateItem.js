@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { parseDateTime } from "../../helpers/conversions";
 import { Link } from "react-router-dom";
+import { parseDateTime } from "../../helpers/conversions";
+import { capitalizeFirstLetter } from "../../helpers/capitalize";
+
 import {
   StyledDiv,
   StyledTitle,
@@ -23,6 +25,8 @@ class UpdateItem extends Component {
       image_url
     } = this.props.data;
     const { date, time } = parseDateTime(datetime);
+    const tag = tags.split(",").join(", ");
+    const capitalizeTag = capitalizeFirstLetter(tag);
     return (
       <StyledDiv>
         <StyledTitle>{title}</StyledTitle>
@@ -34,7 +38,7 @@ class UpdateItem extends Component {
             <Link to={`/profile/${user_id}`}>
               {first_name} {last_name}
             </Link>{" "}
-            in {tags.split(",").join(", ")}
+            in {capitalizeTag}
           </StyledInfo>
           <StyledInfo>
             on {date} at {time}

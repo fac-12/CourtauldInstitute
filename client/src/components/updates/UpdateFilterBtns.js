@@ -5,6 +5,10 @@ const StyledDiv = styled.div`
   margin: 20px 20px 10px 20px;
   display: flex;
   justify-content: space-between;
+  @media screen and (min-width: 600px) {
+    max-width: 500px;
+    margin: 15px auto;
+  }
 `;
 
 const StyledBtn = styled.button`
