@@ -64,7 +64,10 @@ class NavButton extends Component {
       this.props.userType === "volunteer"
     ) {
       return (
-        <StyledA href="https://timecounts.org/courtauldvolunteers/me/assignments/963?view=available">
+        <StyledA
+          href="https://timecounts.org/courtauldvolunteers/me/assignments/963?view=available"
+          target="_blank"
+        >
           <StyledTitle>{this.props.title}</StyledTitle>
           <StyledSubtitle>{this.props.subtitle}</StyledSubtitle>
         </StyledA>

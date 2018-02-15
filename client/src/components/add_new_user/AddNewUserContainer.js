@@ -8,6 +8,7 @@ import AddNewUserForm from "./AddNewUserForm";
 class AddNewUserContainer extends Component {
   submitForm = values => {
     addNewUser(values);
+    this.props.history.push("/");
   };
 
   render() {
