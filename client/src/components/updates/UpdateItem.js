@@ -27,6 +27,7 @@ class UpdateItem extends Component {
     const { date, time } = parseDateTime(datetime);
     const tag = tags.split(",");
     const capitalizeTag = capitalizeFirstLetter(tag).join(", ");
+
     return (
       <StyledDiv>
         <StyledTitle>{title}</StyledTitle>
