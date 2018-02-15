@@ -10,7 +10,7 @@ const StyledImg = styled.img`
   width: 60%;
   max-width: 300px;
   align-self: center;
-  margin: 1rem 0;
+  margin: 1.5rem;
 `;
 
 class MyProfileContainer extends Component {
@@ -20,31 +20,31 @@ class MyProfileContainer extends Component {
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <StyledImg src={this.props.picture_url} />
         <Field
-          label="First Name:"
+          label="First Name"
           name="first_name"
           type="text"
           component={RenderInputWithError}
         />
         <Field
-          label="Last Name:"
+          label="Last Name"
           name="last_name"
           type="text"
           component={RenderInputWithError}
         />
         <Field
-          label="Email:"
+          label="Email"
           name="email"
           type="text"
           component={RenderInputWithError}
         />
         <Field
-          label="About Me:"
+          label="About Me"
           name="about_me"
           type="textarea"
           component={RenderInputWithError}
         />
         <Field
-          label="Why I Volunteer:"
+          label="Why I Volunteer"
           name="why_volunteer"
           type="textarea"
           component={RenderInputWithError}

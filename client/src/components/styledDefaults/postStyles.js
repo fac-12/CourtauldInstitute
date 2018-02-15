@@ -37,6 +37,5 @@ export const StyledInfo = styled.p`
 `;
 
 export const StyledImg = styled.img`
-  border: 1px solid black;
   width: 100%;
 `;

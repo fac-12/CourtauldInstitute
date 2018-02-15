@@ -14,15 +14,39 @@ export const StyledFieldDiv = styled.div`
 `;
 
 export const StyledInput = styled.input`
-  border: 2px;
-  border-style: inset;
-  border-color: #ecf0f1;
-  margin: 5px 0 10px 0;
+  font-family: "Source Serif Pro", serif;
+  border: 1px solid #ecf0f1;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 10px;
   width: 100%;
   font-size: 1rem;
-  padding: 0.5rem;
   color: #333333;
+  height: 29px;
 `;
+
+// const StyledInputField = styled.div`
+//   margin-bottom: 2px;
+//   font-size: 1rem;
+//   display: flex;
+//   flex-direction: column;
+//   font-family: "Source Serif Pro", serif;
+// `;
+
+// const StyledInput = styled.input`
+//   /* border: 1px solid red; */
+//   background: rgba(255, 255, 255, 0.05);
+//   width: 275px;
+//   height: 29px;
+//   color: white;
+//   border-radius: 4px;
+//   border: 1px solid rgba(205, 205, 205, 0.42);
+//   margin-top: 10px;
+//   font-family: "Source Serif Pro", serif;
+//   padding-left: 10px;
+//   font-size: 1rem;
+// `;
 
 export const StyledCheckbox = styled.input`
   margin: 5px 5px 2px 0;
@@ -30,14 +54,18 @@ export const StyledCheckbox = styled.input`
   top: 1px;
 `;
 export const StyledTextArea = styled.textarea`
-  border: 2px;
-  border-style: inset;
-  border-color: #ecf0f1;
-  margin: 5px 0 10px 0;
+  font-family: "Source Serif Pro", serif;
+  border: 1px solid #ecf0f1;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-left: 10px;
   width: 100%;
+  font-size: 1rem;
+  color: #333333;
   height: 100px;
   font-size: 1rem;
-  padding: 0.5rem;
   color: #333333;
 `;
 export const StyledHideFileUpload = StyledInput.extend`
