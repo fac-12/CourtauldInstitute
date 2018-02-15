@@ -18,7 +18,7 @@ class MyProfileContainer extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Header title="My Profile" />
+        <Header title="My Profile" returnDashboard />
         <MyProfileForm
           onSubmit={this.onSubmit}
           handleSubmit={handleSubmit}

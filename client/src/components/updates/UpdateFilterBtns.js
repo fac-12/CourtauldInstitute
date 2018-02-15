@@ -16,32 +16,14 @@ const StyledBtn = styled.button`
   color: #333333;
   padding: 5px 10px;
   outline: none;
+  text-decoration: none;
 `;
-
-const filters = [
-  {
-    text: "All",
-    filter: "all"
-  },
-  {
-    text: "Project",
-    filter: "project"
-  },
-  {
-    text: "Events/Exhibitions",
-    filter: "events/exhibitions"
-  },
-  {
-    text: "Opportunities",
-    filter: "opportunities"
-  }
-];
 
 class UpdateFilterBtns extends Component {
   render() {
     return (
       <StyledDiv id="filter_btns">
-        {filters.map(item => (
+        {this.props.options.map(item => (
           <StyledBtn
             key={item.filter}
             name={item.filter}

@@ -7,27 +7,45 @@ import UpdateItem from "./UpdateItem";
 import UpdateFilterBtns from "./UpdateFilterBtns";
 import AddButton from "../AddButton";
 import Loader from "../Loader";
+import { filterUpdates } from "../../helpers/selectors";
+
+const filterOptions = [
+  {
+    text: "All",
+    filter: "all"
+  },
+  {
+    text: "Project",
+    filter: "project"
+  },
+  {
+    text: "Events/Exhibitions",
+    filter: "events"
+  },
+  {
+    text: "Opportunities",
+    filter: "opportunities"
+  }
+];
 
 class UpdatesContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { filter: "all" };
-    this.changeFilter = this.changeFilter.bind(this);
-  }
-  changeFilter(e) {
-    this.setState({ filter: e.target.name });
-  }
   componentDidMount() {
     this.props.fetchUpdates(10, 0);
   }
+
+  handleClick = e => {
+    this.props.setFilter(e.target.name);
+  };
+
   render() {
     const data = this.props.updates;
     return (
       <div>
-        <Header title="Updates" />
+        <Header title="Updates" returnDashboard />
         <UpdateFilterBtns
-          active={this.state.filter}
-          onClick={this.changeFilter}
+          options={filterOptions}
+          active={this.props.filter}
+          onClick={this.handleClick}
         />
         <AddButton route="/updates/new" purpose="Create New Update" />
         {this.props.loading && <Loader />}
@@ -37,9 +55,10 @@ class UpdatesContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ updates, loading }) => ({
-  updates: _.reverse(_.sortBy(_.values(updates), "datetime")),
-  loading: loading.updates
+const mapStateToProps = state => ({
+  updates: filterUpdates(state),
+  loading: state.loading.updates,
+  filter: state.filter
 });
 
 export default connect(mapStateToProps, actions)(UpdatesContainer);

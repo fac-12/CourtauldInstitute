@@ -8,6 +8,8 @@ import AddDiscoveryForm from "./AddDiscoveryForm";
 class AddDiscoveryContainer extends Component {
   submitForm = values => {
     values.user_id = this.props.userData.id;
+    values.first_name = this.props.userData.first_name;
+    values.last_name = this.props.userData.last_name;
     values.datetime = new Date(Date.now()).getTime();
     this.props.addDiscovery(values, () => {
       this.props.history.push("/discoveries");
@@ -18,7 +20,7 @@ class AddDiscoveryContainer extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Header title="Add Discovery" />
+        <Header title="Add Discovery" returnDashboard={false} />
         <AddDiscoveryForm
           onSubmit={this.submitForm}
           handleSubmit={handleSubmit}

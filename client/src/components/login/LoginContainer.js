@@ -18,12 +18,18 @@ const StyledLoginContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (min-width: 375px) {
+    background-size: cover;
+    background-position: bottom;
+  }
 `;
 
 const LoginHeader = styled.h1`
-  font-size: 25px;
+  font-size: 21px;
   font-weight: normal;
   text-align: center;
+  letter-spacing: 0.3px;
 `;
 
 const Logo = styled.img`
@@ -33,6 +39,13 @@ const Logo = styled.img`
 `;
 
 class LandingContainer extends Component {
+  componentDidMount() {
+    if (this.props.auth) {
+      this.props.logoutUser(() => {
+        this.props.history.push("/login");
+      });
+    }
+  }
   submitForm = values => {
     this.props.loginUser(values);
   };
@@ -65,7 +78,7 @@ const validate = values => {
   return errors;
 };
 
-const mapStateToProps = ({ error }) => ({ error: error.login });
+const mapStateToProps = ({ error, auth }) => ({ error: error.login, auth });
 
 export default reduxForm({
   validate,

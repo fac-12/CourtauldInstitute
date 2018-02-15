@@ -7,6 +7,7 @@ import authReducer from "./authReducer";
 import loadingReducer from "./loadingReducer";
 import discoveriesReducer from "./discoveriesReducer";
 import errorReducer from "./errorReducer";
+import filterReducer from "./filterReducer";
 
 const rootReducer = combineReducers({
   updates: updatesReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   auth: authReducer,
   loading: loadingReducer,
   discoveries: discoveriesReducer,
-  error: errorReducer
+  error: errorReducer,
+  filter: filterReducer
 });
 
 export default rootReducer;

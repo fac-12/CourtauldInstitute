@@ -10,8 +10,15 @@ import {
   ADD_DISCOVERY,
   LOADING_DISCOVERY,
   FETCH_USER,
-  LOGIN_USER
+  LOGIN_USER,
+  LOGOUT_USER,
+  SET_FILTER
 } from "./types";
+
+export const setFilter = filter => ({
+  type: SET_FILTER,
+  payload: filter
+});
 
 export const fetchUpdates = (count, skip) => async dispatch => {
   try {
@@ -89,9 +96,11 @@ export const addUpdate = (data, callback) => async dispatch => {
   }
 };
 
-export const fetchDiscoveries = () => async dispatch => {
+export const fetchDiscoveries = (count, skip) => async dispatch => {
   try {
-    const discoveries = await axios.get(`/api/discoveries`);
+    const discoveries = await axios.get(
+      `/api/discoveries?count=${count}&skip=${skip}`
+    );
     dispatch({ type: FETCH_DISCOVERIES, payload: discoveries.data });
   } catch (err) {
     console.log("FETCH_DISCOVERIES: ", err);
@@ -116,7 +125,6 @@ export const addDiscovery = (data, callback) => async dispatch => {
     );
     data.image_url = imgrData.data.data.link;
     const discoveryData = await axios.post("/api/addDiscovery", data);
-    console.log("discovery data: ", discoveryData);
     dispatch({ type: ADD_DISCOVERY, payload: discoveryData.data });
   } catch (e) {
     console.log(e);
@@ -139,4 +147,23 @@ export const addNewUser = async data => {
   data.picture_url = imgrData.data.data.link;
   const newUserData = await axios.post("api/addNewUser", data);
   console.log("new user added", newUserData);
+};
+
+export const logoutUser = callback => async dispatch => {
+  try {
+    const signout = await axios.get("/api/logout");
+    dispatch({ type: LOGOUT_USER, payload: signout });
+    callback();
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const updateProgress = async () => {
+  try {
+    const updateProgressData = await axios.get("/api/googlesheet");
+    return updateProgressData.data;
+  } catch (err) {
+    console.log("update progress: ", err);
+  }
 };

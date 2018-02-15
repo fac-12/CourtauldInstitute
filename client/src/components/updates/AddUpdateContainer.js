@@ -8,6 +8,8 @@ import AddUpdateForm from "./AddUpdateForm";
 class AddUpdateContainer extends Component {
   submitForm = formValues => {
     formValues.user_id = this.props.userData.id;
+    formValues.first_name = this.props.userData.first_name;
+    formValues.last_name = this.props.userData.last_name;
     formValues.datetime = new Date(Date.now()).getTime();
     formValues.tags = [];
     if (formValues.project) {
@@ -28,7 +30,7 @@ class AddUpdateContainer extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Header title="Add Update" />
+        <Header title="Add Update" returnDashboard={false} />
         <AddUpdateForm onSubmit={this.submitForm} handleSubmit={handleSubmit} />
       </div>
     );
