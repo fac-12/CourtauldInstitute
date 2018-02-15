@@ -26,17 +26,10 @@ class ProgressUpdateContainer extends Component {
         {data && (
           <ProgressUpdate
             text={data.Text_Update.info}
-            collection={`${data.Images_Collection.info} Progress:`}
-            weekProgress={`Last Week: ${
-              data.Images_Progress_Week.info
-            } completed`}
-            overallProgress={`Overall: ${data.Images_Progress_Total.info}/${
-              data.Images_Total.info
-            } (${Math.floor(
-              parseInt(data.Images_Progress_Total.info, 10) /
-                parseInt(data.Images_Total.info, 10) *
-                100
-            )}%)`}
+            collection={data.Images_Collection.info}
+            weekProgress={parseInt(data.Images_Progress_Week.info, 10)}
+            overallProgress={parseInt(data.Images_Progress_Total.info, 10)}
+            total={parseInt(data.Images_Total.info, 10)}
           />
         )}
       </div>

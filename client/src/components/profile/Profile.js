@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Styled from "styled-components";
 
 const ProfileDiv = Styled.div`
-  margin-left: 10px;
+  margin: 0 1.5rem;
   @media screen and (min-width: 600px) {
     display: flex;
     flex-direction: column;
@@ -21,26 +21,29 @@ const NameAndImageDiv = Styled.div`
 
 const Name = Styled.h3`
   align-self: center;
-  margin-left: 15px;
   font-family: "Source Serif Pro", serif;
+  font-size: 1.875rem;
 `;
 const StyledImage = Styled.img`
   border-radius: 80%;
-  width: 85%;
+  width: 75%;
   align-self: center;
-  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 35px;
 `;
 
 const StyledSubHeading = Styled.h3`
-  margin: 0.8rem 1.2rem;
   font-family: "Source Serif Pro", serif;
+  font-size: 1.5rem;
   @media screen and (min-width: 600px) {
     width: 50%;
   }
 `;
 
 const StyledP = Styled.p`
-  margin: 0.8rem 1.2rem;
+  margin-top: 0.9rem;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
   font-family: "Source Serif Pro", serif;
   @media screen and (min-width: 600px) {
     width: 50%;
@@ -57,9 +60,9 @@ class Profile extends Component {
             {this.props.data.first_name} {this.props.data.last_name}
           </Name>
         </NameAndImageDiv>
-        <StyledSubHeading>About me</StyledSubHeading>
+        <StyledSubHeading>About Me</StyledSubHeading>
         <StyledP>{this.props.data.about_me}</StyledP>
-        <StyledSubHeading> Why I volunteer </StyledSubHeading>
+        <StyledSubHeading> Why I Volunteer </StyledSubHeading>
         <StyledP>{this.props.data.why_volunteer}</StyledP>
         <StyledSubHeading> Role </StyledSubHeading>
         <StyledP>{this.props.data.type}</StyledP>
