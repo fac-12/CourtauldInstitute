@@ -3,8 +3,12 @@ import styled from "styled-components";
 
 const StyledProgressUpdate = styled.div`
   margin-left: 1.5rem;
-  color: white;
-  font-size: 18px;
+  margin-right: 1.5rem;
+  font-size: 1.05rem;
+
+  @media screen and (min-width: 960px) {
+    max-width: 500px;
+  }
 `;
 
 const StyledP = styled.p`
@@ -16,7 +20,9 @@ class ProgressUpdate extends Component {
     return (
       <StyledProgressUpdate>
         <StyledP>{this.props.text}</StyledP>
-        <StyledP>{this.props.data}</StyledP>
+        <StyledP>{this.props.collection}</StyledP>
+        <StyledP>{this.props.weekProgress}</StyledP>
+        <StyledP>{this.props.overallProgress}</StyledP>
       </StyledProgressUpdate>
     );
   }
