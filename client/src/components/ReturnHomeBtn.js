@@ -8,6 +8,7 @@ const StyledBtn = styled.button`
   align-self: center;
   border: 0;
   background: #ffffff;
+  margin-left: 15px;
 `;
 
 const StyledSvg = styled.svg`

@@ -10,6 +10,7 @@ const StyledHeader = styled.div`
   display: grid;
   grid-template-columns: 35px auto 35px;
   grid-template-areas: "left center .";
+  display: flex;
 `;
 
 const StyledTitle = styled.h1`
@@ -21,6 +22,8 @@ const StyledTitle = styled.h1`
   grid-area: center;
   justify-self: center;
   align-self: center;
+  width: 100%;
+  text-align: center;
 `;
 
 class Header extends Component {
