@@ -4,9 +4,11 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import * as actions from "../../actions";
 import AddDiscoveryForm from "./AddDiscoveryForm";
+import { renderLinksAndLineBreaks } from "../../helpers/formatTextInput";
 
 class AddDiscoveryContainer extends Component {
   submitForm = values => {
+    values.content = renderLinksAndLineBreaks(values.content);
     values.user_id = this.props.userData.id;
     values.first_name = this.props.userData.first_name;
     values.last_name = this.props.userData.last_name;

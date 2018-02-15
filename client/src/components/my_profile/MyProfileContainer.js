@@ -4,6 +4,10 @@ import { reduxForm, initialize } from "redux-form";
 import * as actions from "../../actions";
 import Header from "../Header";
 import MyProfileForm from "./MyProfileForm";
+import {
+  renderLinksAndLineBreaks,
+  removeHTMLtags
+} from "../../helpers/formatTextInput";
 
 class MyProfileContainer extends Component {
   constructor(props) {
@@ -11,6 +15,8 @@ class MyProfileContainer extends Component {
     this.props.dispatch(initialize("MyProfileForm", this.props.initialValues));
   }
   onSubmit = values => {
+    values.about_me = renderLinksAndLineBreaks(values.about_me);
+    values.why_volunteer = renderLinksAndLineBreaks(values.why_volunteer);
     this.props.updateProfile(values);
     this.props.history.push("/");
   };
@@ -37,7 +43,11 @@ const validate = values => {
 };
 
 const mapStateToProps = ({ auth }) => ({
-  initialValues: auth
+  initialValues: {
+    ...auth,
+    about_me: removeHTMLtags(auth.about_me),
+    why_volunteer: removeHTMLtags(auth.why_volunteer)
+  }
 });
 
 export default reduxForm({
