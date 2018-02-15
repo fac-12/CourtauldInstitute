@@ -3,8 +3,14 @@ import styled from "styled-components";
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 20px 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 500px;
   font-family: "Open Sans", sans-serif;
+`;
+
+export const StyledFieldDiv = styled.div`
+  width: 100%;
 `;
 
 export const StyledInput = styled.input`

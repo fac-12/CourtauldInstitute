@@ -6,7 +6,8 @@ import {
   StyledHideFileUpload,
   StyledErrorDiv,
   StyledLabel,
-  StyledTagsLabel
+  StyledTagsLabel,
+  StyledFieldDiv
 } from "../components/styledDefaults/FormStyles";
 import { StyledFileUploadBtn } from "../components/styledDefaults/BtnStyles";
 
@@ -15,33 +16,29 @@ export const RenderInputWithError = field => {
   switch (field.type) {
   case "textarea":
     return (
-      <div>
+      <StyledFieldDiv>
         <StyledLabel>{field.label}</StyledLabel>
-        <div>
-          <StyledTextArea {...field.input} />
-          <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
-        </div>
-      </div>
+        <StyledTextArea {...field.input} />
+        <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
+      </StyledFieldDiv>
     );
   case "checkbox":
     return (
-      <div>
+      <StyledFieldDiv>
         <StyledTagsLabel>
           <StyledCheckbox type="checkbox" {...field.input} />
           {field.label}
         </StyledTagsLabel>
         <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
-      </div>
+      </StyledFieldDiv>
     );
   default:
     return (
-      <div>
+      <StyledFieldDiv>
         {field.label && <StyledLabel>{field.label}</StyledLabel>}
-        <div>
-          <StyledInput type={field.type} {...field.input} />
-          <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
-        </div>
-      </div>
+        <StyledInput type={field.type} {...field.input} />
+        <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
+      </StyledFieldDiv>
     );
   }
 };
