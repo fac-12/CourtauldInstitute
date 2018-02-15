@@ -4,20 +4,21 @@ const newUserEmail = (data, userPassword) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "tutortuteeconnect@gmail.com",
-      pass: "asdfg123456789"
+      user: "courtauldvolunteerplatform@gmail.com",
+      pass: "FACcourtauld1"
     }
   });
 
   const mailOptions = {
-    from: "tutortuteeconnect@gmail.com",
+    from: "courtauldvolunteerplatform@gmail.com",
     to: data.email,
     subject: "Your volunteer platform login",
     html: `<p>Dear ${
       data.first_name
-    }</p><p>Your log in details are below.</p><p>Email: ${
-      data.email
-    }</p><p>Password: ${userPassword}</p><p>Thanks</p>`
+    }</p><p>Thank you for recently joining The Courtauld Institute of Art as a volunteer.</p>
+      We have a volunteer platform that we our volunteers and staff use to share updates and discoveries. On the platform, you can also see a directory of all the volunteers we currently have. Your log in details for the platform are below: </p><p>Email: ${
+  data.email
+}</p><p>Password: ${userPassword}</p><p>Please do not reply to this email. If you need to get in contact with us, contact a member of the team directly. </p><p>Thank you.</p><p>The Courtauld Institute of Art team.`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
