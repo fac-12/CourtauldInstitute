@@ -21,14 +21,15 @@ const StyledLoginContainer = styled.div`
 
   @media screen and (min-width: 375px) {
     background-size: cover;
-    background-position: 15% 10%;
+    background-position: bottom;
   }
 `;
 
 const LoginHeader = styled.h1`
-  font-size: 25px;
+  font-size: 21px;
   font-weight: normal;
   text-align: center;
+  letter-spacing: 0.3px;
 `;
 
 const Logo = styled.img`
