@@ -26,8 +26,9 @@ const Name = Styled.h3`
 `;
 const StyledImage = Styled.img`
   border-radius: 80%;
-  width: 73%;
+  width: 75%;
   align-self: center;
+  margin-top: 10px;
   margin-bottom: 35px;
 `;
 
@@ -42,6 +43,7 @@ const StyledSubHeading = Styled.h3`
 const StyledP = Styled.p`
   margin-top: 0.9rem;
   margin-bottom: 2rem;
+  font-size: 0.875rem;
   font-family: "Source Serif Pro", serif;
   @media screen and (min-width: 600px) {
     width: 50%;
