@@ -32,6 +32,7 @@ const StyledImage = styled.img`
 
 const StyledParagraph = styled.p`
   text-align: center;
+  margin-top: 20px;
 `;
 
 class DirectoryContainer extends Component {
@@ -41,7 +42,15 @@ class DirectoryContainer extends Component {
       <StyledDirectory id="directory component">
         {data.map(item => (
           <StyledLink key={item.id} to={`/profile/${item.id}`}>
-            <StyledImage src={item.picture_url} />
+            <div
+              style={{
+                backgroundImage: `url(${item.picture_url})`,
+                backgroundSize: `cover`,
+                backgroundPosition: `center`,
+                height: `200px`,
+                borderRadius: `10px`
+              }}
+            />
             <StyledParagraph>
               {item.first_name} {item.last_name}{" "}
             </StyledParagraph>
