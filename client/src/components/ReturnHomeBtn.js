@@ -3,18 +3,17 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 
 const StyledBtn = styled.button`
-  grid-area: left;
-  justify-self: end;
-  align-self: center;
   border: 0;
   background: #ffffff;
+  margin-left: 15px;
+  position: relative;
+  top: 30px;
 `;
 
 const StyledSvg = styled.svg`
   height: 16px;
   width: 9px;
   color: #000000;
-  padding-top: 7px;
 `;
 
 class ReturnHomeBtn extends Component {

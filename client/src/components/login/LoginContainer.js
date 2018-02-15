@@ -9,7 +9,7 @@ import courtauldLogo from "./courtauldLogo.png";
 
 const StyledLoginContainer = styled.div`
   background-image: url(${LoginBackground});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
   font-family: "Source Serif Pro", serif;
@@ -19,9 +19,9 @@ const StyledLoginContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media screen and (min-width: 375px) {
-    background-size: cover;
-    background-position: bottom;
+  @media screen and (min-width: 400px) {
+    background-position: center;
+    justify-content: space-around;
   }
 `;
 
