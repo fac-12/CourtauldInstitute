@@ -16,7 +16,9 @@ class ProgressUpdate extends Component {
     return (
       <StyledProgressUpdate>
         <StyledP>{this.props.text}</StyledP>
-        <StyledP>{this.props.data}</StyledP>
+        <StyledP>{this.props.collection}</StyledP>
+        <StyledP>{this.props.weekProgress}</StyledP>
+        <StyledP>{this.props.overallProgress}</StyledP>
       </StyledProgressUpdate>
     );
   }
