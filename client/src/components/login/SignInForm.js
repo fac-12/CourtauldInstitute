@@ -54,7 +54,7 @@ const StyledFormError = styled.p`
   font-size: 0.85rem;
   margin-top: 7px;
   margin-bottom: 0;
-  color: #955f3c;
+  color: #e84118;
 `;
 
 class SignInForm extends Component {
@@ -64,7 +64,7 @@ class SignInForm extends Component {
       <StyledInputField>
         <label>{field.label}</label>
         <StyledInput
-          style={touched && error ? { border: "1px solid #955f3c" } : {}}
+          style={touched && error ? { border: "1px solid #e84118" } : {}}
           type={field.type}
           {...field.input}
           name={field.name}

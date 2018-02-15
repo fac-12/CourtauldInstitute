@@ -19,9 +19,10 @@ const StyledLoginContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 400px) {
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
+    justify-content: space-around;
   }
 `;
 
