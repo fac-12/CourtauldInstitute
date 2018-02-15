@@ -29,7 +29,7 @@ class ProgressUpdateContainer extends Component {
             collection={`${data.Images_Collection.info} Progress:`}
             weekProgress={`Last Week: ${
               data.Images_Progress_Week.info
-            } completed.`}
+            } completed`}
             overallProgress={`Overall: ${data.Images_Progress_Total.info}/${
               data.Images_Total.info
             } (${Math.floor(
