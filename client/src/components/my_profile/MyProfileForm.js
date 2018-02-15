@@ -10,10 +10,7 @@ const StyledImg = styled.img`
   width: 60%;
   max-width: 300px;
   align-self: center;
-  @media screen and (min-width: 960px) {
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 2.5rem 12rem;
-  }
+  margin: 1rem 0;
 `;
 
 class MyProfileContainer extends Component {
