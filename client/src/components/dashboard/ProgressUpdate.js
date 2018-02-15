@@ -12,6 +12,7 @@ const StyledProgressUpdate = styled.div`
 
 const StyledP = styled.p`
   margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 `;
 
 const Progress = styled.div`
@@ -20,14 +21,15 @@ const Progress = styled.div`
 
 const StyledPCollection = styled.p`
   margin: 10px 0;
+  font-size: 1.2rem;
 `;
 
-const StyledWeekProgressData = styled.p`
+const StyledWeekProgressData = styled.div`
   font-size: 2rem;
 `;
 
 const StyledWeekProgressText = styled.p`
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
 `;
 
