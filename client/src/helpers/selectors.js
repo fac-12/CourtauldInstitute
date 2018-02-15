@@ -1,10 +1,10 @@
 // Function to filter events according to criteria
 import _ from "lodash";
 import { createSelector } from "reselect";
-import { pInt } from "../helpers/conversions";
 
 const getFilter = state => state.filter;
-const getUpdates = state => state.updates;
+const getUpdates = state => state.updates.data;
+const getDiscoveries = state => state.discoveries.data;
 
 export const filterUpdates = createSelector(
   [getFilter, getUpdates],
@@ -20,4 +20,8 @@ export const filterUpdates = createSelector(
     }, []);
     return _.reverse(_.sortBy(filteredArray), "datetime");
   }
+);
+
+export const sortDiscoveries = createSelector([getDiscoveries], discoveries =>
+  _.reverse(_.sortBy(_.values(discoveries), "datetime"))
 );

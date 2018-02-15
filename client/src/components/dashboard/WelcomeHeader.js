@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const StyledWelcomeHeader = styled.h1`
-  color: white;
   font-size: 24px;
   margin-left: 1.5rem;
 `;
