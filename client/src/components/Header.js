@@ -27,7 +27,7 @@ class Header extends Component {
   render() {
     return (
       <StyledHeader id="header_container">
-        <ReturnHomeBtn />
+        <ReturnHomeBtn returnDashboard={this.props.returnDashboard} />
         <StyledTitle>{this.props.title}</StyledTitle>
       </StyledHeader>
     );

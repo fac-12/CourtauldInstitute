@@ -16,7 +16,7 @@ class DiscoveriesContainer extends Component {
     const data = this.props.discoveries;
     return (
       <div>
-        <Header title="Discoveries" />
+        <Header title="Discoveries" returnDashboard />
         <AddButton route="/discoveries/new" purpose="Add discovery" />
         {this.props.loading && <Loader />}
         {data.map(item => <DiscoveriesItem key={item.id} data={item} />)}
