@@ -10,7 +10,7 @@ const StyledForm = styled.form`
 
 const StyledInputField = styled.div`
   margin-bottom: 2px;
-  font-size: 15px;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   font-family: "Source Serif Pro", serif;
@@ -28,6 +28,7 @@ const StyledInput = styled.input`
   margin-top: 10px;
   font-family: "Source Serif Pro", serif;
   padding-left: 10px;
+  font-size: 1rem;
 `;
 
 const StyledButton = styled.button`
@@ -37,21 +38,20 @@ const StyledButton = styled.button`
   width: 275px;
   height: 56px;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
   border-radius: 8px;
   margin-bottom: 30px;
-
 `;
 
 const StyledError = styled.div`
   color: white;
   margin: 10px 0px;
   width: 275px;
-  font-size: 13px;
+  font-size: 0.85rem;
 `;
 
 const StyledFormError = styled.p`
-  font-size: 12px;
+  font-size: 0.85rem;
   margin-top: 7px;
   margin-bottom: 0;
   color: #955f3c;
