@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Parser from "html-react-parser";
 import { parseDateTime } from "../../helpers/conversions";
 import { capitalizeFirstLetter } from "../../helpers/capitalize";
 
@@ -32,7 +33,7 @@ class UpdateItem extends Component {
       <StyledDiv>
         <StyledTitle>{title}</StyledTitle>
         {image_url && <StyledImg src={image_url} />}
-        <StyledContent>{content}</StyledContent>
+        <StyledContent>{Parser(content)}</StyledContent>
         <StyledInfoDiv>
           <StyledInfo>
             Posted by{" "}

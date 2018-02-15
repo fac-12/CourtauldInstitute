@@ -4,9 +4,11 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import * as actions from "../../actions";
 import AddUpdateForm from "./AddUpdateForm";
+import { renderLinksAndLineBreaks } from "../../helpers/formatTextInput";
 
 class AddUpdateContainer extends Component {
   submitForm = formValues => {
+    formValues.content = renderLinksAndLineBreaks(formValues.content);
     formValues.user_id = this.props.userData.id;
     formValues.first_name = this.props.userData.first_name;
     formValues.last_name = this.props.userData.last_name;
