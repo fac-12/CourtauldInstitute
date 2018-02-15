@@ -3,8 +3,14 @@ import styled from "styled-components";
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 20px 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 500px;
   font-family: "Open Sans", sans-serif;
+`;
+
+export const StyledFieldDiv = styled.div`
+  width: 100%;
 `;
 
 export const StyledInput = styled.input`
@@ -13,7 +19,9 @@ export const StyledInput = styled.input`
   border-color: #ecf0f1;
   margin: 5px 0 10px 0;
   width: 100%;
-  height: 2rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #333333;
 `;
 
 export const StyledCheckbox = styled.input`
@@ -28,6 +36,9 @@ export const StyledTextArea = styled.textarea`
   margin: 5px 0 10px 0;
   width: 100%;
   height: 100px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #333333;
 `;
 export const StyledHideFileUpload = StyledInput.extend`
   width: 0.1px;
@@ -50,6 +61,8 @@ export const StyledP = styled.p`
 export const StyledLabel = styled.label`
   font-family: "Source Serif Pro", serif;
   font-weight: 600;
+  font-size: 1.2rem;
+  color: #333333;
 `;
 export const StyledTagsLabel = styled.label`
   font-size: 0.9rem;

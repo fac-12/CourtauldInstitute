@@ -8,7 +8,9 @@ import { RenderInputWithError } from "../../helpers/reduxFormHelpers";
 const StyledImg = styled.img`
   border-radius: 100%;
   width: 60%;
+  max-width: 300px;
   align-self: center;
+  margin: 1rem 0;
 `;
 
 class MyProfileContainer extends Component {
