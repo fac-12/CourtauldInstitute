@@ -26,11 +26,13 @@ const StyledInput = styled.input`
   border-radius: 4px;
   border: 1px solid rgba(205, 205, 205, 0.42);
   margin-top: 10px;
+  font-family: "Source Serif Pro", serif;
+  padding-left: 10px;
 `;
 
 const StyledButton = styled.button`
   font-family: "Source Serif Pro", serif;
-  background: #2d4262;
+  background: rgba(45, 66, 98, 0.7);
   color: white;
   width: 275px;
   height: 56px;
@@ -38,6 +40,7 @@ const StyledButton = styled.button`
   font-size: 16px;
   border-radius: 8px;
   margin-bottom: 30px;
+
 `;
 
 const StyledError = styled.div`
@@ -51,6 +54,7 @@ const StyledFormError = styled.p`
   font-size: 12px;
   margin-top: 7px;
   margin-bottom: 0;
+  color: #955f3c;
 `;
 
 class SignInForm extends Component {
@@ -60,7 +64,7 @@ class SignInForm extends Component {
       <StyledInputField>
         <label>{field.label}</label>
         <StyledInput
-          style={touched && error ? { border: "1px solid red" } : {}}
+          style={touched && error ? { border: "1px solid #955f3c" } : {}}
           type={field.type}
           {...field.input}
           name={field.name}
