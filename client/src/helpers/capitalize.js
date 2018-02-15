@@ -1,2 +1,2 @@
 export const capitalizeFirstLetter = string =>
-  string.charAt(0).toUpperCase() + string.slice(1);
+  string.map(each => `${`${each.charAt(0).toUpperCase() + each.slice(1)}`}`);

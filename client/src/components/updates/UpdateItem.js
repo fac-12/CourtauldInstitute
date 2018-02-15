@@ -25,8 +25,8 @@ class UpdateItem extends Component {
       image_url
     } = this.props.data;
     const { date, time } = parseDateTime(datetime);
-    const tag = tags.split(",").join(", ");
-    const capitalizeTag = capitalizeFirstLetter(tag);
+    const tag = tags.split(",");
+    const capitalizeTag = capitalizeFirstLetter(tag).join(", ");
     return (
       <StyledDiv>
         <StyledTitle>{title}</StyledTitle>
