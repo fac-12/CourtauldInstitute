@@ -8,9 +8,7 @@ const StyledHeader = styled.div`
   background: #ffffff;
   box-shadow: 0 2px 2px 0 #c9cccc;
 `;
-// display: grid;
-// grid-template-columns: 35px auto 35px;
-// grid-template-areas: "left center .";
+
 const StyledTitle = styled.h1`
   font-family: "Source Serif Pro", serif;
   font-weight: 600;
@@ -19,13 +17,6 @@ const StyledTitle = styled.h1`
   width: 100%;
   text-align: center;
 `;
-
-// letter-spacing: 0;
-// grid-area: center;
-// justify-self: center;
-// align-self: center;
-// width: 100%;
-// text-align: center;
 
 class Header extends Component {
   render() {

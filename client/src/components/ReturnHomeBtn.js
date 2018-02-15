@@ -9,9 +9,6 @@ const StyledBtn = styled.button`
   position: relative;
   top: 30px;
 `;
-// grid-area: left;
-// justify-self: end;
-// align-self: center;
 
 const StyledSvg = styled.svg`
   height: 16px;
