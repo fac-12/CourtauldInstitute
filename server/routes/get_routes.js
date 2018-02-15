@@ -56,7 +56,6 @@ module.exports = app => {
   app.get("/api/googlesheet", async (req, res) => {
     try {
       const getData = await axios.get(process.env.GOOGLE_API_1);
-      console.log(getData.data);
       const updateData = _.mapKeys(
         getData.data.values.map(([updateType, info]) => ({
           updateType,
