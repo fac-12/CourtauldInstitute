@@ -22,6 +22,7 @@ const NameAndImageDiv = Styled.div`
 const Name = Styled.h3`
   align-self: center;
   margin-left: 15px;
+  font-family: "Source Serif Pro", serif;
 `;
 const StyledImage = Styled.img`
   border-radius: 80%;
@@ -32,6 +33,7 @@ const StyledImage = Styled.img`
 
 const StyledSubHeading = Styled.h3`
   margin: 0.8rem 1.2rem;
+  font-family: "Source Serif Pro", serif;
   @media screen and (min-width: 600px) {
     width: 50%;
   }
@@ -39,6 +41,7 @@ const StyledSubHeading = Styled.h3`
 
 const StyledP = Styled.p`
   margin: 0.8rem 1.2rem;
+  font-family: "Source Serif Pro", serif;
   @media screen and (min-width: 600px) {
     width: 50%;
   }
