@@ -7,7 +7,10 @@ const { getDiscoveries } = require("../queries/discoveries");
 module.exports = app => {
   app.get("/api/updates", async (req, res) => {
     try {
-      const updatesData = await getUpdates(req.query.count, req.query.skip);
+      const updatesData = await getUpdates(
+        parseInt(req.query.count, 10),
+        parseInt(req.query.skip, 10)
+      );
       res.send(updatesData);
     } catch (err) {
       throw err;
@@ -42,8 +45,8 @@ module.exports = app => {
   app.get("/api/discoveries", async (req, res) => {
     try {
       const discoveriesData = await getDiscoveries(
-        req.query.count,
-        req.query.skip
+        parseInt(req.query.count, 10),
+        parseInt(req.query.skip, 10)
       );
       res.send(discoveriesData);
     } catch (err) {

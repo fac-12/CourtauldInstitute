@@ -8,6 +8,7 @@ import UpdateFilterBtns from "./UpdateFilterBtns";
 import AddButton from "../AddButton";
 import Loader from "../Loader";
 import { filterUpdates } from "../../helpers/selectors";
+import FetchMoreButton from "../FetchMoreButton";
 
 const filterOptions = [
   {
@@ -33,8 +34,12 @@ class UpdatesContainer extends Component {
     this.props.fetchUpdates(10, 0);
   }
 
-  handleClick = e => {
+  handleFilterClick = e => {
     this.props.setFilter(e.target.name);
+  };
+
+  handleFetchMoreClick = e => {
+    this.props.fetchUpdates(10, this.props.numLoaded);
   };
 
   render() {
@@ -45,11 +50,19 @@ class UpdatesContainer extends Component {
         <UpdateFilterBtns
           options={filterOptions}
           active={this.props.filter}
-          onClick={this.handleClick}
+          onClick={this.handleFilterClick}
         />
         <AddButton route="/updates/new" purpose="Create New Update" />
         {this.props.loading && <Loader />}
         {data.map(item => <UpdateItem key={item.id} data={item} />)}
+        {this.props.isMore ? (
+          <FetchMoreButton
+            text="Load more updates"
+            onClick={this.handleFetchMoreClick}
+          />
+        ) : (
+          <FetchMoreButton text="No more updates!" onClick={null} />
+        )}
       </div>
     );
   }
@@ -58,7 +71,9 @@ class UpdatesContainer extends Component {
 const mapStateToProps = state => ({
   updates: filterUpdates(state),
   loading: state.loading.updates,
-  filter: state.filter
+  filter: state.filter,
+  numLoaded: _.size(state.updates.data),
+  isMore: state.updates.isMore
 });
 
 export default connect(mapStateToProps, actions)(UpdatesContainer);

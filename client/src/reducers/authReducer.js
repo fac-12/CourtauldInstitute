@@ -16,6 +16,7 @@ export default function(state = null, action) {
     if (action.payload) {
       return false;
     }
+    return state;
   default:
     return state;
   }
