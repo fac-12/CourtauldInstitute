@@ -32,18 +32,21 @@ const oneUser = id =>
     .catch(err => console.log("one user query err: ", err));
 
 const updateUser = data =>
-  db.query(
-    `UPDATE users SET first_name=$2, last_name=$3, email=$4, photo_url=$5, why_volunteer=$6, about_me = $7 WHERE id=$1 RETURNING *`,
-    [
-      data.id,
-      data.first_name,
-      data.last_name,
-      data.email,
-      data.photo_url,
-      data.why_volunteer,
-      data.about_me
-    ]
-  );
+  db
+    .query(
+      `UPDATE users SET first_name=$2, last_name=$3, email=$4, why_volunteer=$5, about_me = $6 WHERE id=$1 RETURNING *`,
+      [
+        data.id,
+        data.first_name,
+        data.last_name,
+        data.email,
+        data.why_volunteer,
+        data.about_me
+      ]
+    )
+    .then(res => res[0])
+    .catch(err => console.log("update user err: ", err));
+
 module.exports = {
   getUser,
   addUser,
