@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const StyledLink = styled(Link)`
-  border: 1px solid #c9cccc;
+  border: 1px solid #ecf0f1;
   width: 100%;
   height: 6rem;
   background: none;
@@ -19,7 +19,7 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledA = styled.a`
-  border: 1px solid #c9cccc;
+  border: 1px solid #ecf0f1;
   width: 100%;
   height: 6rem;
   background: none;
