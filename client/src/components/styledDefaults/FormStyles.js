@@ -26,28 +26,6 @@ export const StyledInput = styled.input`
   height: 29px;
 `;
 
-// const StyledInputField = styled.div`
-//   margin-bottom: 2px;
-//   font-size: 1rem;
-//   display: flex;
-//   flex-direction: column;
-//   font-family: "Source Serif Pro", serif;
-// `;
-
-// const StyledInput = styled.input`
-//   /* border: 1px solid red; */
-//   background: rgba(255, 255, 255, 0.05);
-//   width: 275px;
-//   height: 29px;
-//   color: white;
-//   border-radius: 4px;
-//   border: 1px solid rgba(205, 205, 205, 0.42);
-//   margin-top: 10px;
-//   font-family: "Source Serif Pro", serif;
-//   padding-left: 10px;
-//   font-size: 1rem;
-// `;
-
 export const StyledCheckbox = styled.input`
   margin: 5px 5px 2px 0;
   position: relative;
