@@ -9,6 +9,10 @@ const StyledLink = styled(Link)`
   background: none;
   border-radius: 8px;
   text-decoration: none;
+  margin: 7px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 1fr auto;
@@ -21,6 +25,10 @@ const StyledA = styled.a`
   background: none;
   border-radius: 8px;
   text-decoration: none;
+  margin: 7px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 1fr auto;
