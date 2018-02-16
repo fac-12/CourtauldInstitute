@@ -12,8 +12,9 @@ const StyledProgressUpdate = styled.div`
 
 const StyledP = styled.p`
   margin-bottom: 18px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0 1.5rem;
+  line-height: 1.6;
 `;
 
 const StyledProgressSection = styled.div`
