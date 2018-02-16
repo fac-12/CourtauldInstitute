@@ -18,13 +18,12 @@ const StyledHeader = styled.div`
   height: 300px;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
   color: #ecf0f1;
   position: relative;
+
   @media screen and (min-width: 960px) {
-    align-items: center;
     background-position: center;
-    height: 60vh;
+    height: 45vh;
   }
 `;
 
