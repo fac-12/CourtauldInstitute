@@ -6,17 +6,27 @@ import { addNewUser } from "../../actions";
 import AddNewUserForm from "./AddNewUserForm";
 
 class AddNewUserContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { done: false };
+  }
   submitForm = values => {
     addNewUser(values);
-    this.props.history.push("/");
+    this.setState({ done: true });
   };
-
+  resetForm = () => {
+    this.setState({ done: false });
+    this.props.reset();
+  };
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, pristine, submitting } = this.props;
     return (
       <div>
         <Header title="Add New User" returnDashboard={false} />
         <AddNewUserForm
+          done={this.state.done}
+          reset={this.resetForm}
+          pristine={pristine}
           onSubmit={this.submitForm}
           handleSubmit={handleSubmit}
         />

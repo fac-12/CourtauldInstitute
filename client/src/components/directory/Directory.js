@@ -1,33 +1,31 @@
 import React, { Component } from "react";
-import _ from "lodash";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledDirectory = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: 45% 45%;
-  grid-template-rows: 1fr auto;
-  @media screen and (min-width: 600px) {
-    grid-template-columns: 20% 20% 20% 20% 20%;
-  }
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  justify-content: center;
 `;
 
 const StyledLink = styled(Link)`
-  width: 95%;
+  width: 40%;
+  max-width: 10rem;
   background: none;
   border-radius: 10px;
   text-decoration: none;
-  margin-top: 25px;
-  justify-self: center;
+  margin-top: 1rem;
   font-family: "Source Serif Pro", serif;
   color: #333333;
-  margin-left: 35px;
-`;
-
-const StyledImage = styled.img`
-  width: 100%;
-  border-radius: inherit;
+  margin: 0.5rem 0.8rem;
+  @media screen and (min-width: 600px) {
+    width: 10rem;
+    margin-top: 1.5rem;
+    margin: 1rem 1rem;
+  }
 `;
 
 const StyledParagraph = styled.p`
@@ -37,25 +35,28 @@ const StyledParagraph = styled.p`
 
 class DirectoryContainer extends Component {
   render() {
-    const data = _.values(this.props.data);
     return (
-      <StyledDirectory id="directory component">
-        {data.map(item => (
-          <StyledLink key={item.id} to={`/profile/${item.id}`}>
-            <div
-              style={{
-                backgroundImage: `url(${item.picture_url})`,
-                backgroundSize: `cover`,
-                backgroundPosition: `center`,
-                height: `200px`,
-                borderRadius: `10px`
-              }}
-            />
-            <StyledParagraph>
-              {item.first_name} {item.last_name}{" "}
-            </StyledParagraph>
-          </StyledLink>
-        ))}
+      <StyledDirectory>
+        {this.props.data.length > 0 ? (
+          this.props.data.map(item => (
+            <StyledLink key={item.id} to={`/profile/${item.id}`}>
+              <div
+                style={{
+                  backgroundImage: `url(${item.picture_url})`,
+                  backgroundSize: `cover`,
+                  backgroundPosition: `center`,
+                  height: `10rem`,
+                  borderRadius: `10px`
+                }}
+              />
+              <StyledParagraph>
+                {item.first_name} {item.last_name}{" "}
+              </StyledParagraph>
+            </StyledLink>
+          ))
+        ) : (
+          <StyledParagraph>No users match your search</StyledParagraph>
+        )}
       </StyledDirectory>
     );
   }

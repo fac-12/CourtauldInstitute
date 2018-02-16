@@ -61,7 +61,7 @@ class UpdatesContainer extends Component {
             onClick={this.handleFetchMoreClick}
           />
         ) : (
-          <FetchMoreButton text="No more updates!" onClick={null} />
+          <FetchMoreButton text="No more updates" onClick={null} />
         )}
       </div>
     );

@@ -4,9 +4,16 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import * as actions from "../../actions";
 import AddUpdateForm from "./AddUpdateForm";
+import { renderLinksAndLineBreaks } from "../../helpers/formatTextInput";
 
 class AddUpdateContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { button: "Submit" };
+  }
   submitForm = formValues => {
+    this.setState({ button: "Saving..." });
+    formValues.content = renderLinksAndLineBreaks(formValues.content);
     formValues.user_id = this.props.userData.id;
     formValues.first_name = this.props.userData.first_name;
     formValues.last_name = this.props.userData.last_name;
@@ -31,7 +38,11 @@ class AddUpdateContainer extends Component {
     return (
       <div>
         <Header title="Add Update" returnDashboard={false} />
-        <AddUpdateForm onSubmit={this.submitForm} handleSubmit={handleSubmit} />
+        <AddUpdateForm
+          button={this.state.button}
+          onSubmit={this.submitForm}
+          handleSubmit={handleSubmit}
+        />
       </div>
     );
   }

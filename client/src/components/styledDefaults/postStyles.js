@@ -16,7 +16,7 @@ export const StyledTitle = styled.h2`
   margin: 0.5rem 0;
 `;
 
-export const StyledContent = styled.p`
+export const StyledContent = styled.div`
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   color: #333333;
