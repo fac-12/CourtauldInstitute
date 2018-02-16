@@ -1,6 +1,6 @@
 const { addUpdate } = require("../queries/feeds");
 const { addDiscovery } = require("../queries/discoveries");
-const { getUser, addUser } = require("../queries/users");
+const { getUser, addUser, updatePassword } = require("../queries/users");
 const {
   hashPassword,
   generatePassword,
@@ -49,6 +49,15 @@ module.exports = app => {
       res.send({ ...userData, password: null });
     } catch (err) {
       res.send({ error: err });
+    }
+  });
+  app.post("/api/resetPassword", async (req, res) => {
+    try {
+      const newPassword = await hashPassword(req.body.password);
+      await updatePassword(req.body.id, newPassword);
+      res.send(true);
+    } catch (err) {
+      console.log("password reset error", err);
     }
   });
 };

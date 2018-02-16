@@ -13,7 +13,8 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
   UPDATE_USER,
-  SET_FILTER
+  SET_FILTER,
+  PASSWORD_RESET
 } from "./types";
 
 export const setFilter = filter => ({
@@ -148,6 +149,16 @@ export const addNewUser = async data => {
   data.picture_url = imgrData.data.data.link;
   const newUserData = await axios.post("api/addNewUser", data);
   console.log("new user added", newUserData);
+};
+
+export const resetPassword = (data, callback) => async dispatch => {
+  try {
+    const resetConfirmed = await axios.post("api/resetPassword", data);
+    dispatch({ type: PASSWORD_RESET, payload: resetConfirmed });
+    callback();
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const logoutUser = callback => async dispatch => {

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { StyledForm } from "../styledDefaults/FormStyles";
 import { StyledSubmitBtn } from "../styledDefaults/BtnStyles";
 import { RenderInputWithError } from "../../helpers/reduxFormHelpers";
+import AddButton from "../AddButton";
 
 const StyledImg = styled.img`
   border-radius: 100%;
@@ -32,7 +33,7 @@ class MyProfileContainer extends Component {
           component={RenderInputWithError}
         />
         <Field
-          label="Email"
+          label="Email (private)"
           name="email"
           type="text"
           component={RenderInputWithError}
@@ -49,6 +50,7 @@ class MyProfileContainer extends Component {
           type="textarea"
           component={RenderInputWithError}
         />
+        <AddButton route="/resetPassword" purpose="Reset Password" />
         <StyledSubmitBtn type="submit">Update profile</StyledSubmitBtn>
       </StyledForm>
     );

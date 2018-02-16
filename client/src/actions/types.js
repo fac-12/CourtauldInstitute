@@ -11,3 +11,4 @@ export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const SET_FILTER = "SET_FILTER";
 export const UPDATE_USER = "UPDATE_USER";
+export const PASSWORD_RESET = "PASSWORD_RESET";
