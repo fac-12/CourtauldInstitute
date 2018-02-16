@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { StyledInput } from "./styledDefaults/FormStyles";
-import { StyledSubmitBtn } from "./styledDefaults/BtnStyles";
 
 const StyledForm = styled.form`
   margin: 1rem auto;
@@ -13,11 +12,6 @@ const StyledForm = styled.form`
 const StyledSearch = StyledInput.extend`
   width: 80%;
   margin: 0 auto;
-`;
-
-const StyledBtn = StyledSubmitBtn.extend`
-  height: 2rem;
-  margin-left: 1rem;
 `;
 
 class SearchBar extends Component {

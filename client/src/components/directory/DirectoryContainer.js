@@ -5,6 +5,7 @@ import * as actions from "../../actions";
 import Directory from "./Directory";
 import Header from "../Header";
 import SearchBar from "../SearchBar";
+import { sortDirectory } from "../../helpers/selectors";
 
 class DirectoryContainer extends Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class DirectoryContainer extends Component {
     this.state = { search: "" };
   }
   componentDidMount() {
-    this.props.fetchDirectory();
+    if (this.props.directory.length === 0) {
+      this.props.fetchDirectory();
+    }
   }
   onSearch = value => {
     this.setState({ search: value.toLowerCase() });
@@ -30,14 +33,14 @@ class DirectoryContainer extends Component {
       <div>
         <Header title="Directory" returnDashboard />
         <SearchBar onSubmit={this.onSearch} />
-        <Directory data={data} />
+        <Directory data={data} search={this.state.search} />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ directory }) => ({
-  directory: _.values(directory)
+const mapStateToProps = state => ({
+  directory: sortDirectory(state)
 });
 
 export default connect(mapStateToProps, actions)(DirectoryContainer);

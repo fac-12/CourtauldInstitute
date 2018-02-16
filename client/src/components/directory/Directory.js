@@ -54,8 +54,10 @@ class DirectoryContainer extends Component {
               </StyledParagraph>
             </StyledLink>
           ))
-        ) : (
+        ) : this.props.search ? (
           <StyledParagraph>No users match your search</StyledParagraph>
+        ) : (
+          <StyledParagraph>Directory loading...</StyledParagraph>
         )}
       </StyledDirectory>
     );
