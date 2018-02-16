@@ -7,9 +7,12 @@ import Header from "../Header";
 import SearchBar from "../SearchBar";
 
 class DirectoryContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { search: "" };
+  }
   componentDidMount() {
     this.props.fetchDirectory();
-    this.state = { search: "" };
   }
   onSearch = value => {
     this.setState({ search: value.toLowerCase() });

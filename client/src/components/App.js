@@ -12,6 +12,7 @@ import AddUpdateContainer from "./updates/AddUpdateContainer";
 import AddDiscoveryContainer from "./discoveries/AddDiscoveryContainer";
 import AddNewUserContainer from "./add_new_user/AddNewUserContainer";
 import LoginContainer from "./login/LoginContainer";
+import ResetPasswordContainer from "./resetPassword/ResetPasswordContainer";
 import Client from "./error_pages/Client";
 import Server from "./error_pages/Server";
 
@@ -106,10 +107,22 @@ class App extends Component {
             }
           />
           <Route
+            exact
             path="/updates"
             render={props =>
               loggedIn ? (
                 <UpdatesContainer {...props} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/resetPassword"
+            render={props =>
+              loggedIn ? (
+                <ResetPasswordContainer {...props} />
               ) : (
                 <Redirect to="/login" />
               )

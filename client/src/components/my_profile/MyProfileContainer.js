@@ -38,7 +38,16 @@ class MyProfileContainer extends Component {
 
 const validate = values => {
   const errors = {};
-
+  if (!values.first_name) {
+    errors.first_name = "Please enter a name";
+  }
+  if (!values.last_name) {
+    errors.last_name = "Please enter a name or initial";
+  }
+  if (!values.email) {
+    errors.email =
+      "Please enter an email. It will not be shown to other users.";
+  }
   return errors;
 };
 
