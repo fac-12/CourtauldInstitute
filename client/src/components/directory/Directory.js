@@ -28,11 +28,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledImage = styled.img`
-  width: 100%;
-  border-radius: inherit;
-`;
-
 const StyledParagraph = styled.p`
   text-align: center;
   margin-top: 20px;

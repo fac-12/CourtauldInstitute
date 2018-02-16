@@ -28,11 +28,11 @@ class DiscoveriesContainer extends Component {
         {data.map(item => <DiscoveriesItem key={item.id} data={item} />)}
         {this.props.isMore ? (
           <FetchMoreButton
-            text="Load more updates"
+            text="Load more discoveries"
             onClick={this.handleFetchMoreClick}
           />
         ) : (
-          <FetchMoreButton text="No more updates!" onClick={null} />
+          <FetchMoreButton text="No more discoveries" onClick={null} />
         )}
       </div>
     );
