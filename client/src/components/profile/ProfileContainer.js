@@ -13,7 +13,7 @@ class ProfileContainer extends Component {
     return (
       <div>
         <Header title="Profile" returnDashboard={false} />
-        <Profile data={this.props.profile} />
+        {this.props.profile && <Profile data={this.props.profile} />}
       </div>
     );
   }

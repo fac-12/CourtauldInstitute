@@ -50,7 +50,7 @@ class AddUpdateForm extends Component {
           label="Opportunities"
         />
 
-        <StyledSubmitBtn type="submit">Submit</StyledSubmitBtn>
+        <StyledSubmitBtn type="submit">{this.props.button}</StyledSubmitBtn>
       </StyledForm>
     );
   }

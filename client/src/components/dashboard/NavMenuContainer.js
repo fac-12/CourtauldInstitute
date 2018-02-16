@@ -8,7 +8,6 @@ const NavMenu = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 15px;
-  grid-row-gap: 15px;
 
   @media screen and (min-width: 960px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -28,6 +27,11 @@ const menuItems = [
     route: "/discoveries"
   },
   {
+    title: "Book shift",
+    subtitle: "Book your next shift on Timecounts",
+    route: "/bookShift"
+  },
+  {
     title: "Directory",
     subtitle: "Learn more about your fellow volunteers",
     route: "/directory"
@@ -41,11 +45,6 @@ const menuItems = [
     title: "My Profile",
     subtitle: "View and edit your volunteer profile",
     route: "/myProfile"
-  },
-  {
-    title: "Book shift",
-    subtitle: "Book your next shift on Timecounts",
-    route: "/bookShift"
   },
   {
     title: "Sign out",
