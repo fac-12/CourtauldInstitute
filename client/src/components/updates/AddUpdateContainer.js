@@ -16,22 +16,26 @@ class AddUpdateContainer extends Component {
   }
   submitForm = formValues => {
     this.setState({ button: "Saving..." });
-    formValues.content = renderLinksAndLineBreaks(formValues.content);
-    formValues.user_id = this.props.userData.id;
-    formValues.first_name = this.props.userData.first_name;
-    formValues.last_name = this.props.userData.last_name;
-    formValues.datetime = new Date(Date.now()).getTime();
-    formValues.tags = [];
+    let tags = [];
     if (formValues.project) {
-      formValues.tags.push("project");
+      tags.push("project");
     }
     if (formValues["events/exhibitions"]) {
-      formValues.tags.push("events/exhibitions");
+      tags.push("events/exhibitions");
     }
     if (formValues.opportunities) {
-      formValues.tags.push("opportunities");
+      tags.push("opportunities");
     }
-    this.props.addUpdate(formValues, () => {
+    const sendValues = {
+      ...formValues,
+      content: renderLinksAndLineBreaks(formValues.content),
+      user_id: this.props.userData.id,
+      first_name: this.props.userData.first_name,
+      last_name: this.props.userData.last_name,
+      datetime: new Date(Date.now()).getTime(),
+      tags: tags
+    };
+    this.props.addUpdate(sendValues, () => {
       this.props.history.push("/updates");
     });
   };

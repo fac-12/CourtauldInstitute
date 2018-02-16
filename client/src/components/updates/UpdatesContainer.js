@@ -31,7 +31,9 @@ const filterOptions = [
 
 class UpdatesContainer extends Component {
   componentDidMount() {
-    this.props.fetchUpdates(10, 0);
+    if (this.props.numLoaded === 0) {
+      this.props.fetchUpdates(10, 0);
+    }
     window.scrollTo(0, 0);
   }
 

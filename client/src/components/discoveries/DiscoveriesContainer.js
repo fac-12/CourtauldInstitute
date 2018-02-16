@@ -11,7 +11,9 @@ import { sortDiscoveries } from "../../helpers/selectors";
 
 class DiscoveriesContainer extends Component {
   componentDidMount() {
-    this.props.fetchDiscoveries(10, 0);
+    if (this.props.numLoaded === 0) {
+      this.props.fetchDiscoveries(10, 0);
+    }
     window.scrollTo(0, 0);
   }
 

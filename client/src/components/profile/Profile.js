@@ -10,9 +10,11 @@ const ProfileDiv = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const StyledImage = styled.img`
+const StyledImage = styled.div`
   border-radius: 80%;
   width: 75%;
+  height: 75vw;
+  max-height: 300px;
   max-width: 300px;
   margin: 1rem;
 `;
@@ -41,16 +43,35 @@ const StyledP = styled.div`
 
 class Profile extends Component {
   render() {
+    console.log(
+      "rendering profile",
+      this.props.data.first_name,
+      this.props.data.picture_url
+    );
     return (
       <ProfileDiv>
         <Name>
           {this.props.data.first_name} {this.props.data.last_name}
         </Name>
-        <StyledImage src={this.props.data.picture_url} />
+        <StyledImage
+          style={{
+            backgroundImage: `url(${this.props.data.picture_url})`,
+            backgroundSize: `cover`,
+            backgroundPosition: `center`
+          }}
+        />
         <StyledSubHeading>About Me</StyledSubHeading>
-        <StyledP>{Parser(this.props.data.about_me)}</StyledP>
+        {this.props.data.about_me ? (
+          <StyledP>{Parser(this.props.data.about_me)}</StyledP>
+        ) : (
+          <StyledP />
+        )}
         <StyledSubHeading> Why I Volunteer </StyledSubHeading>
-        <StyledP>{Parser(this.props.data.why_volunteer)}</StyledP>
+        {this.props.data.why_volunteer ? (
+          <StyledP>{Parser(this.props.data.why_volunteer)}</StyledP>
+        ) : (
+          <StyledP />
+        )}
         <StyledSubHeading> Role </StyledSubHeading>
         <StyledP>{capitalizeFirstLetter(this.props.data.type)}</StyledP>
       </ProfileDiv>

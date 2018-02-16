@@ -30,6 +30,7 @@ class AddNewUserContainer extends Component {
           done={this.state.done}
           reset={this.resetForm}
           pristine={pristine}
+          submitting={submitting}
           onSubmit={this.submitForm}
           handleSubmit={handleSubmit}
         />

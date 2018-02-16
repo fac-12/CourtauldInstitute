@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { reduxForm, initialize } from "redux-form";
+import { reduxForm } from "redux-form";
 import * as actions from "../../actions";
 import Header from "../Header";
 import ResetPassword from "./ResetPassword";
 import { withRouter } from "react-router-dom";
-import {
-  renderLinksAndLineBreaks,
-  removeHTMLtags
-} from "../../helpers/formatTextInput";
 
 class MyProfileContainer extends Component {
   onSubmit = values => {

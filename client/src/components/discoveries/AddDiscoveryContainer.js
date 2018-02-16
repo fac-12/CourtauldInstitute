@@ -11,12 +11,15 @@ class AddDiscoveryContainer extends Component {
     window.scrollTo(0, 0);
   }
   submitForm = values => {
-    values.content = renderLinksAndLineBreaks(values.content);
-    values.user_id = this.props.userData.id;
-    values.first_name = this.props.userData.first_name;
-    values.last_name = this.props.userData.last_name;
-    values.datetime = new Date(Date.now()).getTime();
-    this.props.addDiscovery(values, () => {
+    const sendValues = {
+      ...values,
+      content: renderLinksAndLineBreaks(values.content),
+      user_id: this.props.userData.id,
+      first_name: this.props.userData.first_name,
+      last_name: this.props.userData.last_name,
+      datetime: new Date(Date.now()).getTime()
+    };
+    this.props.addDiscovery(sendValues, () => {
       this.props.history.push("/discoveries");
     });
   };

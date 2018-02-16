@@ -43,14 +43,8 @@ BEGIN;
   INSERT INTO users
     (first_name, last_name, email, password, type, why_volunteer, about_me, picture_url, pw_reset)
   VALUES
-    ('Shannon', 'Wedgwood', 'shannon@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg', true),
-    ('Jem', 'Abulhawa', 'jem@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg', false),
-    ('Fatimat', 'Gbaja', 'fatimat@yahoo.co.uk', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg', false);
-  INSERT INTO updates
-    (user_id, datetime, title, content)
-  VALUES
-    (2, 1517864152865, 'Postal Museum next Thurs 16th 10am', 'Just a reminder that we have a group trip to visit the new digitisation studio at the Postal Museum next week. Faye will meet you out the front just before 10am. If you''re late please go to reception and they will contact someone to take you up.'),
-    (2, 1517864152865, 'Black and White thinking at the National Gallery', 'In a world of Instagram filters, this exhibition takes you back to the tradition of painting in black and white- it''s had some really good reviews so far, do let me know what you think. http://bit.ly/2hvmEAx');
+    ('Staff', 'Demo', 'admin@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'staff', 'This is a demo account for a Courtauld staff member.' , 'This is a demo account for a Courtauld staff member.', 'https://i.imgur.com/2k7ergJ.jpg', true),
+    ('Volunteer', 'Demo', 'volunteer@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'This is a demo account for a Courtauld volunteer.' , 'This is a demo account for a Courtauld volunteer.', 'https://i.imgur.com/kVzhOoJ.jpg', false);
   INSERT INTO tags
     (tag)
   VALUES
@@ -59,10 +53,4 @@ BEGIN;
     ('events/exhibitions'),
     ('questions')
   ;
-  INSERT INTO updates_tags
-    (update_id, tag_id)
-  VALUES
-    (1, 1),
-    (1, 2),
-    (2, 1);
   COMMIT;
