@@ -44,6 +44,9 @@ BEGIN;
   VALUES
     ('Shannon', 'Wedgwood', 'shannon@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
     ('Jem', 'Abulhawa', 'jem@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
+    ('Fatimat', 'Gbaja', 'fatimat@yahoo.co.uk', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
+    ('Shannon', 'Wedgwood', 'shannon@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
+    ('Jem', 'Abulhawa', 'jem@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'staff', 'I love Courthauld institute Jem' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg'),
     ('Fatimat', 'Gbaja', 'fatimat@yahoo.co.uk', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'I love Courthauld institute Fatimat' , 'I am a really good artist', 'https://i.imgur.com/kVzhOoJ.jpg');
   INSERT INTO updates
     (user_id, datetime, title, content)
