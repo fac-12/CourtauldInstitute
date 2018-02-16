@@ -12,14 +12,20 @@ const StyledDirectory = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  width: 10rem;
+  width: 40%;
+  max-width: 10rem;
   background: none;
   border-radius: 10px;
   text-decoration: none;
-  margin-top: 25px;
+  margin-top: 1rem;
   font-family: "Source Serif Pro", serif;
   color: #333333;
-  margin: 1rem 1rem;
+  margin: 0.5rem 0.8rem;
+  @media screen and (min-width: 600px) {
+    width: 10rem;
+    margin-top: 1.5rem;
+    margin: 1rem 1rem;
+  }
 `;
 
 const StyledImage = styled.img`

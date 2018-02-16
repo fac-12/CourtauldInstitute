@@ -12,6 +12,7 @@ const StyledForm = styled.form`
 
 const StyledSearch = StyledInput.extend`
   width: 80%;
+  margin: 0 auto;
 `;
 
 const StyledBtn = StyledSubmitBtn.extend`
