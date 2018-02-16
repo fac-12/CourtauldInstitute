@@ -28,6 +28,11 @@ const menuItems = [
     route: "/discoveries"
   },
   {
+    title: "Book shift",
+    subtitle: "Book your next shift on Timecounts",
+    route: "/bookShift"
+  },
+  {
     title: "Directory",
     subtitle: "Learn more about your fellow volunteers",
     route: "/directory"
@@ -41,11 +46,6 @@ const menuItems = [
     title: "My Profile",
     subtitle: "View and edit your volunteer profile",
     route: "/myProfile"
-  },
-  {
-    title: "Book shift",
-    subtitle: "Book your next shift on Timecounts",
-    route: "/bookShift"
   },
   {
     title: "Sign out",

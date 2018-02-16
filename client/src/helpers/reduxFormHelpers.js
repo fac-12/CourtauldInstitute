@@ -7,7 +7,8 @@ import {
   StyledErrorDiv,
   StyledLabel,
   StyledTagsLabel,
-  StyledFieldDiv
+  StyledFieldDiv,
+  StyledRadioLabel
 } from "../components/styledDefaults/FormStyles";
 import { StyledFileUploadBtn } from "../components/styledDefaults/BtnStyles";
 
@@ -73,6 +74,31 @@ export const RenderFileInput = ({
         />
       </StyledFileUploadBtn>
       <StyledErrorDiv>{touched ? error : ""}</StyledErrorDiv>
+    </div>
+  );
+};
+
+export const RenderRadioGroup = field => {
+  const { input, meta, options } = field;
+  const hasError = meta.touched && meta.error;
+
+  return (
+    <div>
+      <label>User type</label>
+      {options.map(o => (
+        <StyledRadioLabel key={o.value}>
+          <input
+            type="radio"
+            {...input}
+            value={o.value}
+            checked={o.value === input.value}
+          />
+          {o.title}
+        </StyledRadioLabel>
+      ))}
+      {hasError && (
+        <StyledErrorDiv className="error">{meta.error}</StyledErrorDiv>
+      )}
     </div>
   );
 };
