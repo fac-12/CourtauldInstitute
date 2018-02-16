@@ -7,6 +7,7 @@ import Header from "../Header";
 class ProfileContainer extends Component {
   componentDidMount() {
     this.props.fetchProfile(this.props.match.params.id);
+    window.scrollTo(0, 0);
   }
 
   render() {

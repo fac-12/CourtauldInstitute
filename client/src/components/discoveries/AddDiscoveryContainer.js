@@ -7,6 +7,9 @@ import AddDiscoveryForm from "./AddDiscoveryForm";
 import { renderLinksAndLineBreaks } from "../../helpers/formatTextInput";
 
 class AddDiscoveryContainer extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   submitForm = values => {
     values.content = renderLinksAndLineBreaks(values.content);
     values.user_id = this.props.userData.id;
