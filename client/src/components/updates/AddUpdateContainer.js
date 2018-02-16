@@ -11,6 +11,9 @@ class AddUpdateContainer extends Component {
     super(props);
     this.state = { button: "Submit" };
   }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   submitForm = formValues => {
     this.setState({ button: "Saving..." });
     formValues.content = renderLinksAndLineBreaks(formValues.content);
