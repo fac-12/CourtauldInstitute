@@ -11,12 +11,18 @@ class ProfileContainer extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Header title="Profile" returnDashboard={false} />
-        {this.props.profile && <Profile data={this.props.profile} />}
-      </div>
-    );
+    if (
+      this.props.profile &&
+      this.props.profile.id === parseInt(this.props.match.params.id, 10)
+    ) {
+      return (
+        <div>
+          <Header title="Profile" returnDashboard={false} />
+          {this.props.profile && <Profile data={this.props.profile} />}
+        </div>
+      );
+    }
+    return <div />;
   }
 }
 

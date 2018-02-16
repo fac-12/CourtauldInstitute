@@ -22,6 +22,9 @@ export const StyledContent = styled.div`
   color: #333333;
   line-height: 1.375rem;
   margin: 0.5rem 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 `;
 
 export const StyledInfoDiv = styled.div`

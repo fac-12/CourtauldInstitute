@@ -5,6 +5,7 @@ import { createSelector } from "reselect";
 const getFilter = state => state.filter;
 const getUpdates = state => state.updates.data;
 const getDiscoveries = state => state.discoveries.data;
+const getDirectory = state => state.directory;
 
 export const filterUpdates = createSelector(
   [getFilter, getUpdates],
@@ -24,4 +25,8 @@ export const filterUpdates = createSelector(
 
 export const sortDiscoveries = createSelector([getDiscoveries], discoveries =>
   _.reverse(_.sortBy(_.values(discoveries), "datetime"))
+);
+
+export const sortDirectory = createSelector([getDirectory], directory =>
+  _.sortBy(_.values(directory), "first_name")
 );

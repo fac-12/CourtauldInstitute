@@ -18,9 +18,12 @@ class MyProfileContainer extends Component {
     window.scrollTo(0, 0);
   }
   onSubmit = values => {
-    values.about_me = renderLinksAndLineBreaks(values.about_me);
-    values.why_volunteer = renderLinksAndLineBreaks(values.why_volunteer);
-    this.props.updateProfile(values);
+    const sendValues = {
+      ...values,
+      about_me: renderLinksAndLineBreaks(values.about_me),
+      why_volunteer: renderLinksAndLineBreaks(values.why_volunteer)
+    };
+    this.props.updateProfile(sendValues);
     this.props.history.push("/");
   };
 
