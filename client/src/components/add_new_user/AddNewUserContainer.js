@@ -10,6 +10,9 @@ class AddNewUserContainer extends Component {
     super(props);
     this.state = { done: false };
   }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   submitForm = values => {
     addNewUser(values);
     this.setState({ done: true });

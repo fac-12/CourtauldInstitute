@@ -47,6 +47,11 @@ const menuItems = [
     route: "/myProfile"
   },
   {
+    title: "Reset Password",
+    subtitle: "You still need to reset your password",
+    route: "/resetPassword"
+  },
+  {
     title: "Sign out",
     subtitle: "Go back to the login page",
     route: "/signout"
@@ -64,6 +69,7 @@ class NavMenuContainer extends Component {
             route={item.route}
             key={item.route}
             userType={this.props.userType}
+            resetPassword={this.props.resetPassword}
           />
         ))}
       </NavMenu>
@@ -72,7 +78,8 @@ class NavMenuContainer extends Component {
 }
 
 const mapStatetoProps = ({ auth }) => ({
-  userType: auth.type
+  userType: auth.type,
+  resetPassword: !auth.pw_reset
 });
 
 export default connect(mapStatetoProps, null)(NavMenuContainer);

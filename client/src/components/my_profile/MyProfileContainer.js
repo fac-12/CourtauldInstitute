@@ -14,6 +14,9 @@ class MyProfileContainer extends Component {
     super(props);
     this.props.dispatch(initialize("MyProfileForm", this.props.initialValues));
   }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   onSubmit = values => {
     values.about_me = renderLinksAndLineBreaks(values.about_me);
     values.why_volunteer = renderLinksAndLineBreaks(values.why_volunteer);
