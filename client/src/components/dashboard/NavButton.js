@@ -58,7 +58,8 @@ class NavButton extends Component {
   render() {
     if (
       this.props.route !== "/bookShift" &&
-      (this.props.route !== "/addNewUser" || this.props.userType === "staff")
+      (this.props.route !== "/addNewUser" || this.props.userType === "staff") &&
+      (this.props.route !== "/resetPassword" || this.props.resetPassword)
     ) {
       return (
         <StyledLink to={this.props.route}>
