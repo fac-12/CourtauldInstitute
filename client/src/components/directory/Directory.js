@@ -39,7 +39,6 @@ class DirectoryContainer extends Component {
       <StyledDirectory>
         {this.props.data.length > 0 ? (
           this.props.data.map(item => {
-            console.log(item);
             if (item.type !== "admin") {
               return (
                 <StyledLink key={item.id} to={`/profile/${item.id}`}>
