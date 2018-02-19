@@ -4,12 +4,14 @@ import styled from "styled-components";
 const StyledProgressUpdate = styled.div`
   font-size: 0.9rem;
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const StyledP = styled.p`
-  margin-bottom: 18px;
   font-size: 0.9rem;
-  margin: 0 1.5rem;
+  margin: 0 1.5rem 1rem 1.5rem;
   line-height: 1.6;
 
   @media screen and (min-width: 400px) {
@@ -29,8 +31,6 @@ const StyledP = styled.p`
 const StyledProgressSection = styled.div`
   background: rgba(255, 255, 255, 0.07);
   width: 100vw;
-  position: absolute;
-  bottom: 0;
   height: 120px;
   display: flex;
   flex-direction: column;

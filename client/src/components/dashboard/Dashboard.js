@@ -15,9 +15,9 @@ const StyledHeader = styled.div`
   background-image: url(${dashboardHeader});
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   color: #ecf0f1;
   position: relative;
 
