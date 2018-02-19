@@ -24,7 +24,7 @@ const deleteUser = email =>
   db.query(`DELETE FROM users WHERE email = $1`, [email]);
 
 const allUsers = () =>
-  db.query(`SELECT id,first_name, last_name, picture_url FROM users`);
+  db.query(`SELECT id,first_name, last_name, picture_url, type FROM users`);
 
 const oneUser = id =>
   db

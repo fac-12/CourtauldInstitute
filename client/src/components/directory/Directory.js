@@ -38,23 +38,27 @@ class DirectoryContainer extends Component {
     return (
       <StyledDirectory>
         {this.props.data.length > 0 ? (
-          this.props.data.map(item => (
-            <StyledLink key={item.id} to={`/profile/${item.id}`}>
-              <div
-                style={{
-                  backgroundImage: `url(${item.picture_url})`,
-                  backgroundSize: `cover`,
-                  backgroundPosition: `center`,
-                  height: `10rem`,
-                  borderRadius: `10px`
-                }}
-              />
-              <StyledParagraph>
-                {item.first_name} {item.last_name}{" "}
-              </StyledParagraph>
-            </StyledLink>
-          ))
-        ) : this.props.search ? (
+          this.props.data.map(item => {
+            if (item.type !== "admin") {
+              return (
+                <StyledLink key={item.id} to={`/profile/${item.id}`}>
+                  <div
+                    style={{
+                      backgroundImage: `url(${item.picture_url})`,
+                      backgroundSize: `cover`,
+                      backgroundPosition: `center`,
+                      height: `10rem`,
+                      borderRadius: `10px`
+                    }}
+                  />
+                  <StyledParagraph>
+                    {item.first_name} {item.last_name}{" "}
+                  </StyledParagraph>
+                </StyledLink>
+              )
+            }
+          }
+        )) : this.props.search ? (
           <StyledParagraph>No users match your search</StyledParagraph>
         ) : (
           <StyledParagraph>Directory loading...</StyledParagraph>
