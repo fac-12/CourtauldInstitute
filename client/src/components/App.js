@@ -132,7 +132,7 @@ class App extends Component {
             exact
             path="/addNewUser"
             render={props =>
-              loggedIn && this.props.auth.type === "staff" ? (
+              loggedIn && this.props.auth.type !== "volunteer" ? (
                 <AddNewUserContainer {...props} />
               ) : (
                 <Redirect to="/login" />

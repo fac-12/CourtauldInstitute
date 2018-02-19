@@ -58,7 +58,7 @@ class NavButton extends Component {
   render() {
     if (
       this.props.route !== "/bookShift" &&
-      (this.props.route !== "/addNewUser" || this.props.userType === "staff") &&
+      (this.props.route !== "/addNewUser" || this.props.userType !== "volunteer") &&
       (this.props.route !== "/resetPassword" || this.props.resetPassword)
     ) {
       return (
@@ -70,7 +70,7 @@ class NavButton extends Component {
     }
     if (
       this.props.route === "/bookShift" &&
-      this.props.userType === "volunteer"
+      this.props.userType !== "staff"
     ) {
       return (
         <StyledA
