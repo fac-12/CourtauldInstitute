@@ -21,9 +21,12 @@ const StyledHeader = styled.div`
   color: #ecf0f1;
   position: relative;
 
+  @media screen and (min-width: 600px) {
+    min-height: 35vh;
+  }
   @media screen and (min-width: 960px) {
     background-position: center;
-    height: 45vh;
+    min-height: 45vh;
   }
 `;
 
