@@ -43,7 +43,8 @@ BEGIN;
   INSERT INTO users
     (first_name, last_name, email, password, type, why_volunteer, about_me, picture_url, pw_reset)
   VALUES
-    ('Staff', 'Demo', 'admin@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'staff', 'This is a demo account for a Courtauld staff member.' , 'This is a demo account for a Courtauld staff member.', 'https://i.imgur.com/2k7ergJ.jpg', true),
+    ('Staff', 'Demo', 'staff@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'staff', 'This is a demo account for a Courtauld staff member.' , 'This is a demo account for a Courtauld staff member.', 'https://i.imgur.com/2k7ergJ.jpg', true),
+    ('Admin', 'Demo', 'admin@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'admin', 'This is a demo account for a Courtauld staff member.' , 'This is a demo account for a Courtauld staff member.', 'https://i.imgur.com/2k7ergJ.jpg', true),
     ('Volunteer', 'Demo', 'volunteer@gmail.com', '$2a$10$KvGtPMwZ.yo2Wd9m48zeGeGNWon74vbXqNjPr9IrQuavhGrPtsdVi', 'volunteer', 'This is a demo account for a Courtauld volunteer.' , 'This is a demo account for a Courtauld volunteer.', 'https://i.imgur.com/kVzhOoJ.jpg', false);
   INSERT INTO tags
     (tag)
