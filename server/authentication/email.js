@@ -16,10 +16,10 @@ const newUserEmail = (data, userPassword) => {
     html: `<p>Dear ${
       data.first_name
     }</p><p>Thank you for recently joining The Courtauld Institute of Art as a volunteer.</p>
-      We have a volunteer platform that we our volunteers and staff use to share updates and discoveries. On the platform, you can also see a directory of all the volunteers we currently have. Your log in details for the platform are below: </p><p>Email: ${
+      We have a <a href="https://courtauld.herokuapp.com">volunteer platform</a> that our volunteers and staff use to share updates and discoveries. On the platform, you can also see a directory of all the volunteers we currently have. Your log in details for the platform are below: </p><p>Email: ${
   data.email
 }</p><p>Password: ${userPassword}</p>
-<p>Once you are logged in, you can reset your password.</p></p><p>Please do not reply to this email. If you need to get in contact with us, contact a member of the team directly. </p><p>Thank you.</p><p>The Courtauld Institute of Art team.`
+<p>The app is available at <a href="https://courtauld.herokuapp.com">https://courtauld.herokuapp.com</a>. Once you are logged in, you can reset your password.</p></p><p>Please do not reply to this email. If you need to get in contact with us, contact a member of the team directly. </p><p>Thank you.</p><p>The Courtauld Institute of Art team.`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
